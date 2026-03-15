@@ -617,69 +617,79 @@ h1, h2, h3 {
   text-align: center;
 }
 
-.list-card-logo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-}
-
 .list-card-logo-circle {
   width: 44px;
   height: 44px;
-  border-radius: 50%;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 11px;
   font-weight: 700;
   color: #fff;
-}
-
-.list-card-logo-name {
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--text);
+  flex-shrink: 0;
 }
 
 .list-card-info {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
+  min-width: 0;
 }
 
-.list-card-score {
-  font-size: 13px;
+.list-card-name {
+  font-size: 15px;
   font-weight: 700;
   color: var(--text);
+  line-height: 1.2;
 }
 
-.list-card-points {
-  font-size: 11px;
-  color: var(--text-2);
+.list-card-bullets {
+  list-style: disc;
+  padding-left: 16px;
   display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.list-card-bullets li {
+  font-size: 13px;
+  color: var(--text-2);
+  line-height: 1.4;
 }
 
 .list-card-bonus {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
   border-style: dashed;
   border-width: 1.5px;
   border-radius: 20px;
-  padding: 8px 14px;
-  margin-top: 4px;
+  padding: 6px 12px;
+  width: fit-content;
 }
 
 .list-card-cta {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  gap: 6px;
+  align-items: center;
+  gap: 4px;
+  min-width: 100px;
+}
+
+.list-card-score-big {
+  font-family: var(--font-dm-serif), serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.list-card-stars {
+  font-size: 13px;
+  color: #F59E0B;
+  margin-bottom: 4px;
 }
 
 .list-card-btn {
@@ -690,6 +700,8 @@ h1, h2, h3 {
   color: #fff;
   pointer-events: none;
   white-space: nowrap;
+  text-align: center;
+  width: 100%;
 }
 
 /* ---- RACE GRID ---- */
@@ -1130,11 +1142,8 @@ h1, h2, h3 {
   }
 
   .list-card {
-    grid-template-columns: 28px 1fr auto;
-  }
-
-  .list-card-logo {
-    display: none;
+    grid-template-columns: 28px 44px 1fr auto;
+    gap: 10px;
   }
 
   .stats-grid {

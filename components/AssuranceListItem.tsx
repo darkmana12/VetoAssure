@@ -28,29 +28,28 @@ export default function AssuranceListItem({
   bonusColor,
   bonusBorder,
   bonusBg,
-  price,
   href,
 }: AssuranceListItemProps) {
   return (
     <Link href={href} className="list-card">
+      {/* Rank */}
       <div className="list-card-rank">{rank}</div>
 
-      <div className="list-card-logo">
+      {/* Logo circle */}
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-start', paddingTop: 2 }}>
         <div className="list-card-logo-circle" style={{ background: color }}>
           {shortName}
         </div>
-        <span className="list-card-logo-name">{name}</span>
       </div>
 
+      {/* Main info */}
       <div className="list-card-info">
-        <div className="list-card-score">
-          {score}★ {stars}
-        </div>
-        <div className="list-card-points">
+        <div className="list-card-name">{name}</div>
+        <ul className="list-card-bullets">
           {points.map((p, i) => (
-            <span key={i}>{p}</span>
+            <li key={i}>{p}</li>
           ))}
-        </div>
+        </ul>
         <span
           className="list-card-bonus"
           style={{
@@ -59,18 +58,15 @@ export default function AssuranceListItem({
             background: bonusBg,
           }}
         >
-          🎁 {bonus}
+          {bonus}
         </span>
       </div>
 
+      {/* CTA */}
       <div className="list-card-cta">
-        <span style={{ fontSize: 12, color: 'var(--text-2)', fontWeight: 600 }}>
-          Dès {price}/mois
-        </span>
-        <span
-          className="list-card-btn"
-          style={{ background: color }}
-        >
+        <div className="list-card-score-big" style={{ color }}>{score}</div>
+        <div className="list-card-stars">{stars}</div>
+        <span className="list-card-btn" style={{ background: color }}>
           Voir l&apos;offre →
         </span>
       </div>
