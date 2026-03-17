@@ -9,11 +9,11 @@ const FAQ_ITEMS = [
   },
   {
     q: "Quel est le prix moyen d'une assurance chien ?",
-    a: 'Entre 20 € et 50 € par mois selon la race, l\'âge et la formule choisie.',
+    a: 'Entre 15 € et 55 € par mois selon la race, l\'âge et la formule choisie.',
   },
   {
     q: 'À quel âge souscrire une assurance pour son animal ?',
-    a: "Le plus tôt possible — idéalement dès 8 semaines. Plus vous souscrivez jeune, moins le risque de refus pour maladie préexistante.",
+    a: "Le plus tôt possible — idéalement dès 8 semaines. Plus vous souscrivez jeune, moins il y aura de risque de refus pour maladie préexistante.",
   },
   {
     q: "Qu'est-ce que le délai de carence ?",

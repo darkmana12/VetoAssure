@@ -19,19 +19,21 @@ const TOP3 = [
     color: '#1D4ED8',
     gradientFrom: '#EFF6FF',
     gradientTo: '#DBEAFE',
+    tagline: 'Meilleur rapport qualité / garanties',
     score: 9.2,
     facts: [
-      { label: 'Prix Garanties', value: '9.4' },
+      { label: 'Prix\u00a0Garanties', value: '9.4' },
       { label: 'Remboursement', value: '48h' },
       { label: 'Avis clients', value: '4.6/5' },
     ],
     checks: [
-      'Dysplasies dès le 1er mois',
-      "Pas de limite d'âge",
-      'Application mobile',
-      'Chirurgie 3 000€',
+      'Couvre les dysplasies dès le 1er mois',
+      "Pas de limite d'âge à la souscription",
+      'Application mobile fluide et rapide',
+      'Chirurgie couverte jusqu\'à 3\u00a0000\u00a0€',
     ],
     price: '14€',
+    priceNote: 'Devis en 2 min',
     href: '/avis/santeVet',
   },
   {
@@ -41,19 +43,21 @@ const TOP3 = [
     color: '#16A34A',
     gradientFrom: '#F0FDF4',
     gradientTo: '#DCFCE7',
+    tagline: 'Remboursement le plus rapide (24h)',
     score: 8.8,
     facts: [
-      { label: 'Prix Garanties', value: '8.9' },
+      { label: 'Prix\u00a0Garanties', value: '8.9' },
       { label: 'Remboursement', value: '24h' },
       { label: 'Avis clients', value: '4.4/5' },
     ],
     checks: [
-      'Remboursement rapide (24h)',
-      'Chats appartement',
-      'Sans engagement',
-      'Maladies chroniques',
+      'Remboursement le plus rapide du marché',
+      'Idéal pour les chats d\'appartement',
+      'Sans engagement, résiliable à tout moment',
+      'Couvre les maladies chroniques',
     ],
     price: '12€',
+    priceNote: 'Sans engagement',
     href: '/avis/kozoo',
   },
   {
@@ -63,19 +67,21 @@ const TOP3 = [
     color: '#EA580C',
     gradientFrom: '#FFF7ED',
     gradientTo: '#FED7AA',
+    tagline: 'Le meilleur prix du marché',
     score: 8.5,
     facts: [
-      { label: 'Prix Garanties', value: '9.1' },
+      { label: 'Prix\u00a0Garanties', value: '9.1' },
       { label: 'Remboursement', value: '72h' },
       { label: 'Avis clients', value: '4.2/5' },
     ],
     checks: [
-      'Moins cher du marché',
-      'CGU claires',
-      '1er mois offert',
-      '100% en ligne',
+      'Le moins cher pour la couverture offerte',
+      'CGU très claires, aucune surprise',
+      '1er mois offert à la souscription',
+      'Souscription 100% en ligne en 3 minutes',
     ],
     price: '9€',
+    priceNote: '1er mois offert',
     href: '/avis/acheel',
   },
 ]
@@ -330,7 +336,7 @@ export default function HomePage() {
         <h2 className="section-title">Faut-il vraiment souscrire une assurance pour son animal ?</h2>
 
         <div className="why-grid">
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 16, paddingTop: 14, paddingBottom: 14, justifyContent: 'space-between', height: '100%' }}>
             <p className="seo-text" style={{ marginTop: 0 }}>
               La question revient souvent :{' '}
               <strong>est-ce vraiment utile d&apos;assurer son chien ou son chat ?</strong> La réponse
@@ -357,7 +363,7 @@ export default function HomePage() {
           <div className="why-cards">
             <div className="why-card">
               <div className="why-card-icon" style={{ background: '#DBEAFE' }}>🏥</div>
-              <div>
+              <div className="why-card-content">
                 <div className="why-card-title">Soins imprévus couverts</div>
                 <div className="why-card-desc">
                   Accidents, maladies soudaines, hospitalisations — les dépenses non planifiées sont
@@ -367,7 +373,7 @@ export default function HomePage() {
             </div>
             <div className="why-card">
               <div className="why-card-icon" style={{ background: '#DCFCE7' }}>💊</div>
-              <div>
+              <div className="why-card-content">
                 <div className="why-card-title">Maladies chroniques</div>
                 <div className="why-card-desc">
                   Diabète, insuffisance rénale, maladies de peau — certaines assurances couvrent les
@@ -377,7 +383,7 @@ export default function HomePage() {
             </div>
             <div className="why-card">
               <div className="why-card-icon" style={{ background: '#FEF3C7' }}>🧬</div>
-              <div>
+              <div className="why-card-content">
                 <div className="why-card-title">Prédispositions raciales</div>
                 <div className="why-card-desc">
                   Certaines races sont plus exposées. S&apos;assurer tôt évite les refus pour maladie

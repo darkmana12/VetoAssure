@@ -42,6 +42,14 @@ h1, h2, h3 {
   text-align: center;
   padding: 7px 16px;
   letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+.trust-sep {
+  margin: 0 14px;
+  opacity: 0.6;
 }
 
 /* ---- NAV ---- */
@@ -183,18 +191,20 @@ h1, h2, h3 {
   transition: transform 0.2s ease;
 }
 
-.nav-dropdown:hover .nav-dropdown-trigger {
+.nav-dropdown:hover .nav-dropdown-trigger,
+.nav-dropdown.open .nav-dropdown-trigger {
   color: var(--blue) !important;
   -webkit-text-fill-color: var(--blue) !important;
 }
 
-.nav-dropdown:hover .nav-dropdown-trigger::after {
+.nav-dropdown:hover .nav-dropdown-trigger::after,
+.nav-dropdown.open .nav-dropdown-trigger::after {
   transform: scaleX(1);
 }
 
 .nav-dropdown-menu {
   position: absolute;
-  top: calc(100% + 12px);
+  top: calc(100% + 6px);
   left: 0;
   background: #fff;
   border: 1px solid var(--border);
@@ -208,7 +218,8 @@ h1, h2, h3 {
   z-index: 200;
 }
 
-.nav-dropdown:hover .nav-dropdown-menu {
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown.open .nav-dropdown-menu {
   opacity: 1;
   pointer-events: all;
   transform: translateY(0);
@@ -305,6 +316,10 @@ h1, h2, h3 {
 }
 
 /* ---- LAYOUT ---- */
+main {
+  margin-right: -30px;
+}
+
 .page-wrapper {
   max-width: 960px;
   margin: 0 auto;
@@ -411,12 +426,17 @@ h1, h2, h3 {
 
 /* ---- SECTION LABELS ---- */
 .section-label {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--blue);
-  margin-bottom: 6px;
+  margin-bottom: 10px;
+  display: inline-block;
+  background: var(--blue-light, #EFF6FF);
+  border: 1px solid #BFDBFE;
+  border-radius: 20px;
+  padding: 4px 14px;
 }
 
 .section-title {
@@ -453,16 +473,29 @@ h1, h2, h3 {
   border: 2px solid var(--border);
   overflow: hidden;
   background: #fff;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.assurance-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.13);
 }
 
 .assurance-card-header {
-  padding: 16px;
+  padding: 14px 16px 20px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  position: relative;
 }
 
 .assurance-card-pill {
+  position: absolute;
+  top: 12px;
+  left: 12px;
   font-size: 11px;
   font-weight: 700;
   padding: 3px 10px;
@@ -470,72 +503,117 @@ h1, h2, h3 {
 }
 
 .assurance-card-logo {
-  width: 36px;
-  height: 36px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 700;
   color: #fff;
+  margin-top: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.18);
 }
 
 .assurance-card-body {
-  padding: 0 16px 16px;
+  padding: 14px 16px 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.assurance-card-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.assurance-card-tagline {
+  font-size: 12px;
+  color: var(--text-2);
+  text-align: center;
+  line-height: 1.4;
+  margin-bottom: 12px;
 }
 
 .assurance-card-score {
   font-family: var(--font-dm-serif), serif;
-  font-size: 34px;
+  font-size: 44px;
   font-weight: 700;
   line-height: 1;
-  margin-bottom: 10px;
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.assurance-card-score-denom {
+  font-size: 18px;
+  font-weight: 400;
+  opacity: 0.6;
 }
 
 .assurance-card-facts {
   display: flex;
   gap: 6px;
-  flex-wrap: wrap;
   margin-bottom: 14px;
 }
 
 .assurance-card-fact {
-  font-size: 11px;
-  font-weight: 600;
-  padding: 3px 8px;
-  border-radius: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 8px 4px;
+  border-radius: 8px;
   background: var(--bg);
-  color: var(--text-2);
+  border: 1px solid var(--border);
+}
+
+.assurance-card-fact-value {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.assurance-card-fact-label {
+  font-size: 10px;
+  color: var(--text-3);
+  text-align: center;
+  line-height: 1.3;
 }
 
 .assurance-card-checks {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 7px;
   margin-bottom: 14px;
+  flex: 1;
 }
 
 .assurance-card-check {
   display: flex;
-  align-items: center;
-  gap: 7px;
-  font-size: 12px;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12.5px;
   color: var(--text);
+  line-height: 1.4;
 }
 
-.assurance-card-check::before {
-  content: '✓';
-  width: 16px;
-  height: 16px;
+.assurance-card-check-icon {
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   font-size: 10px;
   font-weight: 700;
   flex-shrink: 0;
+  margin-top: 1px;
 }
 
 .assurance-card-footer {
@@ -544,18 +622,25 @@ h1, h2, h3 {
   align-items: center;
   justify-content: space-between;
   border-top: 1px solid var(--border);
+  margin-top: auto;
 }
 
 .assurance-card-price {
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 15px;
+  font-weight: 700;
   color: var(--text);
 }
 
+.assurance-card-price-note {
+  font-size: 11px;
+  color: var(--text-3);
+  margin-top: 2px;
+}
+
 .assurance-card-btn {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
-  padding: 7px 14px;
+  padding: 9px 18px;
   border-radius: 6px;
   color: #fff;
   text-decoration: none;
@@ -592,7 +677,7 @@ h1, h2, h3 {
   display: grid;
   grid-template-columns: 36px 80px 1fr auto;
   gap: 18px;
-  align-items: center;
+  align-items: stretch;
   padding: 16px 20px;
   background: #fff;
   border: 1px solid var(--border);
@@ -635,10 +720,12 @@ h1, h2, h3 {
   flex-direction: column;
   gap: 6px;
   min-width: 0;
+  flex: 1;
+  padding-bottom: 6px;
 }
 
 .list-card-name {
-  font-size: 15px;
+  font-size: 22px;
   font-weight: 700;
   color: var(--text);
   line-height: 1.2;
@@ -662,40 +749,43 @@ h1, h2, h3 {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 12px;
+  font-size: 13.5px;
   font-weight: 600;
-  border-style: dashed;
+  border-style: solid;
   border-width: 1.5px;
   border-radius: 20px;
-  padding: 6px 12px;
+  padding: 6px 14px;
   width: fit-content;
+  margin-left: 40px;
+  margin-top: auto;
 }
 
 .list-card-cta {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 4px;
   min-width: 100px;
 }
 
 .list-card-score-big {
   font-family: var(--font-dm-serif), serif;
-  font-size: 28px;
+  font-size: 40px;
   font-weight: 700;
   line-height: 1;
 }
 
 .list-card-stars {
-  font-size: 13px;
+  font-size: 18px;
   color: #F59E0B;
   margin-bottom: 4px;
 }
 
 .list-card-btn {
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 600;
-  padding: 8px 14px;
+  padding: 10px 18px;
   border-radius: 6px;
   color: #fff;
   pointer-events: none;
@@ -707,7 +797,7 @@ h1, h2, h3 {
 /* ---- RACE GRID ---- */
 .race-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 10px;
   margin-bottom: 14px;
 }
@@ -752,7 +842,7 @@ h1, h2, h3 {
 .see-all-link {
   display: inline-block;
   margin-top: 14px;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 600;
   color: var(--blue);
   text-decoration: none;
@@ -797,8 +887,8 @@ h1, h2, h3 {
 }
 
 .stat-card-label {
-  font-size: 11px;
-  color: var(--text-2);
+  font-size: 13px;
+  color: var(--text);
   line-height: 1.5;
 }
 
@@ -818,13 +908,23 @@ h1, h2, h3 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px;
-  align-items: start;
+  align-items: stretch;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .why-cards {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  height: 100%;
+  margin-left: 28px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.why-cards .why-card {
+  flex: 1;
 }
 
 .why-card {
@@ -832,34 +932,43 @@ h1, h2, h3 {
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-  padding: 14px;
+  padding: 18px 16px;
   display: flex;
   align-items: flex-start;
-  gap: 12px;
+  gap: 14px;
 }
 
 .why-card-icon {
-  width: 34px;
-  height: 34px;
+  width: 42px;
+  height: 42px;
   border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
+  font-size: 20px;
   flex-shrink: 0;
 }
 
+.why-card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .why-card-title {
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 600;
   color: var(--text);
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .why-card-desc {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--text-2);
-  line-height: 1.55;
+  line-height: 1.6;
+  margin-top: 9px;
+  margin-bottom: 9px;
 }
 
 /* ---- COVERS GRID ---- */
@@ -897,7 +1006,7 @@ h1, h2, h3 {
 }
 
 .cover-card-title {
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 600;
   color: var(--text);
 }
@@ -911,7 +1020,7 @@ h1, h2, h3 {
 }
 
 .cover-card-list li {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--text-2);
   display: flex;
   align-items: center;
