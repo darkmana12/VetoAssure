@@ -7,10 +7,12 @@ interface AssuranceCardProps {
   color: string
   gradientFrom: string
   gradientTo: string
+  tagline: string
   score: number
   facts: { label: string; value: string }[]
   checks: string[]
   price: string
+  priceNote: string
   href: string
 }
 
@@ -21,25 +23,23 @@ export default function AssuranceCard({
   color,
   gradientFrom,
   gradientTo,
+  tagline,
   score,
   facts,
   checks,
   price,
+  priceNote,
   href,
 }: AssuranceCardProps) {
   return (
-    <div
-      className="assurance-card"
-      style={{ borderColor: color }}
-    >
+    <Link href={href} className="assurance-card" style={{ borderColor: color }}>
+
+      {/* Header gradient avec logo centré */}
       <div
         className="assurance-card-header"
         style={{ background: `linear-gradient(135deg, ${gradientFrom}, ${gradientTo})` }}
       >
-        <span
-          className="assurance-card-pill"
-          style={{ background: color, color: '#fff' }}
-        >
+        <span className="assurance-card-pill" style={{ background: color, color: '#fff' }}>
           N°{rank}
         </span>
         <div className="assurance-card-logo" style={{ background: color }}>
@@ -47,42 +47,33 @@ export default function AssuranceCard({
         </div>
       </div>
 
+      {/* Body */}
       <div className="assurance-card-body">
+
+        <div className="assurance-card-name">{name}</div>
+        <div className="assurance-card-tagline">{tagline}</div>
+
         <div className="assurance-card-score" style={{ color }}>
-          {score}
+          {score}<span className="assurance-card-score-denom">/10</span>
         </div>
 
+        {/* Stat boxes */}
         <div className="assurance-card-facts">
           {facts.map((f, i) => (
-            <span key={i} className="assurance-card-fact">
-              {f.value} <span style={{ color: 'var(--text-3)', fontWeight: 400 }}>{f.label}</span>
-            </span>
+            <div key={i} className="assurance-card-fact">
+              <div className="assurance-card-fact-value">{f.value}</div>
+              <div className="assurance-card-fact-label">{f.label}</div>
+            </div>
           ))}
         </div>
 
+        {/* Checks */}
         <ul className="assurance-card-checks">
           {checks.map((c, i) => (
-            <li
-              key={i}
-              className="assurance-card-check"
-              style={{
-                '--check-color': color,
-              } as React.CSSProperties}
-            >
+            <li key={i} className="assurance-card-check">
               <span
-                style={{
-                  width: 16,
-                  height: 16,
-                  borderRadius: '50%',
-                  background: color + '20',
-                  color,
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: 10,
-                  fontWeight: 700,
-                  flexShrink: 0,
-                }}
+                className="assurance-card-check-icon"
+                style={{ background: color + '22', color }}
               >
                 ✓
               </span>
@@ -92,16 +83,17 @@ export default function AssuranceCard({
         </ul>
       </div>
 
+      {/* Footer */}
       <div className="assurance-card-footer">
-        <span className="assurance-card-price">Dès {price}/mois</span>
-        <Link
-          href={href}
-          className="assurance-card-btn"
-          style={{ background: color }}
-        >
-          Voir l&apos;offre →
-        </Link>
+        <div>
+          <div className="assurance-card-price">Dès {price}/mois</div>
+          <div className="assurance-card-price-note">{priceNote}</div>
+        </div>
+        <span className="assurance-card-btn" style={{ background: color }}>
+          Voir →
+        </span>
       </div>
-    </div>
+
+    </Link>
   )
 }

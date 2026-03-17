@@ -1,16 +1,36 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 
 export default function Nav() {
   const [drawerOpen, setDrawerOpen] = useState(false)
+  const [dropdownOpen, setDropdownOpen] = useState(false)
+  const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  const handleDropdownEnter = () => {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current)
+      closeTimerRef.current = null
+    }
+    setDropdownOpen(true)
+  }
+
+  const handleDropdownLeave = () => {
+    closeTimerRef.current = setTimeout(() => setDropdownOpen(false), 100)
+  }
 
   return (
     <>
       {/* Trust Bar */}
       <div className="trust-bar">
-        14 assurances comparées · Vérifié mars 2026 · 100% indépendant · Sans publicité
+        <span>14 assurances comparées</span>
+        <span className="trust-sep">·</span>
+        <span>Vérifié mars 2026</span>
+        <span className="trust-sep">·</span>
+        <span>100% indépendant</span>
+        <span className="trust-sep">·</span>
+        <span>Sans publicité</span>
       </div>
 
       {/* Sticky Nav */}
@@ -38,7 +58,11 @@ export default function Nav() {
             <li><Link href="/chat" className="nav-link">Chat</Link></li>
 
             {/* Dropdown Races */}
-            <li className="nav-dropdown">
+            <li
+              className={`nav-dropdown${dropdownOpen ? ' open' : ''}`}
+              onMouseEnter={handleDropdownEnter}
+              onMouseLeave={handleDropdownLeave}
+            >
               <div className="nav-dropdown-trigger">
                 Races
                 <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" strokeWidth="1.8">
