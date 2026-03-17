@@ -14,7 +14,7 @@ export default function ConfidentialitePage() {
       </h1>
 
       <p className="seo-text" style={{ marginTop: 0, marginBottom: 32 }}>
-        Dernière mise à jour : mars 2026. VetoAssure s'engage à protéger votre vie privée conformément
+        Dernière mise à jour : mars 2026. VetoAssure s&apos;engage à protéger votre vie privée conformément
         au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés.
       </p>
 
@@ -22,12 +22,12 @@ export default function ConfidentialitePage() {
         <h2 style={{ fontSize: 18, fontWeight: 700, color: 'var(--text)', marginBottom: 12 }}>Données collectées</h2>
         <p className="seo-text" style={{ marginTop: 0 }}>
           VetoAssure ne collecte <strong>aucune donnée personnelle</strong> directement via le site.
-          Nous n'utilisons pas de formulaire d'inscription, pas de compte utilisateur et pas de cookies
+          Nous n&apos;utilisons pas de formulaire d&apos;inscription, pas de compte utilisateur et pas de cookies
           de tracking tiers.
         </p>
         <p className="seo-text">
           Des données techniques anonymes (pages visitées, durée de session) peuvent être collectées
-          via des outils d'analyse d'audience dans le but d'améliorer le service. Ces données ne permettent
+          via des outils d&apos;analyse d&apos;audience dans le but d&apos;améliorer le service. Ces données ne permettent
           pas de vous identifier personnellement.
         </p>
       </section>
@@ -35,8 +35,8 @@ export default function ConfidentialitePage() {
       <section style={{ marginBottom: 32 }}>
         <h2 style={{ fontSize: 18, fontWeight: 700, color: 'var(--text)', marginBottom: 12 }}>Liens vers des tiers</h2>
         <p className="seo-text" style={{ marginTop: 0 }}>
-          VetoAssure contient des liens vers des sites d'assureurs partenaires. Lorsque vous cliquez sur
-          ces liens, vous quittez notre site et êtes soumis à la politique de confidentialité de l'assureur concerné.
+          VetoAssure contient des liens vers des sites d&apos;assureurs partenaires. Lorsque vous cliquez sur
+          ces liens, vous quittez notre site et êtes soumis à la politique de confidentialité de l&apos;assureur concerné.
           Nous vous encourageons à la consulter avant de saisir vos données.
         </p>
       </section>
@@ -46,20 +46,20 @@ export default function ConfidentialitePage() {
         <p className="seo-text" style={{ marginTop: 0 }}>
           Ce site utilise uniquement des cookies strictement nécessaires au fonctionnement technique
           (mémorisation de vos préférences de navigation). Aucun cookie publicitaire ou de profilage
-          n'est utilisé.
+          n&apos;est utilisé.
         </p>
       </section>
 
       <section style={{ marginBottom: 32 }}>
         <h2 style={{ fontSize: 18, fontWeight: 700, color: 'var(--text)', marginBottom: 12 }}>Vos droits</h2>
         <p className="seo-text" style={{ marginTop: 0 }}>
-          Conformément au RGPD, vous disposez d'un droit d'accès, de rectification, d'effacement et
-          d'opposition concernant vos données. Pour exercer ces droits, contactez-nous à :
+          Conformément au RGPD, vous disposez d&apos;un droit d&apos;accès, de rectification, d&apos;effacement et
+          d&apos;opposition concernant vos données. Pour exercer ces droits, contactez-nous à :
           <strong> contact@vetoassure.fr</strong>
         </p>
         <p className="seo-text">
           Vous pouvez également introduire une réclamation auprès de la <strong>CNIL</strong> (Commission
-          Nationale de l'Informatique et des Libertés) si vous estimez que vos droits ne sont pas respectés.
+          Nationale de l&apos;Informatique et des Libertés) si vous estimez que vos droits ne sont pas respectés.
         </p>
       </section>
 

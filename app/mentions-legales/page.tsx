@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Mentions légales — VetoAssure',
-  description: 'Mentions légales du site VetoAssure — éditeur, hébergeur, propriété intellectuelle et conditions d\'utilisation.',
+  description: "Mentions légales du site VetoAssure — éditeur, hébergeur, propriété intellectuelle et conditions d'utilisation.",
   alternates: { canonical: 'https://vetoassure.fr/mentions-legales' },
 }
 
@@ -17,7 +17,7 @@ export default function MentionsLegalesPage() {
         <h2 style={{ fontSize: 18, fontWeight: 700, color: 'var(--text)', marginBottom: 12 }}>Éditeur du site</h2>
         <p className="seo-text" style={{ marginTop: 0 }}>
           Le site <strong>VetoAssure</strong> (vetoassure.fr) est édité par une personne physique.
-          Pour toute question, vous pouvez nous contacter à l'adresse : <strong>contact@vetoassure.fr</strong>
+          Pour toute question, vous pouvez nous contacter à l&apos;adresse : <strong>contact@vetoassure.fr</strong>
         </p>
       </section>
 
@@ -31,7 +31,7 @@ export default function MentionsLegalesPage() {
       <section style={{ marginBottom: 32 }}>
         <h2 style={{ fontSize: 18, fontWeight: 700, color: 'var(--text)', marginBottom: 12 }}>Propriété intellectuelle</h2>
         <p className="seo-text" style={{ marginTop: 0 }}>
-          L'ensemble du contenu de ce site (textes, scores, analyses, design) est la propriété exclusive de VetoAssure.
+          L&apos;ensemble du contenu de ce site (textes, scores, analyses, design) est la propriété exclusive de VetoAssure.
           Toute reproduction, même partielle, est interdite sans autorisation écrite préalable.
         </p>
       </section>
@@ -40,7 +40,7 @@ export default function MentionsLegalesPage() {
         <h2 style={{ fontSize: 18, fontWeight: 700, color: 'var(--text)', marginBottom: 12 }}>Liens affiliés</h2>
         <p className="seo-text" style={{ marginTop: 0 }}>
           VetoAssure contient des <strong>liens affiliés</strong>. Lorsque vous souscrivez une assurance via nos liens,
-          nous pouvons percevoir une commission de la part de l'assureur. Cette rémunération ne modifie en aucun cas
+          nous pouvons percevoir une commission de la part de l&apos;assureur. Cette rémunération ne modifie en aucun cas
           notre indépendance éditoriale, ni le prix que vous payez. Nos scores et classements sont établis
           objectivement sur la base de critères publics et vérifiables.
         </p>
