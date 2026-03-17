@@ -16,9 +16,13 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   try {
     const { data } = getAvis(params.slug)
+    const url = `https://vetoassure.fr/avis/${params.slug}`
+    const description = `Notre avis complet sur ${data.nom as string} — score ${data.score as number}/10, remboursement ${data.remboursementDelai as string}, dès ${data.prixDes as number}€/mois.`
     return {
       title: data.title as string,
-      description: `Notre avis complet sur ${data.nom as string} — score ${data.score as number}/10, remboursement ${data.remboursementDelai as string}, dès ${data.prixDes as number}€/mois.`,
+      description,
+      alternates: { canonical: url },
+      openGraph: { url, title: data.title as string, description },
     }
   } catch {
     return { title: 'Avis non trouvé' }
@@ -41,8 +45,30 @@ export default function AvisSlugPage({ params }: Props) {
   const color =
     score >= 9 ? '#1D4ED8' : score >= 8.5 ? '#16A34A' : score >= 8 ? '#EA580C' : '#7C3AED'
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Review',
+    itemReviewed: {
+      '@type': 'InsuranceAgency',
+      name: frontmatter.nom as string,
+    },
+    reviewRating: {
+      '@type': 'Rating',
+      ratingValue: score,
+      bestRating: 10,
+      worstRating: 0,
+    },
+    author: { '@type': 'Organization', name: 'VetoAssure' },
+    publisher: { '@type': 'Organization', name: 'VetoAssure', url: 'https://vetoassure.fr' },
+    reviewBody: frontmatter.tagline as string,
+  }
+
   return (
     <article className="section" style={{ maxWidth: 720 }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Link href="/avis" className="see-all-link" style={{ marginBottom: 16, display: 'inline-block' }}>
         ← Tous les avis
       </Link>
@@ -67,7 +93,7 @@ export default function AvisSlugPage({ params }: Props) {
         </div>
         <div>
           <h1 style={{ fontSize: 'clamp(20px, 4vw, 28px)', fontWeight: 700, color: 'var(--text)', marginBottom: 4 }}>
-            {frontmatter.nom as string} — Avis 2025
+            {frontmatter.nom as string} — Avis 2026
           </h1>
           <p style={{ fontSize: 13, color: 'var(--text-2)' }}>{frontmatter.tagline as string}</p>
         </div>

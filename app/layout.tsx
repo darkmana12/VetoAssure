@@ -18,9 +18,10 @@ const dmSerif = DM_Serif_Display({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://vetoassure.fr'),
   title: {
     template: '%s | VetoAssure',
-    default: 'VetoAssure — Meilleure assurance chien & chat 2025',
+    default: 'VetoAssure — Meilleure assurance chien & chat 2026',
   },
   description:
     'Comparez les meilleures assurances animaux en France. Scores indépendants, avis vérifiés et offres exclusives pour chien, chat et NAC.',
@@ -28,6 +29,17 @@ export const metadata: Metadata = {
     siteName: 'VetoAssure',
     locale: 'fr_FR',
     type: 'website',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'VetoAssure — Comparatif assurance animaux',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
   },
   alternates: {
     canonical: 'https://vetoassure.fr',

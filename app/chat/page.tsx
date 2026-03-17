@@ -4,15 +4,26 @@ import AssuranceListItem from '@/components/AssuranceListItem'
 import RaceCard from '@/components/RaceCard'
 
 export const metadata: Metadata = {
-  title: 'Meilleure assurance chat 2025 — Comparatif complet',
+  title: 'Meilleure assurance chat 2026 — Comparatif complet',
   description:
     'Comparez les meilleures mutuelles chat en France. Garanties, prix et remboursements réels analysés pour 14 assureurs.',
+  alternates: { canonical: 'https://vetoassure.fr/chat' },
+  openGraph: {
+    url: 'https://vetoassure.fr/chat',
+    title: 'Meilleure assurance chat 2026 — Comparatif complet',
+    description: 'Comparez les meilleures mutuelles chat en France. Garanties, prix et remboursements réels analysés pour 14 assureurs.',
+  },
 }
 
 const RACES_CHAT = [
   { emoji: '🐈', name: 'Maine Coon', type: 'Chat', href: '/races/maine-coon' },
   { emoji: '🐈', name: 'Bengal', type: 'Chat', href: '/races/bengal' },
   { emoji: '🐈', name: 'Persan', type: 'Chat', href: '/races/persan' },
+  { emoji: '🐈', name: 'Siamois', type: 'Chat', href: '/races/siamois' },
+  { emoji: '🐈', name: 'Ragdoll', type: 'Chat', href: '/races/ragdoll' },
+  { emoji: '🐈', name: 'Sphynx', type: 'Chat', href: '/races/sphynx' },
+  { emoji: '🐈', name: 'British Shorthair', type: 'Chat', href: '/races/british-shorthair' },
+  { emoji: '🐈', name: 'Abyssin', type: 'Chat', href: '/races/abyssin' },
 ]
 
 const LIST_CHAT = [
@@ -46,8 +57,8 @@ export default function ChatPage() {
   return (
     <>
       <section className="hero">
-        <div className="hero-badge">Comparatif chats 2025</div>
-        <h1>Meilleure assurance chat 2025</h1>
+        <div className="hero-badge">Comparatif chats 2026</div>
+        <h1>Meilleure assurance chat 2026</h1>
         <p className="hero-subtitle">
           Mutuelle chat : comparatif complet de 14 offres — trouvez la meilleure couverture pour
           votre chat selon sa race et son profil.
@@ -59,7 +70,7 @@ export default function ChatPage() {
 
       <section className="section">
         <p className="section-label">MEILLEURES OFFRES CHAT</p>
-        <h2 className="section-title">Top assurances chat 2025</h2>
+        <h2 className="section-title">Top assurances chat 2026</h2>
 
         {LIST_CHAT.map((item) => (
           <AssuranceListItem key={item.rank} {...item} />

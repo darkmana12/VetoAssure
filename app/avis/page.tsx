@@ -2,25 +2,51 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Avis assurances animaux 2025 — Tests indépendants',
+  title: 'Avis assurances animaux 2026 — Tests indépendants',
   description:
     'Retrouvez tous nos avis détaillés sur les assurances animaux : SantéVet, Kozoo, Acheel, Fidanimo et plus.',
+  alternates: { canonical: 'https://vetoassure.fr/avis' },
+  openGraph: {
+    url: 'https://vetoassure.fr/avis',
+    title: 'Avis assurances animaux 2026 — Tests indépendants',
+    description: 'Retrouvez tous nos avis détaillés sur les assurances animaux : SantéVet, Kozoo, Acheel, Fidanimo et plus.',
+  },
 }
 
 const AVIS_LIST = [
-  { slug: 'santeVet', name: 'SantéVet', score: 9.2, color: '#1D4ED8', tagline: 'Meilleur rapport qualité / garanties' },
-  { slug: 'kozoo', name: 'Kozoo', score: 8.8, color: '#16A34A', tagline: 'Remboursement le plus rapide (24h)' },
-  { slug: 'acheel', name: 'Acheel', score: 8.5, color: '#EA580C', tagline: 'Le moins cher du marché' },
-  { slug: 'fidanimo', name: 'Fidanimo', score: 8.1, color: '#7C3AED', tagline: 'Meilleur pour les maladies chroniques' },
-  { slug: 'dalma', name: 'Dalma', score: 7.9, color: '#0891B2', tagline: '100% digital et sans engagement' },
+  {
+    slug: 'santeVet', name: 'SantéVet', shortName: 'SVet', color: '#1D4ED8',
+    tagline: 'Meilleur rapport qualité / garanties',
+    points: ['Dysplasies couvertes dès le 1er mois', 'Chirurgie remboursée jusqu\'à 3 000 €', 'Pas de limite d\'âge à la souscription'],
+  },
+  {
+    slug: 'kozoo', name: 'Kozoo', shortName: 'Kzoo', color: '#16A34A',
+    tagline: 'Remboursement le plus rapide (24h)',
+    points: ['Remboursement le plus rapide du marché', 'Idéal pour les chats d\'appartement', 'Sans engagement, résiliable à tout moment'],
+  },
+  {
+    slug: 'acheel', name: 'Acheel', shortName: 'Ach', color: '#EA580C',
+    tagline: 'Le moins cher du marché',
+    points: ['Le moins cher pour la couverture offerte', '1er mois offert à la souscription', 'Souscription 100% en ligne en 3 minutes'],
+  },
+  {
+    slug: 'fidanimo', name: 'Fidanimo', shortName: 'Fida', color: '#7C3AED',
+    tagline: 'Meilleur pour les maladies chroniques',
+    points: ['Maladies chroniques prises en charge', 'Téléconsultation vétérinaire incluse', 'Devis en ligne immédiat'],
+  },
+  {
+    slug: 'dalma', name: 'Dalma', shortName: 'Dalm', color: '#0891B2',
+    tagline: '100% digital et sans engagement',
+    points: ['Souscription et gestion 100% en ligne', 'Accidents et maladies couverts', 'Application mobile intuitive'],
+  },
 ]
 
 export default function AvisPage() {
   return (
     <>
       <section className="hero">
-        <div className="hero-badge">Avis indépendants 2025</div>
-        <h1>Avis assurances animaux 2025</h1>
+        <div className="hero-badge">Avis indépendants 2026</div>
+        <h1>Avis assurances animaux 2026</h1>
         <p className="hero-subtitle">
           Tests complets et indépendants réalisés par notre équipe. Scores calculés sur 6 critères
           objectifs.
@@ -36,54 +62,28 @@ export default function AvisPage() {
             <Link
               key={a.slug}
               href={`/avis/${a.slug}`}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 16,
-                padding: '16px 20px',
-                background: '#fff',
-                border: '1px solid var(--border)',
-                borderRadius: 'var(--radius-sm)',
-                textDecoration: 'none',
-                color: 'inherit',
-                boxShadow: '0 2px 6px rgba(0,0,0,0.06)',
-                transition: 'box-shadow 0.15s',
-              }}
+              className="list-card"
+              style={{ gridTemplateColumns: '44px 1fr auto' }}
             >
-              <div
-                style={{
-                  width: 44,
-                  height: 44,
-                  borderRadius: '50%',
-                  background: a.color,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#fff',
-                  fontSize: 12,
-                  fontWeight: 700,
-                  flexShrink: 0,
-                }}
-              >
-                {a.name.slice(0, 3)}
+              {/* Logo */}
+              <div className="list-card-logo-circle" style={{ background: a.color }}>
+                {a.shortName}
               </div>
-              <div style={{ flex: 1 }}>
-                <div style={{ fontSize: 14, fontWeight: 700, color: 'var(--text)', marginBottom: 2 }}>
-                  {a.name}
-                </div>
-                <div style={{ fontSize: 12, color: 'var(--text-2)' }}>{a.tagline}</div>
+
+              {/* Info */}
+              <div className="list-card-info">
+                <div className="list-card-name">{a.name}</div>
+                <div style={{ fontSize: 12, color: 'var(--text-2)', marginBottom: 6 }}>{a.tagline}</div>
+                <ul className="list-card-bullets">
+                  {a.points.map((p, i) => <li key={i}>{p}</li>)}
+                </ul>
               </div>
-              <div
-                style={{
-                  fontFamily: 'var(--font-dm-serif)',
-                  fontSize: 22,
-                  fontWeight: 700,
-                  color: a.color,
-                  minWidth: 40,
-                  textAlign: 'right',
-                }}
-              >
-                {a.score}
+
+              {/* CTA */}
+              <div className="list-card-cta">
+                <span className="list-card-btn" style={{ background: a.color }}>
+                  Voir l&apos;offre →
+                </span>
               </div>
             </Link>
           ))}

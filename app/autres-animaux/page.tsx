@@ -2,9 +2,15 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Assurance NAC & autres animaux 2025',
+  title: 'Assurance NAC & autres animaux 2026',
   description:
     'Assurances pour lapins, oiseaux, reptiles et autres NAC. Comparatif et conseils pour bien protéger votre animal.',
+  alternates: { canonical: 'https://vetoassure.fr/autres-animaux' },
+  openGraph: {
+    url: 'https://vetoassure.fr/autres-animaux',
+    title: 'Assurance NAC & autres animaux 2026',
+    description: 'Assurances pour lapins, oiseaux, reptiles et autres NAC. Comparatif et conseils pour bien protéger votre animal.',
+  },
 }
 
 const NACS = [

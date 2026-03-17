@@ -6,9 +6,15 @@ import RaceCard from '@/components/RaceCard'
 import FaqAccordion from '@/components/FaqAccordion'
 
 export const metadata: Metadata = {
-  title: 'VetoAssure — Meilleure assurance chien & chat 2025',
+  title: 'VetoAssure — Meilleure assurance chien & chat 2026',
   description:
     'Comparez les meilleures assurances animaux en France. Scores indépendants, avis vérifiés et offres exclusives pour chien, chat et NAC.',
+  alternates: { canonical: 'https://vetoassure.fr' },
+  openGraph: {
+    url: 'https://vetoassure.fr',
+    title: 'VetoAssure — Meilleure assurance chien & chat 2026',
+    description: 'Comparez les meilleures assurances animaux en France. Scores indépendants, avis vérifiés et offres exclusives pour chien, chat et NAC.',
+  },
 }
 
 const TOP3 = [
@@ -238,7 +244,7 @@ export default function HomePage() {
     <>
       {/* ===== HERO ===== */}
       <section className="hero">
-        <div className="hero-badge">Comparatif 2025 mis à jour</div>
+        <div className="hero-badge">Comparatif 2026 mis à jour</div>
         <h1>Quelle assurance pour votre animal ?</h1>
         <p className="hero-subtitle">
           Nous avons analysé 14 assurances animaux pour vous. Comparez les garanties,
@@ -253,7 +259,7 @@ export default function HomePage() {
       {/* ===== TOP 3 + LISTE ===== */}
       <section className="section">
         <p className="section-label">NOTRE SÉLECTION</p>
-        <h2 className="section-title">Top 3 assurances animaux 2025</h2>
+        <h2 className="section-title">Top 3 assurances animaux 2026</h2>
         <p className="section-subtitle">Scores calculés sur 6 critères · Vérifié le 15 mars 2026</p>
 
         {/* Top 3 */}

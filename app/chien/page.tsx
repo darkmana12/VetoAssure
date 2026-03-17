@@ -4,9 +4,15 @@ import AssuranceListItem from '@/components/AssuranceListItem'
 import RaceCard from '@/components/RaceCard'
 
 export const metadata: Metadata = {
-  title: 'Meilleure assurance chien 2025 — Comparatif complet',
+  title: 'Meilleure assurance chien 2026 — Comparatif complet',
   description:
     'Comparez les meilleures assurances chien en France. Garanties, prix et remboursements réels analysés pour 14 assureurs.',
+  alternates: { canonical: 'https://vetoassure.fr/chien' },
+  openGraph: {
+    url: 'https://vetoassure.fr/chien',
+    title: 'Meilleure assurance chien 2026 — Comparatif complet',
+    description: 'Comparez les meilleures assurances chien en France. Garanties, prix et remboursements réels analysés pour 14 assureurs.',
+  },
 }
 
 const RACES_CHIEN = [
@@ -15,6 +21,9 @@ const RACES_CHIEN = [
   { emoji: '🐕', name: 'Bulldog Français', type: 'Chien', href: '/races/bulldog-francais' },
   { emoji: '🐕', name: 'Berger Allemand', type: 'Chien', href: '/races/berger-allemand' },
   { emoji: '🐕', name: 'Chihuahua', type: 'Chien', href: '/races/chihuahua' },
+  { emoji: '🐕', name: 'Beagle', type: 'Chien', href: '/races/beagle' },
+  { emoji: '🐕', name: 'Yorkshire Terrier', type: 'Chien', href: '/races/yorkshire-terrier' },
+  { emoji: '🐕', name: 'Boxer', type: 'Chien', href: '/races/boxer' },
 ]
 
 const LIST_CHIEN = [
@@ -48,8 +57,8 @@ export default function ChienPage() {
   return (
     <>
       <section className="hero">
-        <div className="hero-badge">Comparatif chiens 2025</div>
-        <h1>Meilleure assurance chien 2025</h1>
+        <div className="hero-badge">Comparatif chiens 2026</div>
+        <h1>Meilleure assurance chien 2026</h1>
         <p className="hero-subtitle">
           Comparatif complet de 14 assurances chien — garanties, prix et remboursements réels analysés
           pour vous aider à choisir.
@@ -61,7 +70,7 @@ export default function ChienPage() {
 
       <section className="section">
         <p className="section-label">MEILLEURES OFFRES</p>
-        <h2 className="section-title">Top assurances chien 2025</h2>
+        <h2 className="section-title">Top assurances chien 2026</h2>
 
         {LIST_CHIEN.map((item) => (
           <AssuranceListItem key={item.rank} {...item} />

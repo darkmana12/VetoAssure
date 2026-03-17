@@ -2,9 +2,15 @@ import type { Metadata } from 'next'
 import RaceCard from '@/components/RaceCard'
 
 export const metadata: Metadata = {
-  title: 'Assurance par race — Chien & Chat',
+  title: 'Assurance par race — Chien & Chat 2026',
   description:
     'Trouvez la meilleure assurance pour votre race de chien ou de chat. Comparatifs spécialisés par race.',
+  alternates: { canonical: 'https://vetoassure.fr/races' },
+  openGraph: {
+    url: 'https://vetoassure.fr/races',
+    title: 'Assurance par race — Chien & Chat 2026',
+    description: 'Trouvez la meilleure assurance pour votre race de chien ou de chat. Comparatifs spécialisés par race.',
+  },
 }
 
 const ALL_RACES = [
@@ -15,11 +21,15 @@ const ALL_RACES = [
   { emoji: '🐕', name: 'Chihuahua', type: 'Chien', href: '/races/chihuahua' },
   { emoji: '🐕', name: 'Beagle', type: 'Chien', href: '/races/beagle' },
   { emoji: '🐕', name: 'Yorkshire Terrier', type: 'Chien', href: '/races/yorkshire-terrier' },
+  { emoji: '🐕', name: 'Boxer', type: 'Chien', href: '/races/boxer' },
   { emoji: '🐈', name: 'Maine Coon', type: 'Chat', href: '/races/maine-coon' },
   { emoji: '🐈', name: 'Bengal', type: 'Chat', href: '/races/bengal' },
   { emoji: '🐈', name: 'Persan', type: 'Chat', href: '/races/persan' },
   { emoji: '🐈', name: 'Siamois', type: 'Chat', href: '/races/siamois' },
   { emoji: '🐈', name: 'Ragdoll', type: 'Chat', href: '/races/ragdoll' },
+  { emoji: '🐈', name: 'Sphynx', type: 'Chat', href: '/races/sphynx' },
+  { emoji: '🐈', name: 'British Shorthair', type: 'Chat', href: '/races/british-shorthair' },
+  { emoji: '🐈', name: 'Abyssin', type: 'Chat', href: '/races/abyssin' },
 ]
 
 export default function RacesPage() {

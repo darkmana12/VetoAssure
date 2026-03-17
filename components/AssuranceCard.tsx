@@ -39,9 +39,6 @@ export default function AssuranceCard({
         className="assurance-card-header"
         style={{ background: `linear-gradient(135deg, ${gradientFrom}, ${gradientTo})` }}
       >
-        <span className="assurance-card-pill" style={{ background: color, color: '#fff' }}>
-          N°{rank}
-        </span>
         <div className="assurance-card-logo" style={{ background: color }}>
           {shortName}
         </div>
@@ -52,10 +49,6 @@ export default function AssuranceCard({
 
         <div className="assurance-card-name">{name}</div>
         <div className="assurance-card-tagline">{tagline}</div>
-
-        <div className="assurance-card-score" style={{ color }}>
-          {score}<span className="assurance-card-score-denom">/10</span>
-        </div>
 
         {/* Stat boxes */}
         <div className="assurance-card-facts">
