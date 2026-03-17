@@ -229,14 +229,14 @@ const LIST_ITEMS = [
 ]
 
 const RACES = [
-  { emoji: '🐕', name: 'Golden Retriever', type: 'Chien', href: '/races/golden-retriever' },
-  { emoji: '🐕', name: 'Labrador', type: 'Chien', href: '/races/labrador' },
-  { emoji: '🐕', name: 'Bulldog Français', type: 'Chien', href: '/races/bulldog-francais' },
-  { emoji: '🐕', name: 'Berger Allemand', type: 'Chien', href: '/races/berger-allemand' },
-  { emoji: '🐈', name: 'Maine Coon', type: 'Chat', href: '/races/maine-coon' },
-  { emoji: '🐈', name: 'Bengal', type: 'Chat', href: '/races/bengal' },
-  { emoji: '🐕', name: 'Chihuahua', type: 'Chien', href: '/races/chihuahua' },
-  { emoji: '🐈', name: 'Persan', type: 'Chat', href: '/races/persan' },
+  { emoji: '🐕', name: 'Golden Retriever', type: 'Chien', href: '/races/golden-retriever', img: '/races/golden-retriever.webp' },
+  { emoji: '🐕', name: 'Labrador', type: 'Chien', href: '/races/labrador', img: '/races/labrador.webp' },
+  { emoji: '🐕', name: 'Bouledogue Français', type: 'Chien', href: '/races/bouledogue-francais', img: '/races/bouledogue-francais.webp' },
+  { emoji: '🐕', name: 'Berger Allemand', type: 'Chien', href: '/races/berger-allemand', img: '/races/berger-allemand.webp' },
+  { emoji: '🐈', name: 'Maine Coon', type: 'Chat', href: '/races/maine-coon', img: '/races/maine-coon.webp' },
+  { emoji: '🐈', name: 'Bengal', type: 'Chat', href: '/races/bengal', img: '/races/bengal.webp' },
+  { emoji: '🐕', name: 'Chihuahua', type: 'Chien', href: '/races/chihuahua', img: '/races/chihuahua.webp' },
+  { emoji: '🐈', name: 'Persan', type: 'Chat', href: '/races/persan', img: '/races/persan.webp' },
 ]
 
 export default function HomePage() {
@@ -251,7 +251,7 @@ export default function HomePage() {
           les prix et les remboursements réels — par race et par profil.
         </p>
         <div className="hero-btns">
-          <Link href="/chien" className="btn-primary">🐕 Mon chien</Link>
+          <Link href="/chien" className="btn-secondary">🐕 Mon chien</Link>
           <Link href="/chat" className="btn-secondary">🐈 Mon chat</Link>
         </div>
       </section>

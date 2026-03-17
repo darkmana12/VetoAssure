@@ -16,14 +16,14 @@ export const metadata: Metadata = {
 }
 
 const RACES_CHAT = [
-  { emoji: '🐈', name: 'Maine Coon', type: 'Chat', href: '/races/maine-coon' },
-  { emoji: '🐈', name: 'Bengal', type: 'Chat', href: '/races/bengal' },
-  { emoji: '🐈', name: 'Persan', type: 'Chat', href: '/races/persan' },
-  { emoji: '🐈', name: 'Siamois', type: 'Chat', href: '/races/siamois' },
-  { emoji: '🐈', name: 'Ragdoll', type: 'Chat', href: '/races/ragdoll' },
-  { emoji: '🐈', name: 'Sphynx', type: 'Chat', href: '/races/sphynx' },
-  { emoji: '🐈', name: 'British Shorthair', type: 'Chat', href: '/races/british-shorthair' },
-  { emoji: '🐈', name: 'Abyssin', type: 'Chat', href: '/races/abyssin' },
+  { emoji: '🐈', name: 'Maine Coon', type: 'Chat', href: '/races/maine-coon', img: '/races/maine-coon.webp' },
+  { emoji: '🐈', name: 'Bengal', type: 'Chat', href: '/races/bengal', img: '/races/bengal.webp' },
+  { emoji: '🐈', name: 'Persan', type: 'Chat', href: '/races/persan', img: '/races/persan.webp' },
+  { emoji: '🐈', name: 'Siamois', type: 'Chat', href: '/races/siamois', img: '/races/siamois.webp' },
+  { emoji: '🐈', name: 'Ragdoll', type: 'Chat', href: '/races/ragdoll', img: '/races/ragdoll.webp' },
+  { emoji: '🐈', name: 'Sphynx', type: 'Chat', href: '/races/sphynx', img: '/races/sphynx.webp' },
+  { emoji: '🐈', name: 'British Shorthair', type: 'Chat', href: '/races/british-shorthair', img: '/races/british-shorthair.webp' },
+  { emoji: '🐈', name: 'Abyssin', type: 'Chat', href: '/races/abyssin', img: '/races/abyssin.webp' },
 ]
 
 const LIST_CHAT = [

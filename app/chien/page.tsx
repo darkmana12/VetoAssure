@@ -16,14 +16,14 @@ export const metadata: Metadata = {
 }
 
 const RACES_CHIEN = [
-  { emoji: '🐕', name: 'Golden Retriever', type: 'Chien', href: '/races/golden-retriever' },
-  { emoji: '🐕', name: 'Labrador', type: 'Chien', href: '/races/labrador' },
-  { emoji: '🐕', name: 'Bulldog Français', type: 'Chien', href: '/races/bulldog-francais' },
-  { emoji: '🐕', name: 'Berger Allemand', type: 'Chien', href: '/races/berger-allemand' },
-  { emoji: '🐕', name: 'Chihuahua', type: 'Chien', href: '/races/chihuahua' },
-  { emoji: '🐕', name: 'Beagle', type: 'Chien', href: '/races/beagle' },
-  { emoji: '🐕', name: 'Yorkshire Terrier', type: 'Chien', href: '/races/yorkshire-terrier' },
-  { emoji: '🐕', name: 'Boxer', type: 'Chien', href: '/races/boxer' },
+  { emoji: '🐕', name: 'Golden Retriever', type: 'Chien', href: '/races/golden-retriever', img: '/races/golden-retriever.webp' },
+  { emoji: '🐕', name: 'Labrador', type: 'Chien', href: '/races/labrador', img: '/races/labrador.webp' },
+  { emoji: '🐕', name: 'Bouledogue Français', type: 'Chien', href: '/races/bouledogue-francais', img: '/races/bouledogue-francais.webp' },
+  { emoji: '🐕', name: 'Berger Allemand', type: 'Chien', href: '/races/berger-allemand', img: '/races/berger-allemand.webp' },
+  { emoji: '🐕', name: 'Chihuahua', type: 'Chien', href: '/races/chihuahua', img: '/races/chihuahua.webp' },
+  { emoji: '🐕', name: 'Beagle', type: 'Chien', href: '/races/beagle', img: '/races/beagle.webp' },
+  { emoji: '🐕', name: 'Yorkshire Terrier', type: 'Chien', href: '/races/yorkshire-terrier', img: '/races/yorkshire-terrier.webp' },
+  { emoji: '🐕', name: 'Boxer', type: 'Chien', href: '/races/boxer', img: '/races/boxer.webp' },
 ]
 
 const LIST_CHIEN = [
