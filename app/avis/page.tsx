@@ -25,6 +25,11 @@ const AVIS_LIST = [
     points: ['Remboursement le plus rapide du marché', 'Idéal pour les chats d\'appartement', 'Sans engagement, résiliable à tout moment'],
   },
   {
+    slug: 'assuropoil', name: 'AssurOPoil', shortName: 'AOP', color: '#BE185D',
+    tagline: 'Spécialiste assurance animaux depuis 10 ans',
+    points: ['Spécialiste animaux depuis plus de 10 ans', 'Tarifs parmi les plus compétitifs du marché', 'Formules modulables selon votre budget'],
+  },
+  {
     slug: 'acheel', name: 'Acheel', shortName: 'Ach', color: '#EA580C',
     tagline: 'Le moins cher du marché',
     points: ['Le moins cher pour la couverture offerte', '1er mois offert à la souscription', 'Souscription 100% en ligne en 3 minutes'],
