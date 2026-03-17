@@ -6,14 +6,14 @@ import RaceCard from '@/components/RaceCard'
 import FaqAccordion from '@/components/FaqAccordion'
 
 export const metadata: Metadata = {
-  title: 'VetoAssure — Meilleure assurance chien & chat 2026',
+  title: 'VetoAssure — Comparatif assurance animaux 2026',
   description:
-    'Comparez les meilleures assurances animaux en France. Scores indépendants, avis vérifiés et offres exclusives pour chien, chat et NAC.',
+    'Comparatif indépendant de 14 assurances animaux en France. Scores calculés sur 6 critères, avis vérifiés et offres exclusives pour chien, chat et NAC.',
   alternates: { canonical: 'https://vetoassure.fr' },
   openGraph: {
     url: 'https://vetoassure.fr',
-    title: 'VetoAssure — Meilleure assurance chien & chat 2026',
-    description: 'Comparez les meilleures assurances animaux en France. Scores indépendants, avis vérifiés et offres exclusives pour chien, chat et NAC.',
+    title: 'VetoAssure — Comparatif assurance animaux 2026',
+    description: 'Comparatif indépendant de 14 assurances animaux en France. Scores calculés sur 6 critères, avis vérifiés et offres exclusives pour chien, chat et NAC.',
   },
 }
 

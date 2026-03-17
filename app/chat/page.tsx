@@ -4,14 +4,14 @@ import AssuranceListItem from '@/components/AssuranceListItem'
 import RaceCard from '@/components/RaceCard'
 
 export const metadata: Metadata = {
-  title: 'Meilleure assurance chat 2026 — Comparatif complet',
+  title: 'Meilleure mutuelle chat 2026 — Comparatif complet',
   description:
-    'Comparez les meilleures mutuelles chat en France. Garanties, prix et remboursements réels analysés pour 14 assureurs.',
+    'Quelle mutuelle chat choisir en 2026 ? Insuffisance rénale, maladies chroniques, chat d\'appartement : on compare les remboursements réels de 14 assureurs.',
   alternates: { canonical: 'https://vetoassure.fr/chat' },
   openGraph: {
     url: 'https://vetoassure.fr/chat',
-    title: 'Meilleure assurance chat 2026 — Comparatif complet',
-    description: 'Comparez les meilleures mutuelles chat en France. Garanties, prix et remboursements réels analysés pour 14 assureurs.',
+    title: 'Meilleure mutuelle chat 2026 — Comparatif complet',
+    description: 'Quelle mutuelle chat choisir en 2026 ? Insuffisance rénale, maladies chroniques, chat d\'appartement : on compare les remboursements réels de 14 assureurs.',
   },
 }
 
@@ -57,8 +57,8 @@ export default function ChatPage() {
   return (
     <>
       <section className="hero">
-        <div className="hero-badge">Comparatif chats 2026</div>
-        <h1>Meilleure assurance chat 2026</h1>
+        <div className="hero-badge">Comparatif mutuelles chat 2026</div>
+        <h1>Meilleure mutuelle chat 2026</h1>
         <p className="hero-subtitle">
           Mutuelle chat : comparatif complet de 14 offres — trouvez la meilleure couverture pour
           votre chat selon sa race et son profil.
@@ -70,7 +70,7 @@ export default function ChatPage() {
 
       <section className="section">
         <p className="section-label">MEILLEURES OFFRES CHAT</p>
-        <h2 className="section-title">Top assurances chat 2026</h2>
+        <h2 className="section-title">Top mutuelles chat 2026</h2>
 
         {LIST_CHAT.map((item) => (
           <AssuranceListItem key={item.rank} {...item} />

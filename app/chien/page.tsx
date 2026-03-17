@@ -6,12 +6,12 @@ import RaceCard from '@/components/RaceCard'
 export const metadata: Metadata = {
   title: 'Meilleure assurance chien 2026 — Comparatif complet',
   description:
-    'Comparez les meilleures assurances chien en France. Garanties, prix et remboursements réels analysés pour 14 assureurs.',
+    'Quelle assurance chien choisir en 2026 ? Dysplasies, chirurgie, maladies chroniques : on compare les garanties réelles de 14 assureurs pour votre race.',
   alternates: { canonical: 'https://vetoassure.fr/chien' },
   openGraph: {
     url: 'https://vetoassure.fr/chien',
     title: 'Meilleure assurance chien 2026 — Comparatif complet',
-    description: 'Comparez les meilleures assurances chien en France. Garanties, prix et remboursements réels analysés pour 14 assureurs.',
+    description: 'Quelle assurance chien choisir en 2026 ? Dysplasies, chirurgie, maladies chroniques : on compare les garanties réelles de 14 assureurs pour votre race.',
   },
 }
 

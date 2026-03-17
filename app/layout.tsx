@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://vetoassure.fr'),
   title: {
     template: '%s | VetoAssure',
-    default: 'VetoAssure — Meilleure assurance chien & chat 2026',
+    default: 'VetoAssure — Comparatif assurance animaux 2026',
   },
   description:
     'Comparez les meilleures assurances animaux en France. Scores indépendants, avis vérifiés et offres exclusives pour chien, chat et NAC.',
