@@ -4,14 +4,14 @@ import AssuranceListItem from '@/components/AssuranceListItem'
 import RaceCard from '@/components/RaceCard'
 
 export const metadata: Metadata = {
-  title: 'Meilleure mutuelle chat 2026 — Comparatif complet',
+  title: 'Meilleure assurance chat 2026 — Comparatif complet',
   description:
-    'Quelle mutuelle chat choisir en 2026 ? Insuffisance rénale, maladies chroniques, chat d\'appartement : on compare les remboursements réels de 14 assureurs.',
+    'Quelle assurance chat choisir en 2026 ? Insuffisance rénale, maladies chroniques, chat d\'appartement : on compare les remboursements réels de 14 assureurs.',
   alternates: { canonical: 'https://vetoassure.fr/chat' },
   openGraph: {
     url: 'https://vetoassure.fr/chat',
-    title: 'Meilleure mutuelle chat 2026 — Comparatif complet',
-    description: 'Quelle mutuelle chat choisir en 2026 ? Insuffisance rénale, maladies chroniques, chat d\'appartement : on compare les remboursements réels de 14 assureurs.',
+    title: 'Meilleure assurance chat 2026 — Comparatif complet',
+    description: 'Quelle assurance chat choisir en 2026 ? Insuffisance rénale, maladies chroniques, chat d\'appartement : on compare les remboursements réels de 14 assureurs.',
   },
 }
 
@@ -31,7 +31,6 @@ const LIST_CHAT = [
     rank: 1, name: 'Kozoo', shortName: 'Kzoo', color: '#16A34A',
     score: 8.8, stars: '★★★★½',
     points: ['Remboursement 24h', 'Chats appart', 'Sans engagement'],
-    bonus: '-10% avec le code VETO10',
     bonusColor: '#15803D', bonusBorder: '#86EFAC', bonusBg: '#F0FDF4',
     price: '12€', href: '/avis/kozoo',
   },
@@ -57,10 +56,10 @@ export default function ChatPage() {
   return (
     <>
       <section className="hero">
-        <div className="hero-badge">Comparatif mutuelles chat 2026</div>
-        <h1>Meilleure mutuelle chat 2026</h1>
+        <div className="hero-badge">Comparatif assurances chat 2026</div>
+        <h1>Meilleure assurance chat 2026</h1>
         <p className="hero-subtitle">
-          Mutuelle chat : comparatif complet de 14 offres — trouvez la meilleure couverture pour
+          Assurance chat : comparatif complet de 14 offres — trouvez la meilleure couverture pour
           votre chat selon sa race et son profil.
         </p>
         <div className="hero-btns">
@@ -70,7 +69,7 @@ export default function ChatPage() {
 
       <section className="section">
         <p className="section-label">MEILLEURES OFFRES CHAT</p>
-        <h2 className="section-title">Top mutuelles chat 2026</h2>
+        <h2 className="section-title">Top assurances chat 2026</h2>
 
         {LIST_CHAT.map((item) => (
           <AssuranceListItem key={item.rank} {...item} />

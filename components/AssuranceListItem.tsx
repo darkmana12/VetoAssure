@@ -50,16 +50,18 @@ export default function AssuranceListItem({
             <li key={i}>{p}</li>
           ))}
         </ul>
-        <span
-          className="list-card-bonus"
-          style={{
-            color: bonusColor,
-            borderColor: bonusBorder,
-            background: bonusBg,
-          }}
-        >
-          {bonus}
-        </span>
+        {bonus && (
+          <span
+            className="list-card-bonus"
+            style={{
+              color: bonusColor,
+              borderColor: bonusBorder,
+              background: bonusBg,
+            }}
+          >
+            {bonus}
+          </span>
+        )}
       </div>
 
       {/* CTA */}

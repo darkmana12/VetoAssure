@@ -382,6 +382,11 @@ main {
   flex-wrap: wrap;
 }
 
+.hero-btns .btn-secondary,
+.hero-btns button.btn-secondary {
+  width: 150px;
+}
+
 .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -405,6 +410,7 @@ main {
 .btn-secondary {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
   background: #fff;
   color: var(--text);
@@ -413,9 +419,13 @@ main {
   border-radius: var(--radius-sm);
   font-size: 14px;
   font-weight: 600;
+  font-family: inherit;
   text-decoration: none;
   cursor: pointer;
   transition: all 0.15s;
+  box-sizing: border-box;
+  height: 47px;
+  white-space: nowrap;
 }
 
 .btn-secondary:hover {

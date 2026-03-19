@@ -4,6 +4,7 @@ import AssuranceCard from '@/components/AssuranceCard'
 import AssuranceListItem from '@/components/AssuranceListItem'
 import RaceCard from '@/components/RaceCard'
 import FaqAccordion from '@/components/FaqAccordion'
+import HeroRacesDropdown from '@/components/HeroRacesDropdown'
 
 export const metadata: Metadata = {
   title: 'VetoAssure — Comparatif assurance animaux 2026',
@@ -124,7 +125,6 @@ const LIST_ITEMS = [
       'Idéal pour les chats d\'appartement',
       'Sans engagement, résiliable à tout moment',
     ],
-    bonus: '-10% avec le code VETO10',
     bonusColor: '#15803D',
     bonusBorder: '#86EFAC',
     bonusBg: '#F0FDF4',
@@ -253,6 +253,7 @@ export default function HomePage() {
         <div className="hero-btns">
           <Link href="/chien" className="btn-secondary">🐕 Mon chien</Link>
           <Link href="/chat" className="btn-secondary">🐈 Mon chat</Link>
+          <HeroRacesDropdown />
         </div>
       </section>
 
@@ -324,7 +325,7 @@ export default function HomePage() {
           <strong>augmenté de plus de 40 % en dix ans</strong>. Une simple consultation chez le
           vétérinaire coûte en moyenne 40 à 70 €, et les interventions chirurgicales peuvent
           rapidement atteindre plusieurs milliers d&apos;euros. Face à ces dépenses imprévues, une{' '}
-          <strong>assurance chien ou une mutuelle chat</strong> permet de couvrir tout ou partie des
+          <strong>assurance chien ou une assurance chat</strong> permet de couvrir tout ou partie des
           frais vétérinaires — et de soigner son animal sans se ruiner.
         </p>
         <p className="seo-text">
@@ -361,7 +362,7 @@ export default function HomePage() {
               Certaines races de chiens et de chats sont génétiquement prédisposées à des pathologies
               coûteuses — dysplasies chez le golden retriever, problèmes cardiaques chez le cavalier
               king charles, insuffisance rénale chez le chat persan. Pour ces animaux,{' '}
-              <strong>souscrire une mutuelle vétérinaire adaptée à leur race</strong> est
+              <strong>souscrire une assurance vétérinaire adaptée à leur race</strong> est
               particulièrement recommandé.
             </p>
           </div>

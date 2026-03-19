@@ -54,6 +54,7 @@ export default function Nav() {
 
           {/* Desktop links */}
           <ul className="nav-links">
+            <li><Link href="/" className="nav-link">TOP</Link></li>
             <li><Link href="/chien" className="nav-link">Chien</Link></li>
             <li><Link href="/chat" className="nav-link">Chat</Link></li>
 

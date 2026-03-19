@@ -39,7 +39,6 @@ const LIST_CHIEN = [
     rank: 2, name: 'Kozoo', shortName: 'Kzoo', color: '#16A34A',
     score: 8.8, stars: '★★★★½',
     points: ['Remboursement 24h', 'Sans engagement', 'Maladies chroniques'],
-    bonus: '-10% avec le code VETO10',
     bonusColor: '#15803D', bonusBorder: '#86EFAC', bonusBg: '#F0FDF4',
     price: '12€', href: '/avis/kozoo',
   },
