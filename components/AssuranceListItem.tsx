@@ -8,10 +8,10 @@ interface AssuranceListItemProps {
   score: number
   stars: string
   points: string[]
-  bonus: string
-  bonusColor: string
-  bonusBorder: string
-  bonusBg: string
+  bonus?: string
+  bonusColor?: string
+  bonusBorder?: string
+  bonusBg?: string
   price: string
   href: string
 }
