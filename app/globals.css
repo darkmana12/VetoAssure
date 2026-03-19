@@ -117,6 +117,12 @@ h1, h2, h3 {
   list-style: none;
 }
 
+.nav-links > li {
+  display: flex;
+  align-items: center;
+  line-height: 1;
+}
+
 .nav-link {
   font-size: 13px;
   font-weight: 600;
@@ -127,8 +133,11 @@ h1, h2, h3 {
   text-decoration: none;
   background: none !important;
   position: relative;
-  padding-bottom: 2px;
+  padding: 0 0 2px;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
 }
 
 .nav-link::after {
@@ -158,6 +167,8 @@ h1, h2, h3 {
 /* ---- DROPDOWN ---- */
 .nav-dropdown {
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .nav-dropdown-trigger {
@@ -173,9 +184,13 @@ h1, h2, h3 {
   display: flex;
   align-items: center;
   gap: 4px;
-  padding: 0;
+  padding: 0 0 2px;
   position: relative;
-  padding-bottom: 2px;
+  line-height: 1;
+}
+
+.nav-dropdown-trigger svg {
+  flex-shrink: 0;
 }
 
 .nav-dropdown-trigger::after {
