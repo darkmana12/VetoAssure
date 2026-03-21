@@ -57,7 +57,7 @@ export default function RacesPage() {
         </div>
       </section>
 
-      <section className="section" style={{ paddingTop: 0 }}>
+      <section className="section" style={{ paddingTop: 0 }} id="chats">
         <p className="section-label">RACES DE CHATS</p>
         <h2 className="section-title">Assurance chat par race</h2>
         <div className="race-grid" style={{ marginTop: 16 }}>

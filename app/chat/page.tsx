@@ -62,9 +62,6 @@ export default function ChatPage() {
           Assurance chat : comparatif complet de 14 offres — trouvez la meilleure couverture pour
           votre chat selon sa race et son profil.
         </p>
-        <div className="hero-btns">
-          <Link href="/" className="btn-secondary">← Retour au comparatif</Link>
-        </div>
       </section>
 
       <section className="section">
@@ -85,6 +82,10 @@ export default function ChatPage() {
           ))}
         </div>
         <Link href="/races" className="see-all-link">Voir toutes les races →</Link>
+      </section>
+
+      <section className="section" style={{ paddingTop: 0, textAlign: 'center', paddingBottom: 48 }}>
+        <Link href="/" className="btn-secondary">← Retour au comparatif</Link>
       </section>
     </>
   )

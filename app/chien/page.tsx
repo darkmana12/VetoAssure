@@ -62,13 +62,10 @@ export default function ChienPage() {
           Comparatif complet de 14 assurances chien — garanties, prix et remboursements réels analysés
           pour vous aider à choisir.
         </p>
-        <div className="hero-btns">
-          <Link href="/" className="btn-secondary">← Retour au comparatif</Link>
-        </div>
       </section>
 
       <section className="section">
-        <p className="section-label">MEILLEURES OFFRES</p>
+        <p className="section-label">MEILLEURES OFFRES CHIEN</p>
         <h2 className="section-title">Top assurances chien 2026</h2>
 
         {LIST_CHIEN.map((item) => (
@@ -85,6 +82,10 @@ export default function ChienPage() {
           ))}
         </div>
         <Link href="/races" className="see-all-link">Voir toutes les races →</Link>
+      </section>
+
+      <section className="section" style={{ paddingTop: 0, textAlign: 'center', paddingBottom: 48 }}>
+        <Link href="/" className="btn-secondary">← Retour au comparatif</Link>
       </section>
     </>
   )

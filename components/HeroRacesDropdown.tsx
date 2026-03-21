@@ -41,12 +41,12 @@ export default function HeroRacesDropdown() {
           zIndex: 100,
           overflow: 'hidden',
         }}>
-          <Link href="/chien#races" style={{ display: 'block', padding: '10px 16px', fontSize: 13, color: 'var(--text)', textDecoration: 'none' }}
+          <Link href="/races" style={{ display: 'block', padding: '10px 16px', fontSize: 13, color: 'var(--text)', textDecoration: 'none' }}
             onMouseEnter={(e) => (e.currentTarget.style.background = 'var(--blue-light)')}
             onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
             onClick={() => setOpen(false)}
           >🐕 Races de chiens</Link>
-          <Link href="/chat#races" style={{ display: 'block', padding: '10px 16px', fontSize: 13, color: 'var(--text)', textDecoration: 'none' }}
+          <Link href="/races#chats" style={{ display: 'block', padding: '10px 16px', fontSize: 13, color: 'var(--text)', textDecoration: 'none' }}
             onMouseEnter={(e) => (e.currentTarget.style.background = 'var(--blue-light)')}
             onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
             onClick={() => setOpen(false)}

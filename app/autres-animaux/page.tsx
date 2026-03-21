@@ -32,9 +32,6 @@ export default function AutresAnimauxPage() {
           Lapins, oiseaux, reptiles, rongeurs — les NAC ont aussi besoin d&apos;une couverture
           vétérinaire adaptée. Découvrez les offres disponibles.
         </p>
-        <div className="hero-btns">
-          <Link href="/" className="btn-secondary">← Retour au comparatif</Link>
-        </div>
       </section>
 
       <section className="section">
@@ -90,6 +87,10 @@ export default function AutresAnimauxPage() {
             Voir le comparatif général →
           </Link>
         </div>
+      </section>
+
+      <section className="section" style={{ paddingTop: 0, textAlign: 'center', paddingBottom: 48 }}>
+        <Link href="/" className="btn-secondary">← Retour au comparatif</Link>
       </section>
     </>
   )

@@ -71,8 +71,8 @@ export default function Nav() {
                 </svg>
               </div>
               <div className="nav-dropdown-menu">
-                <Link href="/chien#races" className="nav-dropdown-item">🐕 Races de chiens</Link>
-                <Link href="/chat#races" className="nav-dropdown-item">🐈 Races de chats</Link>
+                <Link href="/races" className="nav-dropdown-item">🐕 Races de chiens</Link>
+                <Link href="/races#chats" className="nav-dropdown-item">🐈 Races de chats</Link>
               </div>
             </li>
 
