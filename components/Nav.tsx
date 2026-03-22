@@ -24,9 +24,9 @@ export default function Nav() {
     <>
       {/* Trust Bar */}
       <div className="trust-bar">
-        <span>14 assurances comparées</span>
+        <span>8 assurances comparées</span>
         <span className="trust-sep">·</span>
-        <span>Vérifié mars 2026</span>
+        <span>Vérifié {new Date().toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' })}</span>
         <span className="trust-sep">·</span>
         <span>100% indépendant</span>
         <span className="trust-sep">·</span>
@@ -78,6 +78,9 @@ export default function Nav() {
 
             <li><Link href="/avis" className="nav-link">Avis</Link></li>
             <li><Link href="/autres-animaux" className="nav-link">Autres animaux</Link></li>
+            <li style={{ marginLeft: 'auto', paddingLeft: 24, borderLeft: '1px solid var(--border)' }}>
+              <Link href="/blog" className="nav-link">Blog</Link>
+            </li>
           </ul>
 
           {/* Burger */}
@@ -106,6 +109,7 @@ export default function Nav() {
         <Link href="/chat" className="nav-drawer-link" onClick={() => setDrawerOpen(false)}>Chat</Link>
         <Link href="/races" className="nav-drawer-link" onClick={() => setDrawerOpen(false)}>Races</Link>
         <Link href="/avis" className="nav-drawer-link" onClick={() => setDrawerOpen(false)}>Avis</Link>
+        <Link href="/blog" className="nav-drawer-link" onClick={() => setDrawerOpen(false)}>Blog</Link>
         <Link href="/autres-animaux" className="nav-drawer-link" onClick={() => setDrawerOpen(false)}>Autres animaux</Link>
       </div>
     </>

@@ -6,12 +6,12 @@ import RaceCard from '@/components/RaceCard'
 export const metadata: Metadata = {
   title: 'Meilleure assurance chat 2026 — Comparatif complet',
   description:
-    'Quelle assurance chat choisir en 2026 ? Insuffisance rénale, maladies chroniques, chat d\'appartement : on compare les remboursements réels de 14 assureurs.',
+    'Quelle assurance chat choisir en 2026 ? Insuffisance rénale, maladies chroniques, chat d\'appartement : on compare les remboursements réels de 8 assureurs.',
   alternates: { canonical: 'https://vetoassure.fr/chat' },
   openGraph: {
     url: 'https://vetoassure.fr/chat',
     title: 'Meilleure assurance chat 2026 — Comparatif complet',
-    description: 'Quelle assurance chat choisir en 2026 ? Insuffisance rénale, maladies chroniques, chat d\'appartement : on compare les remboursements réels de 14 assureurs.',
+    description: 'Quelle assurance chat choisir en 2026 ? Insuffisance rénale, maladies chroniques, chat d\'appartement : on compare les remboursements réels de 8 assureurs.',
   },
 }
 
@@ -28,19 +28,19 @@ const RACES_CHAT = [
 
 const LIST_CHAT = [
   {
-    rank: 1, name: 'Kozoo', shortName: 'Kzoo', color: '#16A34A',
+    rank: 1, name: 'Kozoo', shortName: 'Kzoo', color: '#16A34A', logo: '/logos-assurances/kozoo_logo.jpeg',
     score: 8.8, stars: '★★★★½',
     points: ['Remboursement 24h', 'Chats appart', 'Sans engagement'],
     bonusColor: '#15803D', bonusBorder: '#86EFAC', bonusBg: '#F0FDF4',
     price: '12€', href: '/avis/kozoo',
   },
   {
-    rank: 2, name: 'SantéVet', shortName: 'SVet', color: '#1D4ED8',
+    rank: 2, name: 'SantéVet', shortName: 'SVet', color: '#1D4ED8', logo: '/logos-assurances/santevet_logo.png',
     score: 9.2, stars: '★★★★★',
-    points: ['Pas de limite d\'âge', 'Chirurgie 3000€', 'Appli mobile'],
+    points: ['Payvet : avance des frais chez le véto', 'Formule Cat Indoor pour chats d\'appartement', 'Couvert à vie une fois assuré'],
     bonus: '1 mois offert en passant par VetoAssure',
     bonusColor: '#1D4ED8', bonusBorder: '#93C5FD', bonusBg: '#EFF6FF',
-    price: '14€', href: '/avis/santeVet',
+    price: '15€', href: '/avis/santeVet',
   },
   {
     rank: 3, name: 'Acheel', shortName: 'Ach', color: '#EA580C',
@@ -49,6 +49,14 @@ const LIST_CHAT = [
     bonus: '2 mois offerts en exclusivité via VetoAssure',
     bonusColor: '#C2410C', bonusBorder: '#FDBA74', bonusBg: '#FFF7ED',
     price: '9€', href: '/avis/acheel',
+  },
+  {
+    rank: 4, name: 'Barkibu', shortName: 'Bark', color: '#F97316', logo: '/logos-assurances/barkibu_logo.png',
+    score: 8.6, stars: '★★★★½',
+    points: ['Aucune franchise', '100% prévention remboursé', 'Téléconsultation 24h/24'],
+    bonus: 'Code promo exclusif : vetoassure25',
+    bonusColor: '#EA580C', bonusBorder: '#FED7AA', bonusBg: '#FFF7ED',
+    price: '20€', href: '/avis/barkibu',
   },
 ]
 
@@ -59,7 +67,7 @@ export default function ChatPage() {
         <div className="hero-badge">Comparatif assurances chat 2026</div>
         <h1>Meilleure assurance chat 2026</h1>
         <p className="hero-subtitle">
-          Assurance chat : comparatif complet de 14 offres — trouvez la meilleure couverture pour
+          Assurance chat : comparatif complet de 8 offres — trouvez la meilleure couverture pour
           votre chat selon sa race et son profil.
         </p>
       </section>

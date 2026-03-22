@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 interface AssuranceListItemProps {
   rank: number
@@ -14,6 +15,7 @@ interface AssuranceListItemProps {
   bonusBg?: string
   price: string
   href: string
+  logo?: string
 }
 
 export default function AssuranceListItem({
@@ -29,17 +31,24 @@ export default function AssuranceListItem({
   bonusBorder,
   bonusBg,
   href,
+  logo,
 }: AssuranceListItemProps) {
   return (
     <Link href={href} className="list-card">
       {/* Rank */}
       <div className="list-card-rank">{rank}</div>
 
-      {/* Logo circle */}
+      {/* Logo */}
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-start', paddingTop: 2 }}>
-        <div className="list-card-logo-circle" style={{ background: color }}>
-          {shortName}
-        </div>
+        {logo ? (
+          <div style={{ width: 200, height: 110, background: '#fff', borderRadius: 8, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '12px 16px' }}>
+            <Image src={logo} alt={`Logo ${name}`} width={176} height={86} style={{ objectFit: 'contain', width: '100%', height: '100%' }} />
+          </div>
+        ) : (
+          <div className="list-card-logo-circle" style={{ background: color }}>
+            {shortName}
+          </div>
+        )}
       </div>
 
       {/* Main info */}

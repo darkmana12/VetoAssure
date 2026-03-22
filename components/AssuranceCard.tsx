@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 interface AssuranceCardProps {
   rank: number
@@ -14,6 +15,7 @@ interface AssuranceCardProps {
   price: string
   priceNote: string
   href: string
+  logo?: string
 }
 
 export default function AssuranceCard({
@@ -30,6 +32,7 @@ export default function AssuranceCard({
   price,
   priceNote,
   href,
+  logo,
 }: AssuranceCardProps) {
   return (
     <Link href={href} className="assurance-card" style={{ borderColor: color }}>
@@ -39,9 +42,15 @@ export default function AssuranceCard({
         className="assurance-card-header"
         style={{ background: `linear-gradient(135deg, ${gradientFrom}, ${gradientTo})` }}
       >
-        <div className="assurance-card-logo" style={{ background: color }}>
-          {shortName}
-        </div>
+        {logo ? (
+          <div style={{ width: 240, height: 90, background: '#fff', borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '12px 20px' }}>
+            <Image src={logo} alt={`Logo ${name}`} width={200} height={66} style={{ objectFit: 'contain', width: '100%', height: '100%' }} />
+          </div>
+        ) : (
+          <div className="assurance-card-logo" style={{ background: color }}>
+            {shortName}
+          </div>
+        )}
       </div>
 
       {/* Body */}

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export const metadata: Metadata = {
   title: 'Avis assurances animaux 2026 — Tests indépendants',
@@ -15,12 +16,12 @@ export const metadata: Metadata = {
 
 const AVIS_LIST = [
   {
-    slug: 'santeVet', name: 'SantéVet', shortName: 'SVet', color: '#1D4ED8',
+    slug: 'santeVet', name: 'SantéVet', shortName: 'SVet', color: '#1D4ED8', logo: '/logos-assurances/santevet_logo.png',
     tagline: 'Meilleur rapport qualité / garanties',
-    points: ['Dysplasies couvertes dès le 1er mois', 'Chirurgie remboursée jusqu\'à 3 000 €', 'Pas de limite d\'âge à la souscription'],
+    points: ['Payvet : avance des frais directement chez le véto', 'Couvert à vie une fois assuré', 'Remboursement jusqu\'à 4 000€/an'],
   },
   {
-    slug: 'kozoo', name: 'Kozoo', shortName: 'Kzoo', color: '#16A34A',
+    slug: 'kozoo', name: 'Kozoo', shortName: 'Kzoo', color: '#16A34A', logo: '/logos-assurances/kozoo_logo.jpeg',
     tagline: 'Remboursement le plus rapide (24h)',
     points: ['Remboursement le plus rapide du marché', 'Idéal pour les chats d\'appartement', 'Sans engagement, résiliable à tout moment'],
   },
@@ -43,6 +44,12 @@ const AVIS_LIST = [
     slug: 'dalma', name: 'Dalma', shortName: 'Dalm', color: '#0891B2',
     tagline: '100% digital et sans engagement',
     points: ['Souscription et gestion 100% en ligne', 'Accidents et maladies couverts', 'Application mobile intuitive'],
+  },
+  {
+    slug: 'barkibu', name: 'Barkibu', shortName: 'Bark', color: '#F97316', logo: '/logos-assurances/barkibu_logo.png',
+    tagline: 'Aucune franchise · Téléconsultation 24h/24 incluse',
+    points: ['Aucune franchise à payer', '100% prévention remboursé (vaccins)', 'Téléconsultation illimitée 24h/24'],
+    promoCode: 'vetoassure25',
   },
 ]
 
@@ -68,12 +75,18 @@ export default function AvisPage() {
               key={a.slug}
               href={`/avis/${a.slug}`}
               className="list-card"
-              style={{ gridTemplateColumns: '44px 1fr auto' }}
+              style={{ gridTemplateColumns: '160px 1fr auto', alignItems: 'center' }}
             >
               {/* Logo */}
-              <div className="list-card-logo-circle" style={{ background: a.color }}>
-                {a.shortName}
-              </div>
+              {'logo' in a && a.logo ? (
+                <div style={{ width: '100%', height: 72, background: '#fff', borderRadius: 8, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '10px 14px' }}>
+                  <Image src={a.logo as string} alt={`Logo ${a.name}`} width={130} height={52} style={{ objectFit: 'contain', width: '100%', height: '100%' }} />
+                </div>
+              ) : (
+                <div className="list-card-logo-circle" style={{ background: a.color }}>
+                  {a.shortName}
+                </div>
+              )}
 
               {/* Info */}
               <div className="list-card-info">
@@ -82,6 +95,11 @@ export default function AvisPage() {
                 <ul className="list-card-bullets">
                   {a.points.map((p, i) => <li key={i}>{p}</li>)}
                 </ul>
+                {'promoCode' in a && a.promoCode && (
+                  <span className="list-card-bonus" style={{ color: a.color, borderColor: a.color + '80', background: a.color + '12' }}>
+                    Code promo exclusif : {a.promoCode as string}
+                  </span>
+                )}
               </div>
 
               {/* CTA */}

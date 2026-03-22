@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export const metadata: Metadata = {
   title: 'Assurance NAC & autres animaux 2026',
@@ -14,12 +15,13 @@ export const metadata: Metadata = {
 }
 
 const NACS = [
-  { emoji: '🐇', name: 'Lapin', desc: 'Problèmes dentaires, GI stasis' },
-  { emoji: '🐦', name: 'Oiseau / Perroquet', desc: 'Infections, fractures' },
-  { emoji: '🦎', name: 'Reptile', desc: 'Infections, parasites' },
-  { emoji: '🐹', name: 'Rongeur', desc: 'Tumeurs, problèmes respiratoires' },
-  { emoji: '🐠', name: 'Poisson exotique', desc: 'Couverture rare' },
-  { emoji: '🦔', name: 'Hérisson', desc: 'NAC spécialisé' },
+  { emoji: '🐇', name: 'Lapin', desc: 'Problèmes dentaires, GI stasis', img: '/races/lapin.webp' },
+  { emoji: '🐦', name: 'Oiseau / Perroquet', desc: 'Infections, fractures', img: '/races/oiseau.webp' },
+  { emoji: '🦎', name: 'Reptile', desc: 'Infections, parasites', img: '/races/reptile.webp' },
+  { emoji: '🐹', name: 'Rongeur', desc: 'Tumeurs, problèmes respiratoires', img: '/races/rongeur.webp' },
+  { emoji: '🐠', name: 'Poisson exotique', desc: 'Couverture rare', img: '/races/poisson-exotique.webp' },
+  { emoji: '🦔', name: 'Hérisson', desc: 'NAC spécialisé', img: '/races/herisson.webp' },
+  { emoji: '🦡', name: 'Furet', desc: 'Mustélidé, frais véto élevés', img: '/races/furet.webp' },
 ]
 
 export default function AutresAnimauxPage() {
@@ -38,31 +40,20 @@ export default function AutresAnimauxPage() {
         <p className="section-label">LES NAC</p>
         <h2 className="section-title">Nouveaux Animaux de Compagnie</h2>
 
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))',
-            gap: 12,
-            marginTop: 16,
-          }}
-        >
+        <div className="race-grid" style={{ marginTop: 16 }}>
           {NACS.map((n) => (
-            <div
-              key={n.name}
-              style={{
-                background: '#fff',
-                border: '1px solid var(--border)',
-                borderRadius: 'var(--radius-sm)',
-                padding: 16,
-                textAlign: 'center',
-                boxShadow: '0 2px 6px rgba(0,0,0,0.05)',
-              }}
-            >
-              <div style={{ fontSize: 28, marginBottom: 8 }}>{n.emoji}</div>
-              <div style={{ fontSize: 13, fontWeight: 600, color: 'var(--text)', marginBottom: 4 }}>
-                {n.name}
+            <div key={n.name} className="race-card">
+              <div className="race-card-img-wrap">
+                <Image
+                  src={n.img}
+                  alt={`Photo d'un ${n.name}`}
+                  fill
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                  className="race-card-img"
+                />
               </div>
-              <div style={{ fontSize: 11, color: 'var(--text-2)' }}>{n.desc}</div>
+              <span className="race-card-name">{n.name}</span>
+              <span className="race-card-type">{n.desc}</span>
             </div>
           ))}
         </div>

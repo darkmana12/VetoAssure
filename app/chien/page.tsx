@@ -6,12 +6,12 @@ import RaceCard from '@/components/RaceCard'
 export const metadata: Metadata = {
   title: 'Meilleure assurance chien 2026 — Comparatif complet',
   description:
-    'Quelle assurance chien choisir en 2026 ? Dysplasies, chirurgie, maladies chroniques : on compare les garanties réelles de 14 assureurs pour votre race.',
+    'Quelle assurance chien choisir en 2026 ? Dysplasies, chirurgie, maladies chroniques : on compare les garanties réelles de 8 assureurs pour votre race.',
   alternates: { canonical: 'https://vetoassure.fr/chien' },
   openGraph: {
     url: 'https://vetoassure.fr/chien',
     title: 'Meilleure assurance chien 2026 — Comparatif complet',
-    description: 'Quelle assurance chien choisir en 2026 ? Dysplasies, chirurgie, maladies chroniques : on compare les garanties réelles de 14 assureurs pour votre race.',
+    description: 'Quelle assurance chien choisir en 2026 ? Dysplasies, chirurgie, maladies chroniques : on compare les garanties réelles de 8 assureurs pour votre race.',
   },
 }
 
@@ -28,15 +28,15 @@ const RACES_CHIEN = [
 
 const LIST_CHIEN = [
   {
-    rank: 1, name: 'SantéVet', shortName: 'SVet', color: '#1D4ED8',
+    rank: 1, name: 'SantéVet', shortName: 'SVet', color: '#1D4ED8', logo: '/logos-assurances/santevet_logo.png',
     score: 9.2, stars: '★★★★★',
-    points: ['Dysplasies dès M1', 'Chirurgie 3000€', 'Pas de limite d\'âge'],
+    points: ['Payvet : avance des frais chez le véto', 'Couvert à vie une fois assuré', 'Remboursement jusqu\'à 4 000€/an'],
     bonus: '1 mois offert en passant par VetoAssure',
     bonusColor: '#1D4ED8', bonusBorder: '#93C5FD', bonusBg: '#EFF6FF',
-    price: '14€', href: '/avis/santeVet',
+    price: '15€', href: '/avis/santeVet',
   },
   {
-    rank: 2, name: 'Kozoo', shortName: 'Kzoo', color: '#16A34A',
+    rank: 2, name: 'Kozoo', shortName: 'Kzoo', color: '#16A34A', logo: '/logos-assurances/kozoo_logo.jpeg',
     score: 8.8, stars: '★★★★½',
     points: ['Remboursement 24h', 'Sans engagement', 'Maladies chroniques'],
     bonusColor: '#15803D', bonusBorder: '#86EFAC', bonusBg: '#F0FDF4',
@@ -50,6 +50,14 @@ const LIST_CHIEN = [
     bonusColor: '#C2410C', bonusBorder: '#FDBA74', bonusBg: '#FFF7ED',
     price: '9€', href: '/avis/acheel',
   },
+  {
+    rank: 4, name: 'Barkibu', shortName: 'Bark', color: '#F97316', logo: '/logos-assurances/barkibu_logo.png',
+    score: 8.6, stars: '★★★★½',
+    points: ['Aucune franchise', '100% prévention remboursé', 'Téléconsultation 24h/24'],
+    bonus: 'Code promo exclusif : vetoassure25',
+    bonusColor: '#EA580C', bonusBorder: '#FED7AA', bonusBg: '#FFF7ED',
+    price: '20€', href: '/avis/barkibu',
+  },
 ]
 
 export default function ChienPage() {
@@ -59,7 +67,7 @@ export default function ChienPage() {
         <div className="hero-badge">Comparatif chiens 2026</div>
         <h1>Meilleure assurance chien 2026</h1>
         <p className="hero-subtitle">
-          Comparatif complet de 14 assurances chien — garanties, prix et remboursements réels analysés
+          Comparatif complet de 8 assurances chien — garanties, prix et remboursements réels analysés
           pour vous aider à choisir.
         </p>
       </section>

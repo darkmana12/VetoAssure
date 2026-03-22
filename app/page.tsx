@@ -9,12 +9,12 @@ import HeroRacesDropdown from '@/components/HeroRacesDropdown'
 export const metadata: Metadata = {
   title: 'VetoAssure — Comparatif assurance animaux 2026',
   description:
-    'Comparatif indépendant de 14 assurances animaux en France. Scores calculés sur 6 critères, avis vérifiés et offres exclusives pour chien, chat et NAC.',
+    'Comparatif indépendant de 8 assurances animaux en France. Scores calculés sur 6 critères, avis vérifiés et offres exclusives pour chien, chat et NAC.',
   alternates: { canonical: 'https://vetoassure.fr' },
   openGraph: {
     url: 'https://vetoassure.fr',
     title: 'VetoAssure — Comparatif assurance animaux 2026',
-    description: 'Comparatif indépendant de 14 assurances animaux en France. Scores calculés sur 6 critères, avis vérifiés et offres exclusives pour chien, chat et NAC.',
+    description: 'Comparatif indépendant de 8 assurances animaux en France. Scores calculés sur 6 critères, avis vérifiés et offres exclusives pour chien, chat et NAC.',
   },
 }
 
@@ -26,6 +26,7 @@ const TOP3 = [
     color: '#1D4ED8',
     gradientFrom: '#EFF6FF',
     gradientTo: '#DBEAFE',
+    logo: '/logos-assurances/santevet_logo.png',
     tagline: 'Meilleur rapport qualité / garanties',
     score: 9.2,
     facts: [
@@ -34,12 +35,12 @@ const TOP3 = [
       { label: 'Avis clients', value: '4.6/5' },
     ],
     checks: [
-      'Couvre les dysplasies dès le 1er mois',
-      "Pas de limite d'âge à la souscription",
-      'Application mobile fluide et rapide',
-      'Chirurgie couverte jusqu\'à 3\u00a0000\u00a0€',
+      'Payvet : avance des frais directement chez le véto',
+      'Couvert à vie une fois assuré',
+      'Remboursement jusqu\'à 4\u00a0000\u00a0€/an',
+      'Urgences vétérinaires 24h/7j incluses',
     ],
-    price: '14€',
+    price: '15€',
     priceNote: 'Devis en 2 min',
     href: '/avis/santeVet',
   },
@@ -50,6 +51,7 @@ const TOP3 = [
     color: '#16A34A',
     gradientFrom: '#F0FDF4',
     gradientTo: '#DCFCE7',
+    logo: '/logos-assurances/kozoo_logo.jpeg',
     tagline: 'Remboursement le plus rapide (24h)',
     score: 8.8,
     facts: [
@@ -101,16 +103,17 @@ const LIST_ITEMS = [
     color: '#1D4ED8',
     score: 9.2,
     stars: '★★★★★',
+    logo: '/logos-assurances/santevet_logo.png',
     points: [
-      'Dysplasies couvertes dès le 1er mois',
-      'Chirurgie remboursée jusqu\'à 3 000 €',
-      'Pas de limite d\'âge à la souscription',
+      'Payvet : avance des frais directement chez le véto',
+      'Couvert à vie une fois assuré',
+      'Remboursement jusqu\'à 4 000€/an (formule Optimal)',
     ],
     bonus: '1 mois offert en passant par VetoAssure',
     bonusColor: '#1D4ED8',
     bonusBorder: '#93C5FD',
     bonusBg: '#EFF6FF',
-    price: '14€',
+    price: '15€',
     href: '/avis/santeVet',
   },
   {
@@ -118,6 +121,7 @@ const LIST_ITEMS = [
     name: 'Kozoo',
     shortName: 'Kzoo',
     color: '#16A34A',
+    logo: '/logos-assurances/kozoo_logo.jpeg',
     score: 8.8,
     stars: '★★★★½',
     points: [
@@ -152,6 +156,26 @@ const LIST_ITEMS = [
   },
   {
     rank: 4,
+    name: 'Barkibu',
+    shortName: 'Bark',
+    color: '#F97316',
+    score: 8.6,
+    stars: '★★★★½',
+    logo: '/logos-assurances/barkibu_logo.png',
+    points: [
+      'Aucune franchise à payer',
+      '100% prévention remboursé (vaccins, bilans)',
+      'Téléconsultation vétérinaire 24h/24 incluse',
+    ],
+    bonus: 'Code promo exclusif : vetoassure25',
+    bonusColor: '#EA580C',
+    bonusBorder: '#FED7AA',
+    bonusBg: '#FFF7ED',
+    price: '20€',
+    href: '/avis/barkibu',
+  },
+  {
+    rank: 5,
     name: 'Acheel',
     shortName: 'Ach',
     color: '#EA580C',
@@ -170,7 +194,7 @@ const LIST_ITEMS = [
     href: '/avis/acheel',
   },
   {
-    rank: 5,
+    rank: 6,
     name: 'Fidanimo',
     shortName: 'Fida',
     color: '#7C3AED',
@@ -189,7 +213,7 @@ const LIST_ITEMS = [
     href: '/avis/fidanimo',
   },
   {
-    rank: 6,
+    rank: 7,
     name: 'Dalma',
     shortName: 'Dalm',
     color: '#0891B2',
@@ -208,7 +232,7 @@ const LIST_ITEMS = [
     href: '/avis/dalma',
   },
   {
-    rank: 7,
+    rank: 8,
     name: 'Hypnia',
     shortName: 'Hyp',
     color: '#92400E',
@@ -247,7 +271,7 @@ export default function HomePage() {
         <div className="hero-badge">Comparatif 2026 mis à jour</div>
         <h1>Quelle assurance pour votre animal ?</h1>
         <p className="hero-subtitle">
-          Nous avons analysé 14 assurances animaux pour vous. Comparez les garanties,
+          Nous avons analysé 8 assurances animaux pour vous. Comparez les garanties,
           les prix et les remboursements réels — par race et par profil.
         </p>
         <div className="hero-btns">
@@ -261,7 +285,7 @@ export default function HomePage() {
       <section className="section">
         <p className="section-label">NOTRE SÉLECTION</p>
         <h2 className="section-title">Top 3 assurances animaux 2026</h2>
-        <p className="section-subtitle">Scores calculés sur 6 critères · Vérifié le 15 mars 2026</p>
+        <p className="section-subtitle">Scores calculés sur 6 critères · Vérifié {new Date().toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' })}</p>
 
         {/* Top 3 */}
         <div className="top3-grid">

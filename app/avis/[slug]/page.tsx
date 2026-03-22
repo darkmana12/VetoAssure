@@ -3,6 +3,9 @@ import { notFound } from 'next/navigation'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { getAvis, getAllAvis } from '@/lib/mdx'
 import Link from 'next/link'
+import Image from 'next/image'
+import CopyPromoCode from '@/components/CopyPromoCode'
+import remarkGfm from 'remark-gfm'
 
 interface Props {
   params: { slug: string }
@@ -74,23 +77,46 @@ export default function AvisSlugPage({ params }: Props) {
       </Link>
 
       <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 24 }}>
-        <div
-          style={{
-            width: 56,
-            height: 56,
-            borderRadius: '50%',
-            background: color,
+        {frontmatter.logo ? (
+          <div style={{
+            width: 120,
+            height: 64,
+            flexShrink: 0,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            color: '#fff',
-            fontSize: 13,
-            fontWeight: 700,
-            flexShrink: 0,
-          }}
-        >
-          {(frontmatter.nom as string).slice(0, 4)}
-        </div>
+            background: '#fff',
+            border: '1px solid var(--border)',
+            borderRadius: 10,
+            padding: '8px 14px',
+          }}>
+            <Image
+              src={frontmatter.logo as string}
+              alt={`Logo ${frontmatter.nom as string}`}
+              width={100}
+              height={48}
+              style={{ objectFit: 'contain', width: '100%', height: '100%' }}
+            />
+          </div>
+        ) : (
+          <div
+            style={{
+              width: 56,
+              height: 56,
+              borderRadius: '50%',
+              background: color,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: '#fff',
+              fontSize: 13,
+              fontWeight: 700,
+              flexShrink: 0,
+            }}
+          >
+            {(frontmatter.nom as string).slice(0, 4)}
+          </div>
+        )}
         <div>
           <h1 style={{ fontSize: 'clamp(20px, 4vw, 28px)', fontWeight: 700, color: 'var(--text)', marginBottom: 4 }}>
             {frontmatter.nom as string} — Avis 2026
@@ -133,15 +159,23 @@ export default function AvisSlugPage({ params }: Props) {
           { label: 'Remboursement', value: frontmatter.remboursementDelai as string },
           { label: 'Avis clients', value: `${frontmatter.avisClients as number}/5 ★` },
         ].map((s) => (
-          <div key={s.label} style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: 8, padding: '12px 14px', textAlign: 'center' }}>
-            <div style={{ fontSize: 18, fontWeight: 700, color, fontFamily: 'var(--font-dm-serif)' }}>{s.value}</div>
-            <div style={{ fontSize: 11, color: 'var(--text-2)', marginTop: 2 }}>{s.label}</div>
+          <div key={s.label} style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: 8, padding: '14px 16px', textAlign: 'center' }}>
+            <div style={{ fontSize: 26, fontWeight: 700, color, fontFamily: 'var(--font-dm-serif)' }}>{s.value}</div>
+            <div style={{ fontSize: 13, color: 'var(--text-2)', marginTop: 4 }}>{s.label}</div>
           </div>
         ))}
       </div>
 
-      <div className="seo-text">
-        <MDXRemote source={content} />
+      {frontmatter.promoCode && (
+        <CopyPromoCode
+          code={frontmatter.promoCode as string}
+          href={(frontmatter.promoHref as string) || 'https://www.barkibu.com/fr/'}
+          color={color}
+        />
+      )}
+
+      <div className="blog-content">
+        <MDXRemote source={content} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
       </div>
 
       <div style={{ marginTop: 32 }}>
