@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 interface Post {
   slug: string
@@ -160,7 +161,19 @@ export default function BlogPageContent({ posts, totalQR, totalPatho }: Props) {
                 const vis = QR_VISUALS[post.slug] ?? { bg: 'linear-gradient(135deg,#374151,#111827)', emoji: '❓' }
                 return (
                   <Link key={post.slug} href={`/blog/${post.slug}`} className="blog-qr-card">
-                    <div className="blog-qr-visual" style={{ background: vis.bg }}>{vis.emoji}</div>
+                    {post.slug === 'santevet-vs-kozoo-comparatif' ? (
+                      <div className="blog-qr-visual" style={{ background: 'linear-gradient(135deg,#1e3a8a,#14532d)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, padding: '0 12px' }}>
+                        <div style={{ background: '#fff', borderRadius: 6, padding: '4px 8px', display: 'flex', alignItems: 'center', flex: 1, justifyContent: 'center' }}>
+                          <Image src="/logos-assurances/santevet_logo.png" alt="SantéVet" width={70} height={28} style={{ objectFit: 'contain' }} />
+                        </div>
+                        <span style={{ color: '#fff', fontWeight: 800, fontSize: 13, flexShrink: 0 }}>VS</span>
+                        <div style={{ background: '#fff', borderRadius: 6, padding: '4px 8px', display: 'flex', alignItems: 'center', flex: 1, justifyContent: 'center' }}>
+                          <Image src="/logos-assurances/kozoo_logo.jpeg" alt="Kozoo" width={70} height={28} style={{ objectFit: 'contain' }} />
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="blog-qr-visual" style={{ background: vis.bg }}>{vis.emoji}</div>
+                    )}
                     <div className="blog-qr-body">
                       <span className="blog-qr-tag blog-qr-tag-qr">Q&amp;R</span>
                       <div className="blog-qr-title">{post.frontmatter.title}</div>
@@ -223,11 +236,23 @@ export default function BlogPageContent({ posts, totalQR, totalPatho }: Props) {
                 const c = CAT_COLORS[cat] ?? { bg: '#F3F4F6', color: '#374151' }
                 return (
                   <Link key={post.slug} href={`/blog/${post.slug}`} className="blog-qr-card">
-                    <div className="blog-qr-visual" style={{ background: '#111827' }}>
-                      <span style={{ fontSize: 44 }}>
-                        {cat === 'Comparatif' ? '⚖️' : cat === 'Guide' ? '📖' : cat === 'Race' ? '🐕' : '💡'}
-                      </span>
-                    </div>
+                    {post.slug === 'santevet-vs-kozoo-comparatif' ? (
+                      <div className="blog-qr-visual" style={{ background: 'linear-gradient(135deg,#1e3a8a,#14532d)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, padding: '0 12px' }}>
+                        <div style={{ background: '#fff', borderRadius: 6, padding: '4px 8px', display: 'flex', alignItems: 'center', flex: 1, justifyContent: 'center' }}>
+                          <Image src="/logos-assurances/santevet_logo.png" alt="SantéVet" width={70} height={28} style={{ objectFit: 'contain' }} />
+                        </div>
+                        <span style={{ color: '#fff', fontWeight: 800, fontSize: 13, flexShrink: 0 }}>VS</span>
+                        <div style={{ background: '#fff', borderRadius: 6, padding: '4px 8px', display: 'flex', alignItems: 'center', flex: 1, justifyContent: 'center' }}>
+                          <Image src="/logos-assurances/kozoo_logo.jpeg" alt="Kozoo" width={70} height={28} style={{ objectFit: 'contain' }} />
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="blog-qr-visual" style={{ background: '#111827' }}>
+                        <span style={{ fontSize: 44 }}>
+                          {cat === 'Comparatif' ? '⚖️' : cat === 'Guide' ? '📖' : cat === 'Race' ? '🐕' : '💡'}
+                        </span>
+                      </div>
+                    )}
                     <div className="blog-qr-body">
                       <span className="blog-qr-tag" style={{ background: c.bg, color: c.color }}>
                         {CAT_LABELS[cat] ?? cat}

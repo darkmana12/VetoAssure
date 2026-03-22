@@ -33,8 +33,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default function AvisSlugPage({ params }: Props) {
-  let frontmatter: Record<string, unknown>
-  let content: string
+  let frontmatter: Record<string, unknown> = {}
+  let content: string = ''
 
   try {
     const { data, content: c } = getAvis(params.slug)
