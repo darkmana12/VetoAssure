@@ -45,6 +45,15 @@ export default function AvisSlugPage({ params }: Props) {
   }
 
   const score = frontmatter.score as number
+  const prixDes = frontmatter.prixDes as number
+  const remboursementDelai = frontmatter.remboursementDelai as string
+  const avisClients = frontmatter.avisClients as number
+  const nom = frontmatter.nom as string
+  const tagline = frontmatter.tagline as string
+  const logo = frontmatter.logo as string | undefined
+  const promoCode = frontmatter.promoCode as string | undefined
+  const promoHref = frontmatter.promoHref as string | undefined
+  const pointsForts = frontmatter.pointsForts as string[] | undefined
   const color =
     score >= 9 ? '#1D4ED8' : score >= 8.5 ? '#16A34A' : score >= 8 ? '#EA580C' : '#7C3AED'
 
@@ -77,72 +86,33 @@ export default function AvisSlugPage({ params }: Props) {
       </Link>
 
       <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 24 }}>
-        {frontmatter.logo ? (
-          <div style={{
-            width: 120,
-            height: 64,
-            flexShrink: 0,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            background: '#fff',
-            border: '1px solid var(--border)',
-            borderRadius: 10,
-            padding: '8px 14px',
-          }}>
-            <Image
-              src={frontmatter.logo as string}
-              alt={`Logo ${frontmatter.nom as string}`}
-              width={100}
-              height={48}
-              style={{ objectFit: 'contain', width: '100%', height: '100%' }}
-            />
+        {logo ? (
+          <div style={{ width: 120, height: 64, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#fff', border: '1px solid var(--border)', borderRadius: 10, padding: '8px 14px' }}>
+            <Image src={logo} alt={`Logo ${nom}`} width={100} height={48} style={{ objectFit: 'contain', width: '100%', height: '100%' }} />
           </div>
         ) : (
-          <div
-            style={{
-              width: 56,
-              height: 56,
-              borderRadius: '50%',
-              background: color,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: '#fff',
-              fontSize: 13,
-              fontWeight: 700,
-              flexShrink: 0,
-            }}
-          >
-            {(frontmatter.nom as string).slice(0, 4)}
+          <div style={{ width: 56, height: 56, borderRadius: '50%', background: color, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: 13, fontWeight: 700, flexShrink: 0 }}>
+            {nom.slice(0, 4)}
           </div>
         )}
         <div>
           <h1 style={{ fontSize: 'clamp(20px, 4vw, 28px)', fontWeight: 700, color: 'var(--text)', marginBottom: 4 }}>
-            {frontmatter.nom as string} — Avis 2026
+            {nom} — Avis 2026
           </h1>
-          <p style={{ fontSize: 13, color: 'var(--text-2)' }}>{frontmatter.tagline as string}</p>
+          <p style={{ fontSize: 13, color: 'var(--text-2)' }}>{tagline}</p>
         </div>
-        <div
-          style={{
-            fontFamily: 'var(--font-dm-serif)',
-            fontSize: 36,
-            fontWeight: 700,
-            color,
-            marginLeft: 'auto',
-          }}
-        >
+        <div style={{ fontFamily: 'var(--font-dm-serif)', fontSize: 36, fontWeight: 700, color, marginLeft: 'auto' }}>
           {score}
         </div>
       </div>
 
-      {Array.isArray(frontmatter.pointsForts) && (
+      {Array.isArray(pointsForts) && (
         <div style={{ background: color + '10', borderRadius: 'var(--radius-sm)', padding: 16, marginBottom: 24 }}>
           <p style={{ fontSize: 12, fontWeight: 700, color, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 10 }}>
             Points forts
           </p>
           <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 8 }}>
-            {(frontmatter.pointsForts as string[]).map((p) => (
+            {pointsForts.map((p) => (
               <li key={p} style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, color: 'var(--text)' }}>
                 <span style={{ color, fontWeight: 700 }}>✓</span>
                 {p}
@@ -154,11 +124,11 @@ export default function AvisSlugPage({ params }: Props) {
 
       {/* Quick stats */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 10, marginBottom: 24 }}>
-        {[
-          { label: 'Dès', value: `${frontmatter.prixDes as number}€/mois` },
-          { label: 'Remboursement', value: frontmatter.remboursementDelai as string },
-          { label: 'Avis clients', value: `${frontmatter.avisClients as number}/5 ★` },
-        ].map((s) => (
+        {([
+          { label: 'Dès', value: `${prixDes}€/mois` },
+          { label: 'Remboursement', value: remboursementDelai },
+          { label: 'Avis clients', value: `${avisClients}/5 ★` },
+        ] as { label: string; value: string }[]).map((s) => (
           <div key={s.label} style={{ background: '#fff', border: '1px solid var(--border)', borderRadius: 8, padding: '14px 16px', textAlign: 'center' }}>
             <div style={{ fontSize: 26, fontWeight: 700, color, fontFamily: 'var(--font-dm-serif)' }}>{s.value}</div>
             <div style={{ fontSize: 13, color: 'var(--text-2)', marginTop: 4 }}>{s.label}</div>
@@ -166,10 +136,10 @@ export default function AvisSlugPage({ params }: Props) {
         ))}
       </div>
 
-      {frontmatter.promoCode && (
+      {promoCode && (
         <CopyPromoCode
-          code={frontmatter.promoCode as string}
-          href={(frontmatter.promoHref as string) || 'https://www.barkibu.com/fr/'}
+          code={promoCode}
+          href={promoHref || 'https://www.barkibu.com/fr/'}
           color={color}
         />
       )}
