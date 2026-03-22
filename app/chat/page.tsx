@@ -63,13 +63,17 @@ const LIST_CHAT = [
 export default function ChatPage() {
   return (
     <>
-      <section className="hero">
-        <div className="hero-badge">Comparatif assurances chat 2026</div>
-        <h1>Meilleure assurance chat 2026</h1>
-        <p className="hero-subtitle">
-          Assurance chat : comparatif complet de 8 offres — trouvez la meilleure couverture pour
-          votre chat selon sa race et son profil.
-        </p>
+      <section className="hero-wrap">
+        <div className="hero">
+          <div className="hero-content">
+            <div className="hero-badge">Comparatif assurances chat 2026</div>
+            <h1>Meilleure assurance chat 2026</h1>
+            <p className="hero-subtitle">
+              Assurance chat : comparatif complet de 8 offres — trouvez la meilleure couverture pour
+              votre chat selon sa race et son profil.
+            </p>
+          </div>
+        </div>
       </section>
 
       <section className="section">

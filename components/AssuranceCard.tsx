@@ -43,7 +43,7 @@ export default function AssuranceCard({
         style={{ background: `linear-gradient(135deg, ${gradientFrom}, ${gradientTo})` }}
       >
         {logo ? (
-          <div style={{ width: 240, height: 90, background: '#fff', borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '12px 20px' }}>
+          <div className="assurance-card-logo-box">
             <Image src={logo} alt={`Logo ${name}`} width={200} height={66} style={{ objectFit: 'contain', width: '100%', height: '100%' }} />
           </div>
         ) : (

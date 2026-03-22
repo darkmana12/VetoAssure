@@ -63,13 +63,17 @@ const LIST_CHIEN = [
 export default function ChienPage() {
   return (
     <>
-      <section className="hero">
-        <div className="hero-badge">Comparatif chiens 2026</div>
-        <h1>Meilleure assurance chien 2026</h1>
-        <p className="hero-subtitle">
-          Comparatif complet de 8 assurances chien — garanties, prix et remboursements réels analysés
-          pour vous aider à choisir.
-        </p>
+      <section className="hero-wrap">
+        <div className="hero">
+          <div className="hero-content">
+            <div className="hero-badge">Comparatif chiens 2026</div>
+            <h1>Meilleure assurance chien 2026</h1>
+            <p className="hero-subtitle">
+              Comparatif complet de 8 assurances chien — garanties, prix et remboursements réels analysés
+              pour vous aider à choisir.
+            </p>
+          </div>
+        </div>
       </section>
 
       <section className="section">

@@ -343,65 +343,92 @@ main {
 }
 
 /* ---- HERO ---- */
-.hero {
-  max-width: 780px;
+.hero-wrap {
+  max-width: 960px;
   margin: 0 auto;
-  padding: 52px 24px 36px;
-  text-align: center;
+  padding: 24px 24px 16px;
+}
+
+.hero {
+  background-color: #f8f6f3;
+  background-image:
+    linear-gradient(90deg, #1e3a8a 0%, #1D4ED8 57%, rgba(29, 78, 216, 0.6) 72%, rgba(59, 130, 246, 0.2) 87%, transparent 98%),
+    url('/logos-assurances/homepage_image_top.jpg?v=2');
+  background-position: left top, right center;
+  background-size: 100% 100%, contain;
+  background-repeat: no-repeat;
+  border-radius: 20px;
+  padding: 20px 36px 24px;
+  position: relative;
+  overflow: visible;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 480px;
+  text-align: left;
 }
 
 .hero-badge {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  background: var(--green-light);
-  color: var(--green);
-  font-size: 12px;
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+  font-size: 11px;
   font-weight: 600;
   border-radius: 20px;
-  padding: 5px 12px;
-  margin-bottom: 18px;
-}
-
-.hero-badge::before {
-  content: '';
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--green);
-  flex-shrink: 0;
+  padding: 4px 11px;
+  margin-bottom: 8px;
 }
 
 .hero h1 {
   font-family: var(--font-dm-serif), serif;
   font-weight: 700;
-  font-size: clamp(26px, 5vw, 40px);
+  font-size: clamp(24px, 3.5vw, 34px);
   letter-spacing: -0.5px;
-  color: var(--text);
-  margin-bottom: 14px;
-  line-height: 1.15;
+  color: #fff;
+  margin-bottom: 6px;
+  line-height: 1.2;
 }
 
 .hero-subtitle {
-  font-size: 15px;
-  color: var(--text-2);
-  max-width: 500px;
-  margin: 0 auto 24px;
-  line-height: 1.65;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.5;
+  margin-bottom: 14px;
 }
 
 .hero-btns {
   display: flex;
-  gap: 10px;
-  justify-content: center;
+  gap: 12px;
+  justify-content: flex-start;
   flex-wrap: wrap;
 }
 
 .hero-btns .btn-secondary,
 .hero-btns button.btn-secondary {
   width: 150px;
+  background: #fff;
+  color: var(--blue);
+  border-color: #fff;
 }
+
+.hero-btns .btn-secondary:hover,
+.hero-btns button.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--blue);
+  border-color: #fff;
+}
+
 
 .btn-primary {
   display: inline-flex;
@@ -483,7 +510,7 @@ main {
 .section {
   max-width: 960px;
   margin: 0 auto;
-  padding: 48px 24px;
+  padding: 32px 24px;
 }
 
 .container {
@@ -525,6 +552,18 @@ main {
   align-items: center;
   justify-content: center;
   position: relative;
+}
+
+.assurance-card-logo-box {
+  width: 240px;
+  height: 90px;
+  background: #fff;
+  border: 1px solid var(--border-2);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
 }
 
 .assurance-card-pill {
@@ -1628,6 +1667,10 @@ main {
 
 /* ---- RESPONSIVE MOBILE ---- */
 @media (max-width: 640px) {
+  .hero {
+    padding: 18px 20px 22px;
+  }
+
   .top3-grid {
     grid-template-columns: 1fr;
   }

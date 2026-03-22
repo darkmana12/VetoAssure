@@ -267,17 +267,21 @@ export default function HomePage() {
   return (
     <>
       {/* ===== HERO ===== */}
-      <section className="hero">
-        <div className="hero-badge">Comparatif 2026 mis à jour</div>
-        <h1>Quelle assurance pour votre animal ?</h1>
-        <p className="hero-subtitle">
-          Nous avons analysé 8 assurances animaux pour vous. Comparez les garanties,
-          les prix et les remboursements réels — par race et par profil.
-        </p>
-        <div className="hero-btns">
-          <Link href="/chien" className="btn-secondary">🐕 Mon chien</Link>
-          <Link href="/chat" className="btn-secondary">🐈 Mon chat</Link>
-          <HeroRacesDropdown />
+      <section className="hero-wrap">
+        <div className="hero">
+          <div className="hero-content">
+            <div className="hero-badge">Comparatif 2026 mis à jour</div>
+            <h1>Quelle assurance pour votre animal ?</h1>
+            <p className="hero-subtitle">
+              Nous avons analysé 8 assurances animaux pour vous. Comparez les garanties,
+              les prix et les remboursements réels — par race et par profil.
+            </p>
+            <div className="hero-btns">
+              <Link href="/chien" className="btn-secondary">🐕 Mon chien</Link>
+              <Link href="/chat" className="btn-secondary">🐈 Mon chat</Link>
+              <HeroRacesDropdown />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -285,7 +289,7 @@ export default function HomePage() {
       <section className="section">
         <p className="section-label">NOTRE SÉLECTION</p>
         <h2 className="section-title">Top 3 assurances animaux 2026</h2>
-        <p className="section-subtitle">Scores calculés sur 6 critères · Vérifié {new Date().toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' })}</p>
+        <p className="section-subtitle">Scores calculés sur 6 critères — Vérifié {new Date().toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' })}</p>
 
         {/* Top 3 */}
         <div className="top3-grid">
