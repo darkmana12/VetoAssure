@@ -83,7 +83,6 @@ export default function Nav() {
               </div>
             </li>
 
-            <li><Link href="/avis" className={`nav-link${isActive('/avis') ? ' active' : ''}`}>Avis</Link></li>
             <li><Link href="/autres-animaux" className={`nav-link${isActive('/autres-animaux') ? ' active' : ''}`}>Autres animaux</Link></li>
             <li style={{ marginLeft: 'auto', paddingLeft: 24, borderLeft: '1px solid var(--border)' }}>
               <Link href="/blog" className={`nav-link${isActive('/blog') ? ' active' : ''}`}>Blog</Link>
@@ -115,7 +114,6 @@ export default function Nav() {
         <Link href="/chien" className="nav-drawer-link" onClick={() => setDrawerOpen(false)}>Chien</Link>
         <Link href="/chat" className="nav-drawer-link" onClick={() => setDrawerOpen(false)}>Chat</Link>
         <Link href="/races" className="nav-drawer-link" onClick={() => setDrawerOpen(false)}>Races</Link>
-        <Link href="/avis" className="nav-drawer-link" onClick={() => setDrawerOpen(false)}>Avis</Link>
         <Link href="/blog" className="nav-drawer-link" onClick={() => setDrawerOpen(false)}>Blog</Link>
         <Link href="/autres-animaux" className="nav-drawer-link" onClick={() => setDrawerOpen(false)}>Autres animaux</Link>
       </div>

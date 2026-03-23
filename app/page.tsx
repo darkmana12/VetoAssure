@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import AssuranceCard from '@/components/AssuranceCard'
-import AssuranceListItem from '@/components/AssuranceListItem'
 import RaceCard from '@/components/RaceCard'
 import FaqAccordion from '@/components/FaqAccordion'
 import HeroRacesDropdown from '@/components/HeroRacesDropdown'
@@ -42,7 +42,6 @@ const TOP3 = [
     ],
     price: '15€',
     priceNote: 'Devis en 2 min',
-    href: '/avis/santeVet',
   },
   {
     rank: 2,
@@ -67,7 +66,6 @@ const TOP3 = [
     ],
     price: '12€',
     priceNote: 'Sans engagement',
-    href: '/avis/kozoo',
   },
   {
     rank: 3,
@@ -91,164 +89,97 @@ const TOP3 = [
     ],
     price: '7€',
     priceNote: 'Devis gratuit',
-    href: '/avis/assuropoil',
   },
 ]
 
 const LIST_ITEMS = [
   {
-    rank: 1,
-    name: 'SantéVet',
-    shortName: 'SVet',
-    color: '#1D4ED8',
-    score: 9.2,
-    stars: '★★★★★',
-    logo: '/logos-assurances/santevet_logo.png',
+    slug: 'santeVet', name: 'SantéVet', shortName: 'SVet', color: '#1D4ED8', logo: '/logos-assurances/santevet_logo.png',
+    tagline: 'Meilleur rapport qualité / garanties',
     points: [
       'Payvet : avance des frais directement chez le véto',
       'Couvert à vie une fois assuré',
       'Remboursement jusqu\'à 4 000€/an (formule Optimal)',
+      'Urgences vétérinaires 24h/7j incluses',
+      'Délai de carence : 48h accident, 45 jours maladie',
     ],
-    bonus: '1 mois offert en passant par VetoAssure',
-    bonusColor: '#1D4ED8',
-    bonusBorder: '#93C5FD',
-    bonusBg: '#EFF6FF',
-    price: '15€',
-    href: '/avis/santeVet',
   },
   {
-    rank: 2,
-    name: 'Kozoo',
-    shortName: 'Kzoo',
-    color: '#16A34A',
-    logo: '/logos-assurances/kozoo_logo.jpeg',
-    score: 8.8,
-    stars: '★★★★½',
+    slug: 'kozoo', name: 'Kozoo', shortName: 'Kzoo', color: '#16A34A', logo: '/logos-assurances/kozoo_logo.jpeg',
+    tagline: 'Remboursement le plus rapide (24h)',
     points: [
-      'Remboursement le plus rapide (24h)',
+      'Remboursement le plus rapide du marché (24h)',
       'Idéal pour les chats d\'appartement',
       'Sans engagement, résiliable à tout moment',
+      'Maladies chroniques couvertes',
+      'Formules à partir de 12€/mois',
     ],
-    bonusColor: '#15803D',
-    bonusBorder: '#86EFAC',
-    bonusBg: '#F0FDF4',
-    price: '12€',
-    href: '/avis/kozoo',
   },
   {
-    rank: 3,
-    name: 'AssurOPoil',
-    shortName: 'AOP',
-    color: '#BE185D',
-    score: 8.7,
-    stars: '★★★★½',
+    slug: 'assuropoil', name: 'AssurOPoil', shortName: 'AOP', color: '#BE185D',
+    tagline: 'Spécialiste assurance animaux depuis 10 ans',
     points: [
-      'Spécialiste assurance animaux depuis 10 ans',
+      'Spécialiste animaux depuis plus de 10 ans',
       'Tarifs parmi les plus compétitifs du marché',
       'Formules modulables selon votre budget',
+      'Accidents et maladies couverts dès 7€/mois',
+      'Remboursement sous 48h',
     ],
-    bonus: 'Devis gratuit et immédiat',
-    bonusColor: '#9D174D',
-    bonusBorder: '#F9A8D4',
-    bonusBg: '#FDF2F8',
-    price: '7€',
-    href: '/avis/assuropoil',
   },
   {
-    rank: 4,
-    name: 'Barkibu',
-    shortName: 'Bark',
-    color: '#F97316',
-    score: 8.6,
-    stars: '★★★★½',
-    logo: '/logos-assurances/barkibu_logo.png',
+    slug: 'barkibu', name: 'Barkibu', shortName: 'Bark', color: '#F97316', logo: '/logos-assurances/barkibu_logo.png',
+    tagline: 'Aucune franchise · Téléconsultation 24h/24 incluse',
     points: [
       'Aucune franchise à payer',
-      '100% prévention remboursé (vaccins, bilans)',
-      'Téléconsultation vétérinaire 24h/24 incluse',
+      '100% des frais de prévention remboursés (vaccins, bilans)',
+      'Téléconsultation vétérinaire illimitée 24h/24',
+      'Carte Barkibu : paiement direct chez le vétérinaire',
+      '95% des remboursements traités en moins de 5 jours',
     ],
-    bonus: 'Code promo exclusif : vetoassure25',
-    bonusColor: '#EA580C',
-    bonusBorder: '#FED7AA',
-    bonusBg: '#FFF7ED',
-    price: '20€',
-    href: '/avis/barkibu',
+    promoCode: 'vetoassure25',
   },
   {
-    rank: 5,
-    name: 'Acheel',
-    shortName: 'Ach',
-    color: '#EA580C',
-    score: 8.5,
-    stars: '★★★★½',
+    slug: 'acheel', name: 'Acheel', shortName: 'Ach', color: '#EA580C',
+    tagline: 'Le moins cher du marché',
     points: [
       'Le moins cher pour la couverture offerte',
       '1er mois offert à la souscription',
+      'Souscription 100% en ligne en 3 minutes',
       'CGU très claires, aucune surprise',
+      'Résiliation facile, sans frais',
     ],
-    bonus: '2 mois offerts en exclusivité via VetoAssure',
-    bonusColor: '#C2410C',
-    bonusBorder: '#FDBA74',
-    bonusBg: '#FFF7ED',
-    price: '9€',
-    href: '/avis/acheel',
   },
   {
-    rank: 6,
-    name: 'Fidanimo',
-    shortName: 'Fida',
-    color: '#7C3AED',
-    score: 8.1,
-    stars: '★★★★☆',
+    slug: 'fidanimo', name: 'Fidanimo', shortName: 'Fida', color: '#7C3AED',
+    tagline: 'Meilleur pour les maladies chroniques',
     points: [
       'Maladies chroniques prises en charge',
       'Téléconsultation vétérinaire incluse',
-      'Devis en ligne immédiat',
+      '1 consultation vétérinaire offerte à la souscription',
+      'Couvre chiens, chats et NAC',
+      'Remboursement jusqu\'à 100% des frais réels',
     ],
-    bonus: '1 consultation vétérinaire offerte',
-    bonusColor: '#6D28D9',
-    bonusBorder: '#C4B5FD',
-    bonusBg: '#F5F3FF',
-    price: '17€',
-    href: '/avis/fidanimo',
   },
   {
-    rank: 7,
-    name: 'Dalma',
-    shortName: 'Dalm',
-    color: '#0891B2',
-    score: 7.9,
-    stars: '★★★★☆',
+    slug: 'dalma', name: 'Dalma', shortName: 'Dalm', color: '#0891B2',
+    tagline: '100% digital et sans engagement',
     points: [
       'Souscription et gestion 100% en ligne',
       'Accidents et maladies couverts',
       'Application mobile intuitive',
+      'Sans engagement, résiliable à tout moment',
+      'Remboursement en 48h',
     ],
-    bonus: '-15% sur le 1er mois via VetoAssure',
-    bonusColor: '#0E7490',
-    bonusBorder: '#A5F3FC',
-    bonusBg: '#ECFEFF',
-    price: '16€',
-    href: '/avis/dalma',
   },
   {
-    rank: 8,
-    name: 'Hypnia',
-    shortName: 'Hyp',
-    color: '#92400E',
-    score: 7.2,
-    stars: '★★★½☆',
+    slug: 'hypnia', name: 'Hypnia', shortName: 'Hyp', color: '#92400E',
+    tagline: 'Idéal pour une couverture accidents essentielle',
     points: [
       'Souscription en moins de 3 minutes',
       'Couverture accidents complète',
       'Résiliation facile, sans frais',
+      'Tarif accessible dès 11€/mois',
     ],
-    bonus: '1 mois offert en exclusivité',
-    bonusColor: '#92400E',
-    bonusBorder: '#FCD34D',
-    bonusBg: '#FEF3C7',
-    price: '11€',
-    href: '/avis/hypnia',
   },
 ]
 
@@ -301,10 +232,43 @@ export default function HomePage() {
         {/* Separator */}
         <div className="list-separator">Toutes les assurances analysées</div>
 
-        {/* Liste 7 */}
-        {LIST_ITEMS.map((item) => (
-          <AssuranceListItem key={item.rank} {...item} />
-        ))}
+        {/* Liste complète format avis */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginTop: 16 }}>
+          {LIST_ITEMS.map((a) => (
+            <div
+              key={a.slug}
+              className="list-card"
+              style={{ gridTemplateColumns: '160px 1fr auto', alignItems: 'center' }}
+            >
+              {'logo' in a && a.logo ? (
+                <div style={{ width: '100%', height: 72, background: '#fff', borderRadius: 8, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '10px 14px' }}>
+                  <Image src={a.logo as string} alt={`Logo ${a.name}`} width={130} height={52} style={{ objectFit: 'contain', width: '100%', height: '100%' }} />
+                </div>
+              ) : (
+                <div className="list-card-logo-circle" style={{ background: a.color }}>
+                  {a.shortName}
+                </div>
+              )}
+              <div className="list-card-info">
+                <div className="list-card-name">{a.name}</div>
+                <div style={{ fontSize: 12, color: 'var(--text-2)', marginBottom: 6 }}>{a.tagline}</div>
+                <ul className="list-card-bullets">
+                  {a.points.map((p, i) => <li key={i}>{p}</li>)}
+                </ul>
+                {'promoCode' in a && a.promoCode && (
+                  <span className="list-card-bonus" style={{ color: a.color, borderColor: a.color + '80', background: a.color + '12' }}>
+                    🏷️ Code promo exclusif : {a.promoCode as string}
+                  </span>
+                )}
+              </div>
+              <div className="list-card-cta">
+                <span className="list-card-btn" style={{ background: a.color }}>
+                  Voir l&apos;offre →
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
       </section>
 
       {/* ===== PAR RACE ===== */}

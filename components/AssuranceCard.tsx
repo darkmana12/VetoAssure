@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import Image from 'next/image'
 
 interface AssuranceCardProps {
@@ -14,7 +13,7 @@ interface AssuranceCardProps {
   checks: string[]
   price: string
   priceNote: string
-  href: string
+  href?: string
   logo?: string
 }
 
@@ -31,11 +30,10 @@ export default function AssuranceCard({
   checks,
   price,
   priceNote,
-  href,
   logo,
 }: AssuranceCardProps) {
   return (
-    <Link href={href} className="assurance-card" style={{ borderColor: color }}>
+    <div className="assurance-card" style={{ borderColor: color }}>
 
       {/* Header gradient avec logo centré */}
       <div
@@ -96,6 +94,6 @@ export default function AssuranceCard({
         </span>
       </div>
 
-    </Link>
+    </div>
   )
 }

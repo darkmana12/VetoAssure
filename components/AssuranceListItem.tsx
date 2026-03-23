@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import Image from 'next/image'
 
 interface AssuranceListItemProps {
@@ -14,7 +13,7 @@ interface AssuranceListItemProps {
   bonusBorder?: string
   bonusBg?: string
   price: string
-  href: string
+  href?: string
   logo?: string
 }
 
@@ -30,11 +29,10 @@ export default function AssuranceListItem({
   bonusColor,
   bonusBorder,
   bonusBg,
-  href,
   logo,
 }: AssuranceListItemProps) {
   return (
-    <Link href={href} className="list-card">
+    <div className="list-card">
       {/* Rank */}
       <div className="list-card-rank">{rank}</div>
 
@@ -81,6 +79,6 @@ export default function AssuranceListItem({
           Voir l&apos;offre →
         </span>
       </div>
-    </Link>
+    </div>
   )
 }

@@ -12,7 +12,6 @@ export default function StickyBanner() {
   const shouldShow =
     pathname !== '/' &&
     (pathname.startsWith('/races/') ||
-      pathname.startsWith('/avis/') ||
       pathname === '/chien' ||
       pathname === '/chat')
 

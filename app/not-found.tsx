@@ -22,7 +22,6 @@ export default function NotFound() {
       </p>
       <div className="hero-btns">
         <Link href="/" className="btn-primary">← Retour au comparatif</Link>
-        <Link href="/avis" className="btn-secondary">Voir tous les avis</Link>
       </div>
     </section>
   )
