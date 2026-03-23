@@ -32,36 +32,40 @@ export default function CopyPromoCode({ code, href, color = '#F97316' }: CopyPro
     <div
       style={{
         background: color + '0D',
-        border: `1.5px dashed ${color}`,
+        border: `1.5px solid ${color}`,
         borderRadius: 'var(--radius-sm)',
         padding: '16px 20px',
         marginBottom: 24,
         display: 'flex',
         alignItems: 'center',
-        gap: 16,
+        gap: 12,
         flexWrap: 'wrap',
+        flexDirection: 'column',
+        alignItems: 'flex-start',
       }}
     >
       <div style={{ flex: 1, minWidth: 200 }}>
-        <p style={{ fontSize: 11, fontWeight: 700, color, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 4 }}>
+        <p style={{ fontSize: 18, fontWeight: 700, color, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 6 }}>
           Code promo exclusif VetoAssure
         </p>
-        <p style={{ fontSize: 13, color: 'var(--text-2)', margin: 0 }}>
+        <p style={{ fontSize: 17, color: 'var(--text-2)', margin: 0 }}>
           Utilisez ce code lors de votre souscription pour bénéficier de votre réduction.
         </p>
       </div>
-      <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexShrink: 0 }}>
+      {/* Ligne code + bouton copier */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: 0, width: '100%', marginTop: 14, borderRadius: 8, overflow: 'hidden', border: `1.5px solid ${color}` }}>
         <div
           style={{
             fontFamily: 'monospace',
-            fontSize: 18,
+            fontSize: 22,
             fontWeight: 700,
             color,
             background: '#fff',
-            border: `1px solid ${color}`,
-            borderRadius: 6,
-            padding: '6px 14px',
-            letterSpacing: '0.1em',
+            flex: 1,
+            padding: '10px 20px',
+            letterSpacing: '0.12em',
+            display: 'flex',
+            alignItems: 'center',
           }}
         >
           {code}
@@ -72,35 +76,43 @@ export default function CopyPromoCode({ code, href, color = '#F97316' }: CopyPro
             background: copied ? '#16A34A' : color,
             color: '#fff',
             border: 'none',
-            borderRadius: 6,
-            padding: '7px 14px',
-            fontSize: 12,
+            borderLeft: `1.5px solid ${color}`,
+            padding: '0 24px',
+            height: 50,
+            fontSize: 15,
             fontWeight: 600,
             cursor: 'pointer',
             transition: 'background 0.2s',
             whiteSpace: 'nowrap',
+            flexShrink: 0,
           }}
         >
-          {copied ? '✓ Copié !' : 'Copier'}
+          {copied ? '✓ Copié !' : 'Copier le code'}
         </button>
-        <a
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            background: 'var(--text)',
-            color: '#fff',
-            borderRadius: 6,
-            padding: '7px 14px',
-            fontSize: 12,
-            fontWeight: 600,
-            textDecoration: 'none',
-            whiteSpace: 'nowrap',
-          }}
-        >
-          Voir l&apos;offre →
-        </a>
       </div>
+
+      {/* Bouton voir l'offre pleine largeur */}
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: '100%',
+          marginTop: 10,
+          background: color,
+          color: '#fff',
+          borderRadius: 8,
+          padding: '13px 20px',
+          fontSize: 15,
+          fontWeight: 600,
+          textDecoration: 'none',
+        }}
+      >
+        Aller sur le site de la marque →
+      </a>
     </div>
   )
 }

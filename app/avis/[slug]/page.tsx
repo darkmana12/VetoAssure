@@ -76,7 +76,7 @@ export default function AvisSlugPage({ params }: Props) {
   }
 
   return (
-    <article className="section" style={{ maxWidth: 720 }}>
+    <article className="section" style={{ maxWidth: 860, background: '#fff', border: '1px solid var(--border)', borderRadius: 'var(--radius)', boxShadow: '0 4px 24px rgba(0,0,0,0.07)', padding: '44px 64px' }}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -101,9 +101,6 @@ export default function AvisSlugPage({ params }: Props) {
           </h1>
           <p style={{ fontSize: 13, color: 'var(--text-2)' }}>{tagline}</p>
         </div>
-        <div style={{ fontFamily: 'var(--font-dm-serif)', fontSize: 36, fontWeight: 700, color, marginLeft: 'auto' }}>
-          {score}
-        </div>
       </div>
 
       {Array.isArray(pointsForts) && (
@@ -113,7 +110,7 @@ export default function AvisSlugPage({ params }: Props) {
           </p>
           <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 8 }}>
             {pointsForts.map((p) => (
-              <li key={p} style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, color: 'var(--text)' }}>
+              <li key={p} style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 15, color: 'var(--text)' }}>
                 <span style={{ color, fontWeight: 700 }}>✓</span>
                 {p}
               </li>
