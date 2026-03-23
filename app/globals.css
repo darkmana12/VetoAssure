@@ -161,8 +161,14 @@ h1, h2, h3 {
   text-decoration: none;
 }
 
-.nav-link:hover::after {
+.nav-link:hover::after,
+.nav-link.active::after {
   transform: scaleX(1);
+}
+
+.nav-link.active {
+  color: var(--blue) !important;
+  -webkit-text-fill-color: var(--blue) !important;
 }
 
 /* ---- DROPDOWN ---- */
@@ -214,8 +220,16 @@ h1, h2, h3 {
 }
 
 .nav-dropdown:hover .nav-dropdown-trigger::after,
-.nav-dropdown.open .nav-dropdown-trigger::after {
+.nav-dropdown.open .nav-dropdown-trigger::after,
+.nav-dropdown.active .nav-dropdown-trigger::after,
+.nav-dropdown-trigger.active::after {
   transform: scaleX(1);
+}
+
+.nav-dropdown.active .nav-dropdown-trigger,
+.nav-dropdown-trigger.active {
+  color: var(--blue) !important;
+  -webkit-text-fill-color: var(--blue) !important;
 }
 
 .nav-dropdown-menu {
@@ -353,7 +367,7 @@ main {
   background-color: #f8f6f3;
   background-image:
     linear-gradient(90deg, #1e3a8a 0%, #1D4ED8 57%, rgba(29, 78, 216, 0.6) 72%, rgba(59, 130, 246, 0.2) 87%, transparent 98%),
-    url('/logos-assurances/homepage_image_top.jpg?v=2');
+    url('/logos-assurances/homepage_image_top.webp');
   background-position: left top, right center;
   background-size: 100% 100%, contain;
   background-repeat: no-repeat;
@@ -361,6 +375,36 @@ main {
   padding: 20px 36px 24px;
   position: relative;
   overflow: visible;
+}
+
+.hero--avis {
+  background-image:
+    linear-gradient(90deg, #1e3a8a 0%, #1D4ED8 57%, rgba(29, 78, 216, 0.6) 72%, rgba(59, 130, 246, 0.2) 87%, transparent 98%),
+    url('/logos-assurances/homepage_image_top_avis.webp');
+}
+
+.hero--lapin {
+  background-image:
+    linear-gradient(90deg, #1e3a8a 0%, #1D4ED8 57%, rgba(29, 78, 216, 0.6) 72%, rgba(59, 130, 246, 0.2) 87%, transparent 98%),
+    url('/logos-assurances/homepage_image_top_lapin.webp');
+}
+
+.hero--chien {
+  background-image:
+    linear-gradient(90deg, #1e3a8a 0%, #1D4ED8 57%, rgba(29, 78, 216, 0.6) 72%, rgba(59, 130, 246, 0.2) 87%, transparent 98%),
+    url('/logos-assurances/homepage_image_top_chien.webp');
+}
+
+.hero--chat {
+  background-image:
+    linear-gradient(90deg, #1e3a8a 0%, #1D4ED8 57%, rgba(29, 78, 216, 0.6) 72%, rgba(59, 130, 246, 0.2) 87%, transparent 98%),
+    url('/logos-assurances/homepage_image_top_chat.webp');
+}
+
+.hero--compact {
+  height: 180px;
+  padding: 22px 36px 20px;
+  overflow: hidden;
 }
 
 .hero::before {

@@ -2,11 +2,18 @@
 
 import Link from 'next/link'
 import { useState, useRef } from 'react'
+import { usePathname } from 'next/navigation'
 
 export default function Nav() {
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const pathname = usePathname()
+
+  const isActive = (href: string) => {
+    if (href === '/') return pathname === '/'
+    return pathname.startsWith(href)
+  }
 
   const handleDropdownEnter = () => {
     if (closeTimerRef.current) {
@@ -54,17 +61,17 @@ export default function Nav() {
 
           {/* Desktop links */}
           <ul className="nav-links">
-            <li><Link href="/" className="nav-link">TOP</Link></li>
-            <li><Link href="/chien" className="nav-link">Chien</Link></li>
-            <li><Link href="/chat" className="nav-link">Chat</Link></li>
+            <li><Link href="/" className={`nav-link${isActive('/') ? ' active' : ''}`}>TOP</Link></li>
+            <li><Link href="/chien" className={`nav-link${isActive('/chien') ? ' active' : ''}`}>Chien</Link></li>
+            <li><Link href="/chat" className={`nav-link${isActive('/chat') ? ' active' : ''}`}>Chat</Link></li>
 
             {/* Dropdown Races */}
             <li
-              className={`nav-dropdown${dropdownOpen ? ' open' : ''}`}
+              className={`nav-dropdown${dropdownOpen ? ' open' : ''}${isActive('/races') ? ' active' : ''}`}
               onMouseEnter={handleDropdownEnter}
               onMouseLeave={handleDropdownLeave}
             >
-              <div className="nav-dropdown-trigger">
+              <div className={`nav-dropdown-trigger${isActive('/races') ? ' active' : ''}`}>
                 Races
                 <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" strokeWidth="1.8">
                   <path d="M2 3.5L5 6.5L8 3.5" />
@@ -76,10 +83,10 @@ export default function Nav() {
               </div>
             </li>
 
-            <li><Link href="/avis" className="nav-link">Avis</Link></li>
-            <li><Link href="/autres-animaux" className="nav-link">Autres animaux</Link></li>
+            <li><Link href="/avis" className={`nav-link${isActive('/avis') ? ' active' : ''}`}>Avis</Link></li>
+            <li><Link href="/autres-animaux" className={`nav-link${isActive('/autres-animaux') ? ' active' : ''}`}>Autres animaux</Link></li>
             <li style={{ marginLeft: 'auto', paddingLeft: 24, borderLeft: '1px solid var(--border)' }}>
-              <Link href="/blog" className="nav-link">Blog</Link>
+              <Link href="/blog" className={`nav-link${isActive('/blog') ? ' active' : ''}`}>Blog</Link>
             </li>
           </ul>
 

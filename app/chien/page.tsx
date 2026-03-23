@@ -64,7 +64,7 @@ export default function ChienPage() {
   return (
     <>
       <section className="hero-wrap">
-        <div className="hero">
+        <div className="hero hero--chien">
           <div className="hero-content">
             <div className="hero-badge">Comparatif chiens 2026</div>
             <h1>Meilleure assurance chien 2026</h1>

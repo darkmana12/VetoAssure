@@ -38,13 +38,17 @@ export default function RacesPage() {
 
   return (
     <>
-      <section className="hero">
-        <div className="hero-badge">Guide par race</div>
-        <h1>Assurance par race d&apos;animal</h1>
-        <p className="hero-subtitle">
-          Chaque race a ses propres pathologies et besoins. Trouvez la meilleure assurance adaptée
-          à votre animal.
-        </p>
+      <section className="hero-wrap">
+        <div className="hero">
+          <div className="hero-content">
+            <div className="hero-badge">Guide par race</div>
+            <h1>Assurance par race d&apos;animal</h1>
+            <p className="hero-subtitle">
+              Chaque race a ses propres pathologies et besoins. Trouvez la meilleure assurance adaptée
+              à votre animal.
+            </p>
+          </div>
+        </div>
       </section>
 
       <section className="section">

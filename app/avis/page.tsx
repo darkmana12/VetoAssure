@@ -56,13 +56,17 @@ const AVIS_LIST = [
 export default function AvisPage() {
   return (
     <>
-      <section className="hero">
-        <div className="hero-badge">Avis indépendants 2026</div>
-        <h1>Avis assurances animaux 2026</h1>
-        <p className="hero-subtitle">
-          Tests complets et indépendants réalisés par notre équipe. Scores calculés sur 6 critères
-          objectifs.
-        </p>
+      <section className="hero-wrap">
+        <div className="hero hero--avis">
+          <div className="hero-content">
+            <div className="hero-badge">Avis indépendants 2026</div>
+            <h1>Avis assurances animaux 2026</h1>
+            <p className="hero-subtitle">
+              Tests complets et indépendants réalisés par notre équipe. Scores calculés sur 6 critères
+              objectifs.
+            </p>
+          </div>
+        </div>
       </section>
 
       <section className="section">

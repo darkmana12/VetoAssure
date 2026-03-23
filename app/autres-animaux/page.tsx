@@ -27,13 +27,17 @@ const NACS = [
 export default function AutresAnimauxPage() {
   return (
     <>
-      <section className="hero">
-        <div className="hero-badge">NAC & autres animaux</div>
-        <h1>Assurance pour vos autres animaux</h1>
-        <p className="hero-subtitle">
-          Lapins, oiseaux, reptiles, rongeurs — les NAC ont aussi besoin d&apos;une couverture
-          vétérinaire adaptée. Découvrez les offres disponibles.
-        </p>
+      <section className="hero-wrap">
+        <div className="hero hero--lapin">
+          <div className="hero-content">
+            <div className="hero-badge">Comparatif NAC 2026</div>
+            <h1>Meilleure assurance NAC 2026</h1>
+            <p className="hero-subtitle">
+              Lapins, oiseaux, reptiles, rongeurs — trouvez la meilleure couverture vétérinaire
+              adaptée à chaque NAC.
+            </p>
+          </div>
+        </div>
       </section>
 
       <section className="section">
@@ -66,7 +70,7 @@ export default function AutresAnimauxPage() {
             borderRadius: 'var(--radius-sm)',
           }}
         >
-          <h3 style={{ fontSize: 15, fontWeight: 700, color: 'var(--blue)', marginBottom: 8 }}>
+          <h3 style={{ fontSize: 20, fontWeight: 700, color: 'var(--blue)', marginBottom: 8 }}>
             Peu d&apos;assureurs couvrent les NAC
           </h3>
           <p className="seo-text" style={{ marginTop: 0 }}>
