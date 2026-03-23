@@ -37,9 +37,7 @@ export default function CopyPromoCode({ code, href, color = '#F97316' }: CopyPro
         padding: '16px 20px',
         marginBottom: 24,
         display: 'flex',
-        alignItems: 'center',
         gap: 12,
-        flexWrap: 'wrap',
         flexDirection: 'column',
         alignItems: 'flex-start',
       }}
@@ -53,7 +51,7 @@ export default function CopyPromoCode({ code, href, color = '#F97316' }: CopyPro
         </p>
       </div>
       {/* Ligne code + bouton copier */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: 0, width: '100%', marginTop: 14, borderRadius: 8, overflow: 'hidden', border: `1.5px solid ${color}` }}>
+      <div style={{ display: 'flex', alignItems: 'stretch', gap: 10, width: '100%', marginTop: 14 }}>
         <div
           style={{
             fontFamily: 'monospace',
@@ -66,6 +64,9 @@ export default function CopyPromoCode({ code, href, color = '#F97316' }: CopyPro
             letterSpacing: '0.12em',
             display: 'flex',
             alignItems: 'center',
+            justifyContent: 'center',
+            border: `1.5px solid ${color}`,
+            borderRadius: 8,
           }}
         >
           {code}
@@ -76,9 +77,8 @@ export default function CopyPromoCode({ code, href, color = '#F97316' }: CopyPro
             background: copied ? '#16A34A' : color,
             color: '#fff',
             border: 'none',
-            borderLeft: `1.5px solid ${color}`,
-            padding: '0 24px',
-            height: 50,
+            borderRadius: 8,
+            padding: '0 28px',
             fontSize: 15,
             fontWeight: 600,
             cursor: 'pointer',
