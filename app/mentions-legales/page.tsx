@@ -16,9 +16,14 @@ export default function MentionsLegalesPage() {
       <section style={{ marginBottom: 32 }}>
         <h2 style={{ fontSize: 18, fontWeight: 700, color: 'var(--text)', marginBottom: 12 }}>Éditeur du site</h2>
         <p className="seo-text" style={{ marginTop: 0 }}>
-          Le site <strong>VetoAssure</strong> (vetoassure.fr) est édité par une personne physique.
-          Pour toute question, vous pouvez nous contacter à l&apos;adresse : <strong>contact@vetoassure.fr</strong>
+          Le site <strong>VetoAssure</strong> (vetoassure.fr) est édité par une personne physique :
         </p>
+        <ul className="seo-text" style={{ marginTop: 8, paddingLeft: 20, lineHeight: 2 }}>
+          <li><strong>Nom :</strong> AUER</li>
+          <li><strong>Prénom :</strong> Stéphane</li>
+          <li><strong>Téléphone :</strong> 06 33 75 92 64</li>
+          <li><strong>Email :</strong> contact@vetoassure.fr</li>
+        </ul>
       </section>
 
       <section style={{ marginBottom: 32 }}>

@@ -246,11 +246,6 @@ export default function HomePage() {
                 <ul className="list-card-bullets">
                   {a.points.map((p, i) => <li key={i}>{p}</li>)}
                 </ul>
-                {'promoCode' in a && a.promoCode && (
-                  <span className="list-card-bonus" style={{ color: a.color, borderColor: a.color + '80', background: a.color + '12' }}>
-                    🏷️ Code promo exclusif : {a.promoCode as string}
-                  </span>
-                )}
               </div>
               <div className="list-card-cta">
                 <span className="list-card-btn" style={{ background: a.color }}>
