@@ -20,8 +20,8 @@ const FAQ_ITEMS = [
     a: "C'est la période après souscription pendant laquelle les sinistres ne sont pas couverts. Généralement 0–15 jours pour les accidents et 15–30 jours pour les maladies.",
   },
   {
-    q: 'SantéVet ou Kozoo — laquelle choisir ?',
-    a: 'SantéVet est meilleure pour les chiens de grande race. Kozoo est plus adaptée aux chats et petites races, avec un remboursement plus rapide (24h vs 48h).',
+    q: 'Comment choisir entre une assurance rapide et une assurance complète ?',
+    a: 'Une assurance avec remboursement en 24h est idéale pour les chats et petites races. Pour les chiens de grande race exposés aux dysplasies, privilégiez une formule avec couverture à vie des maladies chroniques.',
   },
   {
     q: 'Les maladies préexistantes sont-elles couvertes ?',

@@ -163,13 +163,9 @@ export default function BlogPageContent({ posts, totalQR, totalPatho }: Props) {
                   <Link key={post.slug} href={`/blog/${post.slug}`} className="blog-qr-card">
                     {post.slug === 'santevet-vs-kozoo-comparatif' ? (
                       <div className="blog-qr-visual" style={{ background: 'linear-gradient(135deg,#1e3a8a,#14532d)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, padding: '0 12px' }}>
-                        <div style={{ background: '#fff', borderRadius: 6, padding: '4px 8px', display: 'flex', alignItems: 'center', flex: 1, justifyContent: 'center' }}>
-                          <Image src="/logos-assurances/santevet_logo.png" alt="SantéVet" width={70} height={28} style={{ objectFit: 'contain' }} />
-                        </div>
+                        <div style={{ background: '#1D4ED8', borderRadius: 6, padding: '6px 12px', display: 'flex', alignItems: 'center', flex: 1, justifyContent: 'center', color: '#fff', fontWeight: 700, fontSize: 13 }}>A1</div>
                         <span style={{ color: '#fff', fontWeight: 800, fontSize: 13, flexShrink: 0 }}>VS</span>
-                        <div style={{ background: '#fff', borderRadius: 6, padding: '4px 8px', display: 'flex', alignItems: 'center', flex: 1, justifyContent: 'center' }}>
-                          <Image src="/logos-assurances/kozoo_logo.jpeg" alt="Kozoo" width={70} height={28} style={{ objectFit: 'contain' }} />
-                        </div>
+                        <div style={{ background: '#16A34A', borderRadius: 6, padding: '6px 12px', display: 'flex', alignItems: 'center', flex: 1, justifyContent: 'center', color: '#fff', fontWeight: 700, fontSize: 13 }}>A2</div>
                       </div>
                     ) : (
                       <div className="blog-qr-visual" style={{ background: vis.bg }}>{vis.emoji}</div>
@@ -238,13 +234,9 @@ export default function BlogPageContent({ posts, totalQR, totalPatho }: Props) {
                   <Link key={post.slug} href={`/blog/${post.slug}`} className="blog-qr-card">
                     {post.slug === 'santevet-vs-kozoo-comparatif' ? (
                       <div className="blog-qr-visual" style={{ background: 'linear-gradient(135deg,#1e3a8a,#14532d)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, padding: '0 12px' }}>
-                        <div style={{ background: '#fff', borderRadius: 6, padding: '4px 8px', display: 'flex', alignItems: 'center', flex: 1, justifyContent: 'center' }}>
-                          <Image src="/logos-assurances/santevet_logo.png" alt="SantéVet" width={70} height={28} style={{ objectFit: 'contain' }} />
-                        </div>
+                        <div style={{ background: '#1D4ED8', borderRadius: 6, padding: '6px 12px', display: 'flex', alignItems: 'center', flex: 1, justifyContent: 'center', color: '#fff', fontWeight: 700, fontSize: 13 }}>A1</div>
                         <span style={{ color: '#fff', fontWeight: 800, fontSize: 13, flexShrink: 0 }}>VS</span>
-                        <div style={{ background: '#fff', borderRadius: 6, padding: '4px 8px', display: 'flex', alignItems: 'center', flex: 1, justifyContent: 'center' }}>
-                          <Image src="/logos-assurances/kozoo_logo.jpeg" alt="Kozoo" width={70} height={28} style={{ objectFit: 'contain' }} />
-                        </div>
+                        <div style={{ background: '#16A34A', borderRadius: 6, padding: '6px 12px', display: 'flex', alignItems: 'center', flex: 1, justifyContent: 'center', color: '#fff', fontWeight: 700, fontSize: 13 }}>A2</div>
                       </div>
                     ) : (
                       <div className="blog-qr-visual" style={{ background: '#111827' }}>

@@ -21,12 +21,11 @@ export const metadata: Metadata = {
 const TOP3 = [
   {
     rank: 1,
-    name: 'SantéVet',
-    shortName: 'SVet',
+    name: 'Assurance1',
+    shortName: 'A1',
     color: '#1D4ED8',
     gradientFrom: '#EFF6FF',
     gradientTo: '#DBEAFE',
-    logo: '/logos-assurances/santevet_logo.png',
     tagline: 'Meilleur rapport qualité / garanties',
     score: 9.2,
     facts: [
@@ -35,8 +34,8 @@ const TOP3 = [
       { label: 'Avis clients', value: '4.6/5' },
     ],
     checks: [
-      'Payvet : avance des frais directement chez le véto',
-      'Couvert à vie une fois assuré',
+      'Paiement direct chez le vétérinaire, sans avance de frais',
+      'Maladies chroniques et dysplasies couvertes à vie',
       'Remboursement jusqu\'à 4\u00a0000\u00a0€/an',
       'Urgences vétérinaires 24h/7j incluses',
     ],
@@ -45,12 +44,11 @@ const TOP3 = [
   },
   {
     rank: 2,
-    name: 'Kozoo',
-    shortName: 'Kzoo',
+    name: 'Assurance2',
+    shortName: 'A2',
     color: '#16A34A',
     gradientFrom: '#F0FDF4',
     gradientTo: '#DCFCE7',
-    logo: '/logos-assurances/kozoo_logo.jpeg',
     tagline: 'Remboursement le plus rapide (24h)',
     score: 8.8,
     facts: [
@@ -62,15 +60,15 @@ const TOP3 = [
       'Remboursement le plus rapide du marché',
       'Idéal pour les chats d\'appartement',
       'Sans engagement, résiliable à tout moment',
-      'Couvre les maladies chroniques',
+      'Maladies chroniques couvertes',
     ],
     price: '12€',
     priceNote: 'Sans engagement',
   },
   {
     rank: 3,
-    name: 'AssurOPoil',
-    shortName: 'AOP',
+    name: 'Assurance3',
+    shortName: 'A3',
     color: '#BE185D',
     gradientFrom: '#FDF2F8',
     gradientTo: '#FBCFE8',
@@ -94,18 +92,18 @@ const TOP3 = [
 
 const LIST_ITEMS = [
   {
-    slug: 'santeVet', name: 'SantéVet', shortName: 'SVet', color: '#1D4ED8', logo: '/logos-assurances/santevet_logo.png',
+    slug: 'assurance-1', name: 'Assurance1', shortName: 'A1', color: '#1D4ED8',
     tagline: 'Meilleur rapport qualité / garanties',
     points: [
-      'Payvet : avance des frais directement chez le véto',
-      'Couvert à vie une fois assuré',
-      'Remboursement jusqu\'à 4 000€/an (formule Optimal)',
+      'Paiement direct chez le vétérinaire, sans avance de frais',
+      'Maladies chroniques et dysplasies couvertes à vie',
+      'Remboursement jusqu\'à 4 000€/an',
       'Urgences vétérinaires 24h/7j incluses',
-      'Délai de carence : 48h accident, 45 jours maladie',
+      'Formules disponibles pour chiens, chats et NAC',
     ],
   },
   {
-    slug: 'kozoo', name: 'Kozoo', shortName: 'Kzoo', color: '#16A34A', logo: '/logos-assurances/kozoo_logo.jpeg',
+    slug: 'assurance-2', name: 'Assurance2', shortName: 'A2', color: '#16A34A',
     tagline: 'Remboursement le plus rapide (24h)',
     points: [
       'Remboursement le plus rapide du marché (24h)',
@@ -116,7 +114,7 @@ const LIST_ITEMS = [
     ],
   },
   {
-    slug: 'assuropoil', name: 'AssurOPoil', shortName: 'AOP', color: '#BE185D',
+    slug: 'assurance-3', name: 'Assurance3', shortName: 'A3', color: '#BE185D',
     tagline: 'Spécialiste assurance animaux depuis 10 ans',
     points: [
       'Spécialiste animaux depuis plus de 10 ans',
@@ -127,31 +125,30 @@ const LIST_ITEMS = [
     ],
   },
   {
-    slug: 'barkibu', name: 'Barkibu', shortName: 'Bark', color: '#F97316', logo: '/logos-assurances/barkibu_logo.png',
+    slug: 'assurance-4', name: 'Assurance4', shortName: 'A4', color: '#F97316',
     tagline: 'Aucune franchise · Téléconsultation 24h/24 incluse',
     points: [
       'Aucune franchise à payer',
       '100% des frais de prévention remboursés (vaccins, bilans)',
       'Téléconsultation vétérinaire illimitée 24h/24',
-      'Carte Barkibu : paiement direct chez le vétérinaire',
+      'Paiement direct chez le vétérinaire via carte dédiée',
       '95% des remboursements traités en moins de 5 jours',
     ],
-    promoCode: 'vetoassure25',
   },
   {
-    slug: 'acheel', name: 'Acheel', shortName: 'Ach', color: '#EA580C',
+    slug: 'assurance-5', name: 'Assurance5', shortName: 'A5', color: '#EA580C',
     tagline: 'Le moins cher du marché',
     points: [
       'Le moins cher pour la couverture offerte',
       '1er mois offert à la souscription',
       'Souscription 100% en ligne en 3 minutes',
-      'CGU très claires, aucune surprise',
+      'Conditions très claires, aucune surprise',
       'Résiliation facile, sans frais',
     ],
   },
   {
-    slug: 'fidanimo', name: 'Fidanimo', shortName: 'Fida', color: '#7C3AED',
-    tagline: 'Meilleur pour les maladies chroniques',
+    slug: 'assurance-6', name: 'Assurance6', shortName: 'A6', color: '#7C3AED',
+    tagline: 'Meilleure pour les maladies chroniques',
     points: [
       'Maladies chroniques prises en charge',
       'Téléconsultation vétérinaire incluse',
@@ -161,7 +158,7 @@ const LIST_ITEMS = [
     ],
   },
   {
-    slug: 'dalma', name: 'Dalma', shortName: 'Dalm', color: '#0891B2',
+    slug: 'assurance-7', name: 'Assurance7', shortName: 'A7', color: '#0891B2',
     tagline: '100% digital et sans engagement',
     points: [
       'Souscription et gestion 100% en ligne',
@@ -172,7 +169,7 @@ const LIST_ITEMS = [
     ],
   },
   {
-    slug: 'hypnia', name: 'Hypnia', shortName: 'Hyp', color: '#92400E',
+    slug: 'assurance-8', name: 'Assurance8', shortName: 'A8', color: '#92400E',
     tagline: 'Idéal pour une couverture accidents essentielle',
     points: [
       'Souscription en moins de 3 minutes',
@@ -240,15 +237,9 @@ export default function HomePage() {
               className="list-card"
               style={{ gridTemplateColumns: '160px 1fr auto', alignItems: 'center' }}
             >
-              {'logo' in a && a.logo ? (
-                <div style={{ width: '100%', height: 72, background: '#fff', borderRadius: 8, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '10px 14px' }}>
-                  <Image src={a.logo as string} alt={`Logo ${a.name}`} width={130} height={52} style={{ objectFit: 'contain', width: '100%', height: '100%' }} />
-                </div>
-              ) : (
-                <div className="list-card-logo-circle" style={{ background: a.color }}>
-                  {a.shortName}
-                </div>
-              )}
+              <div className="list-card-logo-circle" style={{ background: a.color }}>
+                {a.shortName}
+              </div>
               <div className="list-card-info">
                 <div className="list-card-name">{a.name}</div>
                 <div style={{ fontSize: 12, color: 'var(--text-2)', marginBottom: 6 }}>{a.tagline}</div>

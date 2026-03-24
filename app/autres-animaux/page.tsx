@@ -75,7 +75,7 @@ export default function AutresAnimauxPage() {
           </h3>
           <p className="seo-text" style={{ marginTop: 0 }}>
             Contrairement aux chiens et chats, les assurances pour NAC restent rares en France.
-            Fidanimo et quelques spécialistes proposent des formules adaptées. Nous travaillons à
+            Quelques assureurs spécialisés proposent des formules adaptées. Nous travaillons à
             enrichir ce comparatif.
           </p>
           <Link href="/" className="btn-primary" style={{ marginTop: 16, display: 'inline-flex' }}>
