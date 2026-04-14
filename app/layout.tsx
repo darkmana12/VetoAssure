@@ -51,9 +51,24 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const organizationLd = {
+    '@context': 'https://schema.org',
+    '@type': 'InsuranceAgency',
+    name: 'VetoAssure',
+    url: 'https://vetoassure.fr',
+    logo: 'https://vetoassure.fr/og-image.png',
+    description:
+      'Comparatif indépendant des assurances animaux en France : chiens, chats et NAC. Guides, fiches par race et outil de comparaison.',
+    areaServed: { '@type': 'Country', name: 'France' },
+  }
+
   return (
     <html lang="fr" className={`${dmSans.variable} ${dmSerif.variable}`}>
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }}
+        />
         <Nav />
         <main>{children}</main>
         <Footer />
