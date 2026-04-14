@@ -1,13 +1,19 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import Image from 'next/image'
 import { MDXRemote } from 'next-mdx-remote/rsc'
-import { getBlogPost, getAllBlogPosts } from '@/lib/mdx'
+import { getBlogPost, getAllBlogPosts, getRelatedBlogPosts } from '@/lib/mdx'
 import Link from 'next/link'
 import remarkGfm from 'remark-gfm'
 import Callout from '@/components/blog/Callout'
 import KNBox, { KN } from '@/components/blog/KNBox'
 import ShortAnswer from '@/components/blog/ShortAnswer'
 import CTABlock from '@/components/blog/CTABlock'
+import BlogReadingProgress from '@/components/blog/BlogReadingProgress'
+import BlogArticleTOC from '@/components/blog/BlogArticleTOC'
+import { MdxArticleH2, MdxArticleH3 } from '@/components/blog/MdxArticleHeadings'
+import BlogArticleTop3 from '@/components/blog/BlogArticleTop3'
+import BlogArticleRelated from '@/components/blog/BlogArticleRelated'
 
 interface Props {
   params: { slug: string }
@@ -22,7 +28,47 @@ const CAT_COLORS: Record<string, { bg: string; color: string }> = {
   Conseil:    { bg: '#FFF7ED', color: '#C2410C' },
 }
 
-const mdxComponents = { Callout, KNBox, KN, ShortAnswer, CTABlock }
+const CAT_LABEL: Record<string, string> = {
+  QR: 'Q&R',
+  Pathologie: 'Pathologie & coûts',
+  Comparatif: 'Comparatif',
+  Guide: 'Guide',
+  Race: 'Race',
+  Conseil: 'Conseil',
+}
+
+/** Libellés courts pour les cartes « À lire aussi » (style template) */
+const RELATED_CARD_CAT: Record<string, string> = {
+  QR: 'Q&R',
+  Pathologie: 'Coûts vétérinaires',
+  Comparatif: 'Comparatif',
+  Guide: 'Bien choisir',
+  Race: 'Race',
+  Conseil: 'Conseil',
+}
+
+const mdxComponents = {
+  Callout,
+  KNBox,
+  KN,
+  ShortAnswer,
+  CTABlock,
+  h2: MdxArticleH2,
+  h3: MdxArticleH3,
+}
+
+function coverImageUrl(raw: unknown): string | null {
+  if (typeof raw !== 'string') return null
+  const t = raw.trim()
+  if (!t) return null
+  try {
+    const u = new URL(t)
+    if (u.protocol !== 'http:' && u.protocol !== 'https:') return null
+    return t
+  } catch {
+    return null
+  }
+}
 
 export async function generateStaticParams() {
   const posts = getAllBlogPosts()
@@ -32,13 +78,13 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   try {
     const { data } = getBlogPost(params.slug)
-    const url = `https://vetoassure.fr/blog/${params.slug}`
+    const path = `/blog/${params.slug}`
     return {
       title: data.title as string,
       description: data.description as string,
-      alternates: { canonical: url },
+      alternates: { canonical: path },
       openGraph: {
-        url,
+        url: path,
         title: data.title as string,
         description: data.description as string,
         type: 'article',
@@ -64,6 +110,8 @@ export default function BlogPostPage({ params }: Props) {
   const cat = frontmatter.category as string
   const cc = CAT_COLORS[cat] ?? { bg: '#F3F4F6', color: '#374151' }
   const isPatho = cat === 'Pathologie'
+  const cover = coverImageUrl(frontmatter.coverImage)
+  const title = frontmatter.title as string
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -87,8 +135,26 @@ export default function BlogPostPage({ params }: Props) {
     ],
   }
 
+  const categoryLabel =
+    isPatho
+      ? '🩺 Pathologie & coûts'
+      : cat === 'QR'
+        ? `💬 ${CAT_LABEL.QR}`
+        : CAT_LABEL[cat] ?? cat
+
+  const relatedPosts = getRelatedBlogPosts(params.slug, 3).map(({ slug, frontmatter }) => {
+    const c = frontmatter.category as string
+    return {
+      slug,
+      title: frontmatter.title as string,
+      categoryLabel: RELATED_CARD_CAT[c] ?? c,
+      readTime: (frontmatter.readTime as string) ?? '5 min',
+    }
+  })
+
   return (
     <>
+      <BlogReadingProgress />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -98,171 +164,95 @@ export default function BlogPostPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
 
-      {/* Header article */}
-      <div style={{ background: '#111827', paddingTop: 36, paddingBottom: 0 }}>
-        <div className="container">
-          {/* Breadcrumb */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 20, flexWrap: 'wrap' }}>
-            <Link href="/" style={{ fontSize: 13, color: '#9CA3AF', textDecoration: 'none' }}>Accueil</Link>
-            <span style={{ color: '#4B5563' }}>/</span>
-            <Link href="/blog" style={{ fontSize: 13, color: '#9CA3AF', textDecoration: 'none' }}>Blog</Link>
-            <span style={{ color: '#4B5563' }}>/</span>
-            <span style={{ fontSize: 13, color: '#6B7280' }}>{frontmatter.title as string}</span>
-          </div>
-
-          {/* Tag */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 18 }}>
-            <span style={{ background: cc.bg, color: cc.color, fontSize: 11, fontWeight: 700, letterSpacing: '0.07em', textTransform: 'uppercase', padding: '4px 12px', borderRadius: 7 }}>
-              {isPatho ? '🩺 Pathologie' : cat === 'QR' ? '💬 Q&R' : cat}
+      <div className="blog-pages blog-article-page">
+        <div className="blog-article-shell">
+          <nav className="blog-breadcrumb" aria-label="Fil d&apos;Ariane">
+            <Link href="/">Accueil</Link>
+            <span className="blog-breadcrumb-sep" aria-hidden>
+              ›
             </span>
-            {isPatho && (
-              <span style={{ background: 'rgba(255,255,255,0.08)', color: '#9CA3AF', fontSize: 12, padding: '3px 10px', borderRadius: 20 }}>
-                Coûts vétérinaires
-              </span>
-            )}
-          </div>
-
-          <h1 style={{
-            fontFamily: 'var(--font-dm-serif)',
-            fontSize: 'clamp(26px, 4vw, 40px)',
-            color: '#fff',
-            lineHeight: 1.15,
-            marginBottom: 14,
-            maxWidth: 740,
-          }}>
-            {frontmatter.title as string}
-          </h1>
-
-          <p style={{ fontSize: 16, color: '#9CA3AF', lineHeight: 1.65, maxWidth: 640, marginBottom: 28 }}>
-            {frontmatter.description as string}
-          </p>
-
-          {/* Meta row */}
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: 20,
-            paddingBottom: 32,
-            borderBottom: '1px solid rgba(255,255,255,0.06)',
-            flexWrap: 'wrap',
-          }}>
-            <span style={{ fontSize: 13, color: '#6B7280' }}>
-              📅 Publié le {frontmatter.date as string}
-              {frontmatter.updatedAt ? ` · Mis à jour le ${frontmatter.updatedAt as string}` : ''}
+            <Link href="/blog">Blog</Link>
+            <span className="blog-breadcrumb-sep" aria-hidden>
+              ›
             </span>
-            <span style={{ fontSize: 13, color: '#6B7280' }}>⏱️ {(frontmatter.readTime as string) ?? '5 min'} de lecture</span>
-            <span style={{
-              display: 'inline-flex', alignItems: 'center', gap: 5,
-              background: '#DCFCE7', color: '#16A34A',
-              fontSize: 12, fontWeight: 600, padding: '3px 10px', borderRadius: 20,
-            }}>✅ Vérifié vétérinaire</span>
+            <span style={{ color: 'var(--text-2)' }}>{title}</span>
+          </nav>
+
+          <div className="blog-article-layout">
+            <article>
+              <header className="blog-article-header">
+                <div className="blog-article-category-row">
+                  <span
+                    className="blog-article-category"
+                    style={{ background: cc.bg, color: cc.color }}
+                  >
+                    {categoryLabel}
+                  </span>
+                  {isPatho && (
+                    <span
+                      className="blog-article-category"
+                      style={{ background: 'var(--blue-light)', color: 'var(--blue)' }}
+                    >
+                      Coûts vétérinaires
+                    </span>
+                  )}
+                </div>
+
+                <h1 className="blog-article-title">{title}</h1>
+
+                <p className="blog-article-intro">{frontmatter.description as string}</p>
+
+                <div className="blog-article-meta">
+                  <span className="blog-article-meta-badge">
+                    <span className="blog-article-meta-dot" aria-hidden />
+                    {frontmatter.updatedAt
+                      ? `Mis à jour ${frontmatter.updatedAt as string}`
+                      : `Publié le ${frontmatter.date as string}`}
+                  </span>
+                  <span>⏱️ {(frontmatter.readTime as string) ?? '5 min'} de lecture</span>
+                </div>
+              </header>
+
+              {cover && (
+                <div className="blog-article-cover">
+                  <Image
+                    src={cover}
+                    alt=""
+                    fill
+                    className="blog-article-cover-img"
+                    sizes="(max-width: 900px) 100vw, 820px"
+                    priority
+                    unoptimized
+                  />
+                </div>
+              )}
+
+              <div className="blog-content">
+                <MDXRemote
+                  source={content}
+                  components={mdxComponents}
+                  options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
+                />
+              </div>
+
+              <BlogArticleTop3 />
+
+              <BlogArticleRelated posts={relatedPosts} />
+            </article>
+
+            <aside className="blog-article-sidebar" aria-label="Navigation article">
+              <BlogArticleTOC />
+
+              <div className="blog-sidebar-cta">
+                <span className="blog-sidebar-cta-emoji" aria-hidden>
+                  🐾
+                </span>
+                <h4>Votre animal est-il bien couvert ?</h4>
+                <p>Comparez les formules et trouvez celle qui correspond à son âge et à sa race.</p>
+                <Link href="/#comparatif">Comparer maintenant →</Link>
+              </div>
+            </aside>
           </div>
-        </div>
-      </div>
-
-      {/* Article body */}
-      <div className="container">
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr 260px',
-          gap: 48,
-          paddingTop: 40,
-          paddingBottom: 64,
-          alignItems: 'start',
-        }}>
-          {/* Main content */}
-          <article>
-            <div className="blog-content">
-              <MDXRemote source={content} components={mdxComponents} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
-            </div>
-
-            {/* Bottom CTA */}
-            <div style={{
-              marginTop: 48,
-              background: 'linear-gradient(135deg, #1D4ED8, #1e3a8a)',
-              borderRadius: 20,
-              padding: 36,
-              textAlign: 'center',
-              color: '#fff',
-            }}>
-              <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', opacity: 0.6, textTransform: 'uppercase', marginBottom: 10 }}>
-                Passez à l&apos;action
-              </div>
-              <div style={{ fontFamily: 'var(--font-dm-serif)', fontSize: 26, marginBottom: 12, lineHeight: 1.2 }}>
-                Trouvez la meilleure assurance<br />pour votre animal
-              </div>
-              <p style={{ fontSize: 14, opacity: 0.8, marginBottom: 24, lineHeight: 1.6 }}>
-                Comparez les offres de 7 assureurs — scores calculés sur 6 critères indépendants.
-                Obtenez une estimation en 2 minutes.
-              </p>
-              <Link href="/" style={{
-                display: 'inline-flex', alignItems: 'center', gap: 10,
-                background: '#fff', color: '#1D4ED8',
-                padding: '14px 28px', borderRadius: 12,
-                fontWeight: 700, fontSize: 15, textDecoration: 'none',
-              }}>Comparer les offres →</Link>
-            </div>
-          </article>
-
-          {/* Sidebar */}
-          <aside style={{ position: 'sticky', top: 90 }}>
-            <div style={{
-              background: '#fff',
-              border: '1px solid var(--border)',
-              borderRadius: 16,
-              padding: 24,
-              marginBottom: 16,
-            }}>
-              <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: '0.07em', textTransform: 'uppercase', color: 'var(--text-2)', marginBottom: 16 }}>
-                À lire aussi
-              </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-                <Link href="/blog" style={{
-                  display: 'flex', alignItems: 'center', gap: 10,
-                  fontSize: 13, color: 'var(--text)', textDecoration: 'none',
-                  padding: 10, borderRadius: 10, background: 'var(--bg)',
-                  transition: 'background 0.15s',
-                }}>
-                  <span style={{ fontSize: 20 }}>📚</span>
-                  <span>Tous nos guides assurance</span>
-                </Link>
-                <Link href="/chien" style={{
-                  display: 'flex', alignItems: 'center', gap: 10,
-                  fontSize: 13, color: 'var(--text)', textDecoration: 'none',
-                  padding: 10, borderRadius: 10, background: 'var(--bg)',
-                }}>
-                  <span style={{ fontSize: 20 }}>🐕</span>
-                  <span>Meilleures assurances chien</span>
-                </Link>
-                <Link href="/chat" style={{
-                  display: 'flex', alignItems: 'center', gap: 10,
-                  fontSize: 13, color: 'var(--text)', textDecoration: 'none',
-                  padding: 10, borderRadius: 10, background: 'var(--bg)',
-                }}>
-                  <span style={{ fontSize: 20 }}>🐈</span>
-                  <span>Meilleures assurances chat</span>
-                </Link>
-              </div>
-            </div>
-
-            <div style={{
-              background: 'linear-gradient(135deg,#1D4ED8,#1e3a8a)',
-              borderRadius: 16, padding: 20, color: '#fff',
-            }}>
-              <div style={{ fontSize: 15, fontWeight: 700, marginBottom: 8, lineHeight: 1.3 }}>
-                Comparez gratuitement
-              </div>
-              <p style={{ fontSize: 12, opacity: 0.8, marginBottom: 16, lineHeight: 1.5 }}>
-                7 assureurs comparés, score indépendant sur 6 critères
-              </p>
-              <Link href="/" style={{
-                display: 'block', textAlign: 'center',
-                background: '#fff', color: '#1D4ED8',
-                padding: '10px', borderRadius: 10,
-                fontWeight: 700, fontSize: 13, textDecoration: 'none',
-              }}>Voir le comparatif →</Link>
-            </div>
-          </aside>
         </div>
       </div>
     </>

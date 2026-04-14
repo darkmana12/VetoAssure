@@ -2,6 +2,7 @@ import React from 'react'
 
 interface KNBoxProps {
   children: React.ReactNode
+  /** @deprecated conservé pour compat MDX existant */
   bgFrom?: string
   bgTo?: string
   borderColor?: string
@@ -13,39 +14,20 @@ interface KNProps {
   color?: string
 }
 
-export function KN({ val, label, color = '#1D4ED8' }: KNProps) {
+export function KN({ val, label, color = 'var(--blue)' }: KNProps) {
   return (
-    <div style={{ textAlign: 'center', flex: 1 }}>
-      <span style={{
-        fontFamily: 'var(--font-dm-serif)',
-        fontSize: 30,
-        color,
-        display: 'block',
-        lineHeight: 1,
-      }}>{val}</span>
-      <span style={{ fontSize: 12, color: 'var(--text-2)', marginTop: 6, display: 'block', lineHeight: 1.4 }}>
-        {label}
+    <div className="blog-kn-stats-item">
+      <span className="blog-kn-stats-val" style={{ color }}>
+        {val}
       </span>
+      <span className="blog-kn-stats-lbl">{label}</span>
     </div>
   )
 }
 
-export default function KNBox({
-  children,
-  bgFrom = '#EFF6FF',
-  bgTo = '#DBEAFE',
-  borderColor = '#BFDBFE',
-}: KNBoxProps) {
+export default function KNBox({ children }: KNBoxProps) {
   return (
-    <div style={{
-      background: `linear-gradient(135deg, ${bgFrom} 0%, ${bgTo} 100%)`,
-      border: `1.5px solid ${borderColor}`,
-      borderRadius: 16,
-      padding: 28,
-      marginBottom: 36,
-      display: 'flex',
-      gap: 20,
-    }}>
+    <div className="blog-kn-stats" role="region" aria-label="Chiffres clés">
       {children}
     </div>
   )

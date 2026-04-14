@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import RaceCard from '@/components/RaceCard'
 
 export const metadata: Metadata = {
   title: 'Assurance par race — Chien & Chat 2026',
   description:
     'Trouvez la meilleure assurance pour votre race de chien ou de chat. Comparatifs spécialisés par race.',
-  alternates: { canonical: 'https://vetoassure.fr/races' },
+  alternates: { canonical: '/races' },
   openGraph: {
-    url: 'https://vetoassure.fr/races',
+    url: '/races',
     title: 'Assurance par race — Chien & Chat 2026',
     description: 'Trouvez la meilleure assurance pour votre race de chien ou de chat. Comparatifs spécialisés par race.',
   },
@@ -69,6 +70,10 @@ export default function RacesPage() {
             <RaceCard key={r.href} {...r} />
           ))}
         </div>
+      </section>
+
+      <section className="section" style={{ paddingTop: 0, textAlign: 'center', paddingBottom: 48 }}>
+        <Link href="/" className="btn-secondary">← Retour au comparatif</Link>
       </section>
     </>
   )

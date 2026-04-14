@@ -19,8 +19,12 @@ export default async function BlogPage() {
   const totalPatho = posts.filter(p => p.frontmatter.category === 'Pathologie').length
 
   return (
-    <main style={{ background: 'var(--bg)', minHeight: '100vh', paddingBottom: 64 }}>
-      <BlogPageContent posts={posts} totalQR={totalQR} totalPatho={totalPatho} />
+    <main className="blog-pages" style={{ background: 'var(--bg)', minHeight: '100vh', paddingBottom: 64 }}>
+      <BlogPageContent
+        posts={posts}
+        totalQR={totalQR}
+        totalPatho={totalPatho}
+      />
     </main>
   )
 }

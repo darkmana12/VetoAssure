@@ -1,5 +1,8 @@
 import { ImageResponse } from 'next/og'
 
+/** Edge évite un bug Windows / Node sur @vercel/og (Invalid URL au prerender). */
+export const runtime = 'edge'
+
 export const size = { width: 32, height: 32 }
 export const contentType = 'image/png'
 

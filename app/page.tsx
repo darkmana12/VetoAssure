@@ -10,9 +10,9 @@ export const metadata: Metadata = {
   title: 'VetoAssure — Comparatif assurance animaux 2026',
   description:
     'Comparatif indépendant de 8 assurances animaux en France. Scores calculés sur 6 critères, avis vérifiés et offres exclusives pour chien, chat et NAC.',
-  alternates: { canonical: 'https://vetoassure.fr' },
+  alternates: { canonical: '/' },
   openGraph: {
-    url: 'https://vetoassure.fr',
+    url: '/',
     title: 'VetoAssure — Comparatif assurance animaux 2026',
     description: 'Comparatif indépendant de 8 assurances animaux en France. Scores calculés sur 6 critères, avis vérifiés et offres exclusives pour chien, chat et NAC.',
   },
@@ -199,7 +199,7 @@ export default function HomePage() {
         <div className="hero">
           <div className="hero-content">
             <div className="hero-badge">Comparatif 2026 mis à jour</div>
-            <h1>Quelle assurance pour votre animal ?</h1>
+            <h1 className="hero-heading">Quelle assurance pour votre animal ?</h1>
             <p className="hero-subtitle">
               Nous avons analysé 8 assurances animaux pour vous. Comparez les garanties,
               les prix et les remboursements réels — par race et par profil.

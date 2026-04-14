@@ -36,7 +36,7 @@ export default function MethodologiePage() {
             { num: '06', title: 'Service & Digital', desc: 'Qualité de l\'application mobile, réactivité du service client, facilité de gestion des sinistres.' },
           ].map((c) => (
             <div key={c.num} style={{ display: 'flex', gap: 16, padding: '16px', background: '#fff', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)' }}>
-              <div style={{ fontSize: 22, fontFamily: 'var(--font-dm-serif)', fontWeight: 700, color: 'var(--blue)', minWidth: 32, flexShrink: 0 }}>{c.num}</div>
+              <div style={{ fontSize: 22, fontFamily: 'var(--serif)', fontWeight: 700, color: 'var(--blue)', minWidth: 32, flexShrink: 0 }}>{c.num}</div>
               <div>
                 <div style={{ fontSize: 14, fontWeight: 700, color: 'var(--text)', marginBottom: 4 }}>{c.title}</div>
                 <div style={{ fontSize: 13, color: 'var(--text-2)', lineHeight: 1.6 }}>{c.desc}</div>

@@ -30,7 +30,7 @@ export default function AutresAnimauxPage() {
       <section className="hero-wrap">
         <div className="hero hero--lapin">
           <div className="hero-content">
-            <div className="hero-badge">Comparatif NAC 2026</div>
+            <div className="hero-badge">Comparatif assurances NAC 2026</div>
             <h1>Meilleure assurance NAC 2026</h1>
             <p className="hero-subtitle">
               Lapins, oiseaux, reptiles, rongeurs — trouvez la meilleure couverture vétérinaire

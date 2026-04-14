@@ -52,6 +52,76 @@ const PATHO_ICONS: Record<string, { bg: string; emoji: string; price: string; an
 
 const FILTERS = ['Tous', 'Q&R', 'Pathologie', 'Comparatif', 'Guide', 'Race']
 
+/** Slug(s) frontmatter pour l’article comparatif A1 vs A2 (carte « VS ») */
+const COMPARATIF_VS_SLUGS = new Set(['santevet-vs-kozoo-comparatif', 'Assurance1-vs-Assurance2-comparatif'])
+
+function coverUrl(fm: Record<string, string>): string | undefined {
+  const raw = fm.coverImage?.trim()
+  if (!raw) return undefined
+  try {
+    const u = new URL(raw)
+    if (u.protocol !== 'http:' && u.protocol !== 'https:') return undefined
+    return raw
+  } catch {
+    return undefined
+  }
+}
+
+function QrCardVisual({
+  post,
+  comparatifVs,
+  useCategoryGlyph,
+}: {
+  post: Post
+  comparatifVs: boolean
+  useCategoryGlyph?: boolean
+}) {
+  const cover = coverUrl(post.frontmatter)
+  if (comparatifVs && !cover) {
+    return (
+      <div className="blog-qr-visual" style={{ background: 'linear-gradient(135deg,#1e3a8a,#14532d)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, padding: '0 12px' }}>
+        <div style={{ background: '#1D4ED8', borderRadius: 6, padding: '6px 12px', display: 'flex', alignItems: 'center', flex: 1, justifyContent: 'center', color: '#fff', fontWeight: 700, fontSize: 13 }}>A1</div>
+        <span style={{ color: '#fff', fontWeight: 800, fontSize: 13, flexShrink: 0 }}>VS</span>
+        <div style={{ background: '#16A34A', borderRadius: 6, padding: '6px 12px', display: 'flex', alignItems: 'center', flex: 1, justifyContent: 'center', color: '#fff', fontWeight: 700, fontSize: 13 }}>A2</div>
+      </div>
+    )
+  }
+  if (cover) {
+    return (
+      <div className="blog-qr-visual blog-qr-visual--cover">
+        <Image
+          src={cover}
+          alt=""
+          fill
+          className="blog-qr-cover-img"
+          sizes="(max-width: 768px) 50vw, 33vw"
+          unoptimized
+        />
+      </div>
+    )
+  }
+  if (useCategoryGlyph) {
+    const cat = post.frontmatter.category
+    const emoji =
+      cat === 'Comparatif' ? '⚖️' : cat === 'Guide' ? '📖' : cat === 'Race' ? '🐕' : '💡'
+    return (
+      <div className="blog-qr-visual" style={{ background: '#111827' }}>
+        <span style={{ fontSize: 44 }}>{emoji}</span>
+      </div>
+    )
+  }
+  if (post.frontmatter.category === 'Pathologie') {
+    const p = PATHO_ICONS[post.slug]
+    if (p) {
+      return (
+        <div className="blog-qr-visual" style={{ background: p.bg }}>{p.emoji}</div>
+      )
+    }
+  }
+  const vis = QR_VISUALS[post.slug] ?? { bg: 'linear-gradient(135deg,#374151,#111827)', emoji: '❓' }
+  return <div className="blog-qr-visual" style={{ background: vis.bg }}>{vis.emoji}</div>
+}
+
 export default function BlogPageContent({ posts, totalQR, totalPatho }: Props) {
   const [active, setActive] = useState('Tous')
 
@@ -63,29 +133,57 @@ export default function BlogPageContent({ posts, totalQR, totalPatho }: Props) {
         return cat === active
       })
 
-  const qrPosts    = filtered.filter(p => p.frontmatter.category === 'QR')
-  const pathoPosts = filtered.filter(p => p.frontmatter.category === 'Pathologie')
-  const otherPosts = filtered.filter(p => p.frontmatter.category !== 'QR' && p.frontmatter.category !== 'Pathologie')
+  const pathoOrdered = posts.filter(p => p.frontmatter.category === 'Pathologie')
+  /** Deux premières pathologies en cartes (remplace l’ancien hero plein écran) */
+  const heroSpotlightPosts = active === 'Tous' ? pathoOrdered.slice(0, 2) : []
 
-  // Hero: first pathologie or first QR from unfiltered list (pinned)
-  const heroPost   = active === 'Tous' ? posts.find(p => p.frontmatter.category === 'Pathologie') ?? posts[0] : null
-  const heroPatho  = heroPost ? PATHO_ICONS[heroPost.slug] : null
-  const heroIsQR   = heroPost ? heroPost.frontmatter.category === 'QR' : false
+  const pinnedPathoSlugs = new Set(heroSpotlightPosts.map(p => p.slug))
+
+  const pathoPosts = filtered.filter(p => {
+    if (p.frontmatter.category !== 'Pathologie') return false
+    if (active === 'Tous' && pinnedPathoSlugs.has(p.slug)) return false
+    return true
+  })
+
+  const qrPosts = filtered.filter(p => p.frontmatter.category === 'QR')
+  const otherPosts = filtered.filter(
+    p => p.frontmatter.category !== 'QR' && p.frontmatter.category !== 'Pathologie',
+  )
+  const racePosts = otherPosts.filter(p => p.frontmatter.category === 'Race')
+  const otherPostsSansRace = otherPosts.filter(p => p.frontmatter.category !== 'Race')
+
+  function renderOtherCard(post: Post) {
+    const cat = post.frontmatter.category
+    const c = CAT_COLORS[cat] ?? { bg: '#F3F4F6', color: '#374151' }
+    return (
+      <Link key={post.slug} href={`/blog/${post.slug}`} className="blog-qr-card">
+        <QrCardVisual post={post} comparatifVs={COMPARATIF_VS_SLUGS.has(post.slug)} useCategoryGlyph />
+        <div className="blog-qr-body">
+          <span className="blog-qr-tag" style={{ background: c.bg, color: c.color }}>
+            {CAT_LABELS[cat] ?? cat}
+          </span>
+          <div className="blog-qr-title">{post.frontmatter.title}</div>
+          <div className="blog-qr-foot">
+            <span className="blog-qr-time">⏱️ {post.frontmatter.readTime ?? '5 min'}</span>
+            <span className="blog-qr-arrow">→</span>
+          </div>
+        </div>
+      </Link>
+    )
+  }
 
   return (
     <>
-      {/* Dark header */}
-      <section style={{ background: '#1e293b', paddingTop: 40, marginBottom: 0 }}>
+      <section className="blog-page-hero">
         <div className="container" style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 32 }}>
           <div>
-            <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', color: '#9CA3AF', textTransform: 'uppercase', marginBottom: 10 }}>
+            <p className="blog-page-hero-kicker">
               Assurance animaux · Blog
             </p>
-            <h1 style={{ fontFamily: 'var(--font-dm-serif)', fontSize: 38, color: '#fff', lineHeight: 1.1, marginBottom: 14 }}>
-              Guides &amp; Conseils<br />
-              <span style={{ color: '#93C5FD' }}>Assurance animaux</span>
+            <h1 className="blog-page-hero-title">
+              Guides &amp; Conseils
             </h1>
-            <p style={{ fontSize: 15, color: '#9CA3AF', maxWidth: 520, lineHeight: 1.65, marginBottom: 0, paddingBottom: 36 }}>
+            <p className="blog-page-hero-lead">
               Réponses aux questions des propriétaires, coûts des pathologies et guides complets pour bien choisir.
             </p>
           </div>
@@ -108,46 +206,28 @@ export default function BlogPageContent({ posts, totalQR, totalPatho }: Props) {
       {/* Content */}
       <div className="container" style={{ paddingTop: 48 }}>
 
-        {/* HERO — only shown on "Tous" */}
-        {heroPost && active === 'Tous' && (
-          <Link href={`/blog/${heroPost.slug}`} className="blog-hero-article" style={{ marginBottom: 52 }}>
-            <div className="blog-hero-content">
-              <div>
-                <span className={`blog-hero-tag${heroIsQR ? ' qr' : ''}`}>
-                  {heroIsQR ? '💬 Question / Réponse' : '🩺 Pathologie & Coûts'}
-                </span>
-                <div className="blog-hero-title">{heroPost.frontmatter.title}</div>
-                <p className="blog-hero-desc">{heroPost.frontmatter.description}</p>
-              </div>
-              <div className="blog-hero-bottom">
-                <div className="blog-hero-meta">
-                  <span>📅 {heroPost.frontmatter.date}</span>
-                  <span>⏱️ {heroPost.frontmatter.readTime ?? '5 min'}</span>
-                  <span className="blog-hero-verified">✅ Vérifié vétérinaire</span>
-                </div>
-                <span className="blog-hero-btn">Lire l&rsquo;article →</span>
-              </div>
+        {/* Deux premières pathologies — cartes (pas de hero plein écran) */}
+        {heroSpotlightPosts.length > 0 && (
+          <section className="blog-hero-spotlight" aria-label="À la une" style={{ marginBottom: 52 }}>
+            <div className="blog-section-head">
+              <h3>À la une</h3>
             </div>
-            <div className="blog-hero-visual">
-              <div className="blog-hero-animal">{heroPatho?.emoji ?? '🐾'}</div>
-              {heroPatho && (
-                <div className="blog-hero-cost-cards">
-                  <div className="blog-hcc">
-                    <span className="blog-hcc-label">Coût moyen</span>
-                    <span className="blog-hcc-val">{heroPatho.price}</span>
+            <div className="blog-qr-grid blog-qr-grid--hero-spotlight">
+              {heroSpotlightPosts.map(post => (
+                <Link key={post.slug} href={`/blog/${post.slug}`} className="blog-qr-card">
+                  <QrCardVisual post={post} comparatifVs={COMPARATIF_VS_SLUGS.has(post.slug)} useCategoryGlyph={false} />
+                  <div className="blog-qr-body">
+                    <span className="blog-qr-tag blog-qr-tag-spotlight">À la une</span>
+                    <div className="blog-qr-title">{post.frontmatter.title}</div>
+                    <div className="blog-qr-foot">
+                      <span className="blog-qr-time">⏱️ {post.frontmatter.readTime ?? '5 min'}</span>
+                      <span className="blog-qr-arrow">→</span>
+                    </div>
                   </div>
-                  <div className="blog-hcc">
-                    <span className="blog-hcc-label">Animal concerné</span>
-                    <span className="blog-hcc-val">{heroPatho.animal}</span>
-                  </div>
-                  <div className="blog-hcc">
-                    <span className="blog-hcc-label">Remboursé si assuré</span>
-                    <span className="blog-hcc-val" style={{ color: '#86EFAC' }}>✓ Oui</span>
-                  </div>
-                </div>
-              )}
+                </Link>
+              ))}
             </div>
-          </Link>
+          </section>
         )}
 
         {/* Q&R */}
@@ -157,31 +237,19 @@ export default function BlogPageContent({ posts, totalQR, totalPatho }: Props) {
               <h3>💬 Questions &amp; Réponses</h3>
             </div>
             <div className="blog-qr-grid">
-              {qrPosts.map(post => {
-                const vis = QR_VISUALS[post.slug] ?? { bg: 'linear-gradient(135deg,#374151,#111827)', emoji: '❓' }
-                return (
+              {qrPosts.map(post => (
                   <Link key={post.slug} href={`/blog/${post.slug}`} className="blog-qr-card">
-                    {post.slug === 'santevet-vs-kozoo-comparatif' ? (
-                      <div className="blog-qr-visual" style={{ background: 'linear-gradient(135deg,#1e3a8a,#14532d)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, padding: '0 12px' }}>
-                        <div style={{ background: '#1D4ED8', borderRadius: 6, padding: '6px 12px', display: 'flex', alignItems: 'center', flex: 1, justifyContent: 'center', color: '#fff', fontWeight: 700, fontSize: 13 }}>A1</div>
-                        <span style={{ color: '#fff', fontWeight: 800, fontSize: 13, flexShrink: 0 }}>VS</span>
-                        <div style={{ background: '#16A34A', borderRadius: 6, padding: '6px 12px', display: 'flex', alignItems: 'center', flex: 1, justifyContent: 'center', color: '#fff', fontWeight: 700, fontSize: 13 }}>A2</div>
-                      </div>
-                    ) : (
-                      <div className="blog-qr-visual" style={{ background: vis.bg }}>{vis.emoji}</div>
-                    )}
+                    <QrCardVisual post={post} comparatifVs={COMPARATIF_VS_SLUGS.has(post.slug)} useCategoryGlyph={false} />
                     <div className="blog-qr-body">
                       <span className="blog-qr-tag blog-qr-tag-qr">Q&amp;R</span>
                       <div className="blog-qr-title">{post.frontmatter.title}</div>
-                      <p className="blog-qr-desc">{post.frontmatter.description}</p>
                       <div className="blog-qr-foot">
                         <span className="blog-qr-time">⏱️ {post.frontmatter.readTime ?? '4 min'}</span>
                         <span className="blog-qr-arrow">→</span>
                       </div>
                     </div>
                   </Link>
-                )
-              })}
+              ))}
             </div>
           </section>
         )}
@@ -195,13 +263,19 @@ export default function BlogPageContent({ posts, totalQR, totalPatho }: Props) {
             <div className="blog-patho-grid">
               {pathoPosts.map(post => {
                 const p = PATHO_ICONS[post.slug] ?? { bg: '#EFF6FF', emoji: '🐾', price: 'Variable', animal: '—' }
+                const cover = coverUrl(post.frontmatter)
                 return (
                   <Link key={post.slug} href={`/blog/${post.slug}`} className="blog-patho-card">
-                    <div className="blog-patho-icon" style={{ background: p.bg }}>{p.emoji}</div>
+                    {cover ? (
+                      <div className="blog-patho-thumb-wrap">
+                        <Image src={cover} alt="" fill className="blog-patho-cover-img" sizes="72px" unoptimized />
+                      </div>
+                    ) : (
+                      <div className="blog-patho-icon" style={{ background: p.bg }}>{p.emoji}</div>
+                    )}
                     <div style={{ flex: 1 }}>
                       <div className="blog-patho-tag">{p.animal}</div>
                       <div className="blog-patho-title">{post.frontmatter.title}</div>
-                      <p className="blog-patho-desc">{post.frontmatter.description}</p>
                       <div className="blog-patho-price">
                         {p.price}
                         <span className="blog-patho-price-sub">coût de traitement</span>
@@ -214,8 +288,28 @@ export default function BlogPageContent({ posts, totalQR, totalPatho }: Props) {
           </section>
         )}
 
-        {/* Autres */}
-        {otherPosts.length > 0 && (
+        {/* Guides & Comparatifs — filtre Tous : tout sauf les articles Race (section « Par race » en bas) */}
+        {active === 'Tous' && otherPostsSansRace.length > 0 && (
+          <section style={{ marginBottom: 52 }}>
+            <div className="blog-section-head">
+              <h3>📚 Guides &amp; Comparatifs</h3>
+            </div>
+            <div className="blog-qr-grid">{otherPostsSansRace.map(renderOtherCard)}</div>
+          </section>
+        )}
+
+        {/* Par race — filtre « Tous » : en bas de page après les autres blocs */}
+        {active === 'Tous' && racePosts.length > 0 && (
+          <section style={{ marginBottom: 52 }}>
+            <div className="blog-section-head">
+              <h3>🐕 Par race</h3>
+            </div>
+            <div className="blog-qr-grid">{racePosts.map(renderOtherCard)}</div>
+          </section>
+        )}
+
+        {/* Autres — un seul filtre actif (Race, Guide, Comparatif, Conseil…) */}
+        {active !== 'Tous' && otherPosts.length > 0 && (
           <section style={{ marginBottom: 52 }}>
             <div className="blog-section-head">
               <h3>
@@ -223,43 +317,9 @@ export default function BlogPageContent({ posts, totalQR, totalPatho }: Props) {
                 {active === 'Guide' && '📖 Guides pratiques'}
                 {active === 'Race' && '🐕 Par race'}
                 {active === 'Conseil' && '💡 Conseils'}
-                {(active === 'Tous' || active === 'Q&R' || active === 'Pathologie') && '📚 Guides & Comparatifs'}
               </h3>
             </div>
-            <div className="blog-qr-grid">
-              {otherPosts.map(post => {
-                const cat = post.frontmatter.category
-                const c = CAT_COLORS[cat] ?? { bg: '#F3F4F6', color: '#374151' }
-                return (
-                  <Link key={post.slug} href={`/blog/${post.slug}`} className="blog-qr-card">
-                    {post.slug === 'santevet-vs-kozoo-comparatif' ? (
-                      <div className="blog-qr-visual" style={{ background: 'linear-gradient(135deg,#1e3a8a,#14532d)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, padding: '0 12px' }}>
-                        <div style={{ background: '#1D4ED8', borderRadius: 6, padding: '6px 12px', display: 'flex', alignItems: 'center', flex: 1, justifyContent: 'center', color: '#fff', fontWeight: 700, fontSize: 13 }}>A1</div>
-                        <span style={{ color: '#fff', fontWeight: 800, fontSize: 13, flexShrink: 0 }}>VS</span>
-                        <div style={{ background: '#16A34A', borderRadius: 6, padding: '6px 12px', display: 'flex', alignItems: 'center', flex: 1, justifyContent: 'center', color: '#fff', fontWeight: 700, fontSize: 13 }}>A2</div>
-                      </div>
-                    ) : (
-                      <div className="blog-qr-visual" style={{ background: '#111827' }}>
-                        <span style={{ fontSize: 44 }}>
-                          {cat === 'Comparatif' ? '⚖️' : cat === 'Guide' ? '📖' : cat === 'Race' ? '🐕' : '💡'}
-                        </span>
-                      </div>
-                    )}
-                    <div className="blog-qr-body">
-                      <span className="blog-qr-tag" style={{ background: c.bg, color: c.color }}>
-                        {CAT_LABELS[cat] ?? cat}
-                      </span>
-                      <div className="blog-qr-title">{post.frontmatter.title}</div>
-                      <p className="blog-qr-desc">{post.frontmatter.description}</p>
-                      <div className="blog-qr-foot">
-                        <span className="blog-qr-time">⏱️ {post.frontmatter.readTime ?? '5 min'}</span>
-                        <span className="blog-qr-arrow">→</span>
-                      </div>
-                    </div>
-                  </Link>
-                )
-              })}
-            </div>
+            <div className="blog-qr-grid">{otherPosts.map(renderOtherCard)}</div>
           </section>
         )}
 

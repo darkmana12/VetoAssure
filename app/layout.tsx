@@ -13,6 +13,7 @@ const dmSans = DM_Sans({
 const dmSerif = DM_Serif_Display({
   subsets: ['latin'],
   weight: ['400'],
+  style: ['normal', 'italic'],
   variable: '--font-dm-serif',
 })
 

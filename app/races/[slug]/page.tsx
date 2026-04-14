@@ -16,12 +16,12 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   try {
     const { data } = getRace(params.slug)
-    const url = `https://vetoassure.fr/races/${params.slug}`
+    const path = `/races/${params.slug}`
     return {
       title: data.title as string,
       description: data.metaDescription as string,
-      alternates: { canonical: url },
-      openGraph: { url, title: data.title as string, description: data.metaDescription as string },
+      alternates: { canonical: path },
+      openGraph: { url: path, title: data.title as string, description: data.metaDescription as string },
     }
   } catch {
     return { title: 'Race non trouvée' }

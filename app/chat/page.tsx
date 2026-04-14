@@ -91,7 +91,7 @@ export default function ChatPage() {
       <section className="hero-wrap">
         <div className="hero hero--chat">
           <div className="hero-content">
-            <div className="hero-badge">Comparatif assurances chat 2026</div>
+            <div className="hero-badge">Comparatif assurances chats 2026</div>
             <h1>Meilleure assurance chat 2026</h1>
             <p className="hero-subtitle">
               Assurance chat : comparatif complet de 8 offres — trouvez la meilleure couverture pour

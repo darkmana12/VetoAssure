@@ -71,12 +71,15 @@ export default function Nav() {
               onMouseEnter={handleDropdownEnter}
               onMouseLeave={handleDropdownLeave}
             >
-              <div className={`nav-dropdown-trigger${isActive('/races') ? ' active' : ''}`}>
+              <Link
+                href="/races"
+                className={`nav-dropdown-trigger${isActive('/races') ? ' active' : ''}`}
+              >
                 Races
                 <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" strokeWidth="1.8">
                   <path d="M2 3.5L5 6.5L8 3.5" />
                 </svg>
-              </div>
+              </Link>
               <div className="nav-dropdown-menu">
                 <Link href="/races" className="nav-dropdown-item">🐕 Races de chiens</Link>
                 <Link href="/races#chats" className="nav-dropdown-item">🐈 Races de chats</Link>

@@ -37,3 +37,10 @@ export function getAllBlogPosts() {
     })
     .sort((a, b) => (a.frontmatter.date > b.frontmatter.date ? -1 : 1))
 }
+
+/** Articles récents autres que la page courante (pour « À lire aussi »). */
+export function getRelatedBlogPosts(currentSlug: string, limit = 3) {
+  return getAllBlogPosts()
+    .filter((p) => p.slug !== currentSlug)
+    .slice(0, limit)
+}

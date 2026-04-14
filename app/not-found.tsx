@@ -5,7 +5,7 @@ export default function NotFound() {
     <section className="hero" style={{ paddingBottom: 52 }}>
       <div style={{
         fontSize: 72,
-        fontFamily: 'var(--font-dm-serif)',
+        fontFamily: 'var(--serif)',
         fontWeight: 700,
         color: 'var(--blue)',
         lineHeight: 1,
