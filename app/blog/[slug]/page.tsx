@@ -135,6 +135,22 @@ export default function BlogPostPage({ params }: Props) {
     ],
   }
 
+  // FAQ schema (FAQPage) — généré uniquement si l'article a un tableau `faq` en frontmatter
+  const faqItems = Array.isArray(frontmatter.faq)
+    ? (frontmatter.faq as Array<{ q: string; a: string }>)
+    : null
+  const faqLd = faqItems && faqItems.length > 0
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqItems.map(({ q, a }) => ({
+          '@type': 'Question',
+          name: q,
+          acceptedAnswer: { '@type': 'Answer', text: a },
+        })),
+      }
+    : null
+
   const categoryLabel =
     isPatho
       ? '🩺 Pathologie & coûts'
@@ -163,6 +179,12 @@ export default function BlogPostPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
+      {faqLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
+        />
+      )}
 
       <div className="blog-pages blog-article-page">
         <div className="blog-article-shell">
