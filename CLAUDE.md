@@ -18,7 +18,7 @@ Marché : **France uniquement** (99% du trafic GSC). Pas de version BE / CH / QC
 - Tous les **nouveaux articles** utilisent des placeholders : `Assurance 1`, `Assurance 2`, … `Assurance 11`.
 - Le mapping placeholder → nom réel est dans `~/.claude/projects/<projet>/memory/project_insurer_mapping.md`. Même numéro = même marque sur tout le site.
 - **Ne jamais citer** Santévet, Kozoo, Dalma, Acheel, Assur O'Poil, Barkibu, Lovys, Lassie, Fidanimo, Hypnia, Bulle Bleue dans un nouvel article tant que les contrats d'affiliation ne sont pas signés.
-- Exception : pages déjà existantes qui les citent (`santevet-vs-kozoo-comparatif.mdx`, anciennes routes `/avis/[slug]`) — ne pas y toucher sans validation explicite.
+- Exception : pages déjà existantes qui les citent (le comparatif `assurance-1-vs-assurance-2-comparatif.mdx`, anciennes routes `/avis/[slug]` désormais redirigées) — ne pas y toucher sans validation explicite.
 
 ### E-E-A-T sans persona
 - Auteur affiché = **« L'équipe VetoAssure »** ou **« Rédaction VetoAssure »**. Jamais de nom personnel, jamais de vétérinaire fictif (illégal en France, art. L243-1 Code rural).

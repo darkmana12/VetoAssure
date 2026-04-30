@@ -53,7 +53,7 @@ const PATHO_ICONS: Record<string, { bg: string; emoji: string; price: string; an
 const FILTERS = ['Tous', 'Q&R', 'Pathologie', 'Comparatif', 'Guide', 'Race']
 
 /** Slug(s) frontmatter pour l’article comparatif A1 vs A2 (carte « VS ») */
-const COMPARATIF_VS_SLUGS = new Set(['santevet-vs-kozoo-comparatif', 'Assurance1-vs-Assurance2-comparatif'])
+const COMPARATIF_VS_SLUGS = new Set(['santevet-vs-kozoo-comparatif', 'Assurance1-vs-Assurance2-comparatif', 'assurance-1-vs-assurance-2-comparatif'])
 
 function coverUrl(fm: Record<string, string>): string | undefined {
   const raw = fm.coverImage?.trim()

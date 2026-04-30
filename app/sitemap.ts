@@ -34,9 +34,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ]
 
   const racesPages: MetadataRoute.Sitemap = getAllRaces().map(
-    (r: { slug?: string; updatedAt?: string; date?: string }) => ({
+    (r: { slug?: string; updatedAt?: string; dateVerification?: string; date?: string }) => ({
       url: `${BASE}/races/${r.slug ?? ''}`,
-      lastModified: parseDate(r.updatedAt ?? r.date),
+      lastModified: parseDate(r.updatedAt ?? r.dateVerification ?? r.date),
       changeFrequency: 'monthly' as const,
       priority: 0.6,
     })
