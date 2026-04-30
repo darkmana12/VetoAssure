@@ -44,7 +44,12 @@ const nextConfig = {
       },
       {
         source: '/blog/Assurance1-vs-Assurance2-comparatif',
-        destination: '/blog/santevet-vs-kozoo-comparatif',
+        destination: '/blog/assurance-1-vs-assurance-2-comparatif',
+        permanent: true,
+      },
+      {
+        source: '/blog/santevet-vs-kozoo-comparatif',
+        destination: '/blog/assurance-1-vs-assurance-2-comparatif',
         permanent: true,
       },
       {
@@ -64,12 +69,12 @@ const nextConfig = {
       },
       {
         source: '/avis/santeVet',
-        destination: '/blog/santevet-vs-kozoo-comparatif',
+        destination: '/blog/assurance-1-vs-assurance-2-comparatif',
         permanent: true,
       },
       {
         source: '/avis/santevet',
-        destination: '/blog/santevet-vs-kozoo-comparatif',
+        destination: '/blog/assurance-1-vs-assurance-2-comparatif',
         permanent: true,
       },
       {
