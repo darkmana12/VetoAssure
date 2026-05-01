@@ -88,7 +88,14 @@ CTA implicite : « Pour comparer les formules disponibles, voyez notre [comparat
 ### Corps
 - [ ] Intro 3-5 phrases, contient au moins 1 chiffre clé
 - [ ] `<KNBox>` avec 3 chiffres en début d'article
-- [ ] 1 200 mots minimum (info) / 2 000 mots minimum (TX)
+- [ ] **Couverture d'intent complète** : tous les sujets des People Also Ask Google + top 5 SERP + FAQ frontmatter sont traités dans le corps
+- [ ] Word count indicatif respecté (cf. CLAUDE.md §3) :
+  - Comparatif : 1 800-2 500 mots
+  - Meilleure assurance [race] : 1 500-2 200 mots
+  - Pathologie + coût : 1 200-1 800 mots
+  - Prix / Q&R simple : 800-1 500 mots
+- [ ] **Test anti-remplissage** : aucune phrase sans chiffre, source, condition contractuelle, ou conseil actionnable. Si retirer 200 mots ne perd pas d'info, retirer ces 200 mots.
+- [ ] Aucune tournure vide (« il est important de noter que… », « comme nous l'avons vu… »)
 - [ ] H2 logiques, H3 utilisés pour sous-aspects
 - [ ] 1 tableau minimum (obligatoire pour comparatifs et "meilleure assurance X")
 - [ ] **3+ liens externes** vers sources autorité whitelistées (cf. CLAUDE.md §7)
