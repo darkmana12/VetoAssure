@@ -72,7 +72,7 @@ Ces actions captent du trafic **déjà en demande** sur le site. Priorité absol
 
 Chiens : ✅ `meilleure-assurance-labrador` (publié 2026-05-01), ⚙️ `-berger-allemand` (en PR #4), ✅ `-yorkshire-terrier` (publié 2026-05-01), ✅ `-chihuahua` (publié 2026-05-01), `-cavalier-king-charles`, `-cocker`, `-jack-russell`, `-shih-tzu`, `-bichon-maltais`, `-rottweiler`, `-husky`, `-shiba-inu`, `-staffie`, `-american-staffordshire`, `-berger-australien`, `-border-collie`, `-beagle`, `-teckel`, `-bulldog-anglais`.
 
-Chats : `meilleure-assurance-chat-siamois`, `-persan`, `-ragdoll`, `-bengal`, `-sphynx`, `-british-shorthair`, `-norvegien`, `-savannah`, `-sacre-de-birmanie`.
+Chats : ⚙️ `meilleure-assurance-siamois` (en PR), `-persan`, ⚙️ `-ragdoll` (en PR), `-bengal`, `-sphynx`, `-british-shorthair`, `-norvegien`, `-savannah`, `-sacre-de-birmanie`.
 
 ### 📝 Avis assureur (à reconstruire après décision /avis)
 > 11 pages, format avis structuré (note globale, prix, garanties, points forts/faibles, FAQ).
