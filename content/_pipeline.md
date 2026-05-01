@@ -70,7 +70,7 @@ Ces actions captent du trafic **déjà en demande** sur le site. Priorité absol
 ### 🐾 « Meilleure assurance [race] » — extension du cluster existant
 > Tu as 3 articles race ; il en faut 25-30 pour saturer le cluster.
 
-Chiens : `meilleure-assurance-labrador`, `-berger-allemand`, `-yorkshire`, `-chihuahua`, `-cavalier-king-charles`, `-cocker`, `-jack-russell`, `-shih-tzu`, `-bichon-maltais`, `-rottweiler`, `-husky`, `-shiba-inu`, `-staffie`, `-american-staffordshire`, `-berger-australien`, `-border-collie`, `-beagle`, `-teckel`, `-bulldog-anglais`.
+Chiens : `meilleure-assurance-labrador`, `-berger-allemand`, ✅ `-yorkshire-terrier` (publié 2026-05-01), `-chihuahua`, `-cavalier-king-charles`, `-cocker`, `-jack-russell`, `-shih-tzu`, `-bichon-maltais`, `-rottweiler`, `-husky`, `-shiba-inu`, `-staffie`, `-american-staffordshire`, `-berger-australien`, `-border-collie`, `-beagle`, `-teckel`, `-bulldog-anglais`.
 
 Chats : `meilleure-assurance-chat-siamois`, `-persan`, `-ragdoll`, `-bengal`, `-sphynx`, `-british-shorthair`, `-norvegien`, `-savannah`, `-sacre-de-birmanie`.
 
