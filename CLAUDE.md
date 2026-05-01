@@ -68,13 +68,23 @@ Squelette du corps :
 8. **Conclusion** courte avec CTA implicite vers comparateur ou autre article.
 9. **Sources vérifiées le …**
 
-Exigences quantitatives :
-- 1 200 mots **minimum** pour un article informationnel
-- 2 000 mots **minimum** pour un comparatif / transactionnel
-- **3+ liens externes** vers sources autorité réelles
+Exigences qualitatives (priment sur le word count) :
+- Couvrir **tous les sujets** identifiés dans : (a) les People Also Ask Google sur la requête cible, (b) les top 5 résultats SERP, (c) les FAQ frontmatter de l'article. Si un sujet attendu n'est pas traité, l'article est incomplet quel que soit le nombre de mots.
+- **3+ liens externes** vers sources autorité réelles (cf. §7)
 - **4+ liens internes** vers d'autres pages du site (race, pathologie, guide)
 - 1 tableau comparatif minimum dans les comparatifs et "meilleure assurance X"
 - 6-8 questions FAQ JSON-LD
+
+Word count **indicatif, jamais bloquant** :
+- Comparatif assureur vs assureur : viser **1 800-2 500 mots**
+- "Meilleure assurance [race]" / transactionnel : viser **1 500-2 200 mots**
+- Pathologie + coût : viser **1 200-1 800 mots**
+- Prix acte vétérinaire / Q&R simple : viser **800-1 500 mots**
+
+Règle anti-remplissage :
+- **Aucune phrase sans chiffre, source, condition contractuelle, ou conseil actionnable.** Bannir les tournures vides : « il est important de noter que… », « comme nous l'avons vu… », « dans cet article nous allons voir… », « en résumé, vous l'aurez compris… ».
+- **Test du retrait** : si supprimer 200 mots de l'article ne fait perdre aucune info au lecteur, ces 200 mots étaient en trop.
+- Préférer un **paragraphe dense de 80 mots** à trois paragraphes vagues de 60 mots.
 
 ---
 
