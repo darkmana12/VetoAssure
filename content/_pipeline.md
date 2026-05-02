@@ -42,7 +42,7 @@ Ces actions captent du trafic **déjà en demande** sur le site. Priorité absol
 | `to-update` | `chihuahua` | 188 | 21.14 | Plus proche du top 10 — push final |
 | `to-update` | `siamois` | 177 | 39.62 | Race chat — on-page + article |
 | `to-update` | `labrador` | 116 | 22.00 | Top 20, push final |
-| `to-update` | `golden-retriever` | 116 | 28.80 | On-page boost |
+| ✅ refondu 2026-05-02 | `golden-retriever` | 116 | 28.80 | Article support refondu charte v2 (2 324 mots, 8 FAQ, tableau Assurance 1-6, plafond oncologique en focus) |
 | `to-update` | `beagle` | 79 | 24.01 | Push |
 | `to-update` | `yorkshire-terrier` | 77 | 11.25 | Très proche top 10 — push priorité |
 | `to-update` | `persan` | 65 | 42.09 | Refonte profonde |

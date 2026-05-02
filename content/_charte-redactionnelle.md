@@ -76,6 +76,11 @@ CTA implicite : « Pour comparer les formules disponibles, voyez notre [comparat
 
 ## Checklist finale (avant commit)
 
+### ⚠️ Pièges YAML connus (à vérifier avant chaque commit)
+- **Apostrophe française dans une string single-quoted** = build error. Pour `q: 'Mon Golden a déjà de l'arthrose ?'` → utiliser des doubles quotes : `q: "Mon Golden a déjà de l'arthrose ?"`. JAMAIS de `\\'` dans une string YAML single-quoted.
+- Idem pour `D'autre part`, `n'a jamais`, `qu'il`, etc. dans les questions/réponses FAQ.
+- Si le contenu contient un guillemet droit `"`, utiliser des single-quotes pour wrapper la string.
+
 ### Frontmatter
 - [ ] `title` 50-60 caractères, mot-clé principal en début, année si transactionnel
 - [ ] `description` 140-160 caractères, contient mot-clé + chiffre + bénéfice
