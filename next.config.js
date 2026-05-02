@@ -12,6 +12,14 @@ const nextConfig = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   async redirects() {
     return [
+      // Force canonical domain : www.vetoassure.fr -> vetoassure.fr (301)
+      // Évite le doublon GSC et concentre l'autorité SEO sur le domaine canonique
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.vetoassure.fr' }],
+        destination: 'https://vetoassure.fr/:path*',
+        permanent: true,
+      },
       {
         source: '/fr',
         destination: '/',
