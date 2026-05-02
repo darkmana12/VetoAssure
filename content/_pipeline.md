@@ -25,13 +25,13 @@ Ces actions captent du trafic **déjà en demande** sur le site. Priorité absol
 ### 🥇 P1 — Pages déjà top 10, CTR à zéro → réécrire title/meta
 | Statut | Page | Position | Action |
 |---|---|---|---|
-| `to-update` | `sterilisation-remboursement-assurance` | 5.25 | Title + meta + intro, ajouter chiffres en SERP |
-| `to-update` | `maladies-preexistantes-assurance-animaux` | 5.85 | Title plus émotionnel, meta avec promesse claire |
-| `to-update` | `combien-coute-veterinaire-2026` | 6.04 | Ajouter "2026" + fourchette de prix dans title |
-| `to-update` | `cancer-chien-cout-traitement` | 6.45 | Ajouter coût en title (déjà), durcir la meta |
-| `to-update` | `dilatation-torsion-estomac-chien` | 8.45 | Une requête "torsion estomac chien prix" CTR 16.67% — push prix dans le title |
-| `to-update` | `diabete-chien-cout-traitement` | 9.21 | Title + meta orientés coût annuel |
-| `to-update` | `insuffisance-renale-chronique-chat` | 6.65 | Déjà CTR 1.83% — étendre l'article pour gagner pos 1-3 |
+| ✅ title/meta refait 2026-05-03 | `sterilisation-remboursement-assurance` | 5.25 | Title chiffré (100-450 €) + meta avec promesse forfait prévention |
+| ✅ title/meta refait 2026-05-03 | `maladies-preexistantes-assurance-animaux` | 5.85 | Title déclencheur "3 solutions" + meta orientée action |
+| ✅ title/meta refait 2026-05-03 | `combien-coute-veterinaire-2026` | 6.04 | Title avec fourchette consult/chirurgie + meta enrichie (vaccin, stéri, chir) |
+| ✅ title/meta refait 2026-05-03 | `cancer-chien-cout-traitement` | 6.45 | Title resserré + meta avec 3 chiffres clés (chir 1500, chimio 3000, radio 5000) |
+| ✅ title/meta refait 2026-05-03 | `dilatation-torsion-estomac-chien` | 8.45 | Title "2026 chirurgie urgence" + meta avec 3 races à risque nommées |
+| ✅ title/meta refait 2026-05-03 | `diabete-chien-cout-traitement` | 9.21 | Title "à vie" pour intent durée + meta avec délai carence + astuces budget |
+| ✅ title/meta refait 2026-05-03 | `insuffisance-renale-chronique-chat` | 6.65 | Title avec proportion "1 chat sur 3" + meta avec pronostic explicite |
 
 ### 🥈 P2 — Pages races sous-exploitées (impressions élevées, position page 3-4)
 | Statut | Race / page | Impressions | Position | Action |
