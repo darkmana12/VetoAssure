@@ -83,6 +83,27 @@ const LIST_CHIEN = [
     bonusColor: '#92400E', bonusBorder: '#FCD34D', bonusBg: '#FEF3C7',
     price: '11€',
   },
+  {
+    rank: 9, name: 'Assurance9', shortName: 'A9', color: '#0F766E',
+    score: 7.2, stars: '★★★½☆',
+    points: ['9 formules différenciées du Cuivre au Diamant', 'Taux modulables 50 à 90%, prévention incluse', 'Aucune franchise sur les formules supérieures'],
+    bonusColor: '#0F766E', bonusBorder: '#5EEAD4', bonusBg: '#F0FDFA',
+    price: '8€',
+  },
+  {
+    rank: 10, name: 'Assurance10', shortName: 'A10', color: '#475569',
+    score: 6.8, stars: '★★★☆☆',
+    points: ['Acteur récent, interface 100% digitale', 'Plafond annuel 1 000 à 2 000 € selon formule', 'Souscription rapide en ligne'],
+    bonusColor: '#475569', bonusBorder: '#CBD5E1', bonusBg: '#F8FAFC',
+    price: '14€',
+  },
+  {
+    rank: 11, name: 'Assurance11', shortName: 'A11', color: '#0EA5E9',
+    score: 7.6, stars: '★★★★☆',
+    points: ['Tarif plancher du marché : dès 3,94€/mois', 'Avance de frais incluse gratuitement', '3 formules (Bleu Essentiel, Tranquille, Sérénité)'],
+    bonusColor: '#0284C7', bonusBorder: '#BAE6FD', bonusBg: '#F0F9FF',
+    price: '4€',
+  },
 ]
 
 export default function ChienPage() {
@@ -94,7 +115,7 @@ export default function ChienPage() {
             <div className="hero-badge">Comparatif assurances chiens 2026</div>
             <h1>Meilleure assurance chien 2026</h1>
             <p className="hero-subtitle">
-              Comparatif complet de 8 assurances chien — garanties, prix et remboursements réels analysés
+              Comparatif complet de 11 assurances chien — garanties, prix et remboursements réels analysés
               pour vous aider à choisir.
             </p>
           </div>

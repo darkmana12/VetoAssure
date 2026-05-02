@@ -31,7 +31,7 @@ export default function Nav() {
     <>
       {/* Trust Bar */}
       <div className="trust-bar">
-        <span>8 assurances comparées</span>
+        <span>11 assurances comparées</span>
         <span className="trust-sep">·</span>
         <span>Vérifié {new Date().toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' })}</span>
         <span className="trust-sep">·</span>

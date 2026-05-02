@@ -9,12 +9,12 @@ import HeroRacesDropdown from '@/components/HeroRacesDropdown'
 export const metadata: Metadata = {
   title: 'VetoAssure — Comparatif assurance animaux 2026',
   description:
-    'Comparatif indépendant de 8 assurances animaux en France. Scores calculés sur 6 critères, avis vérifiés et offres exclusives pour chien, chat et NAC.',
+    'Comparatif indépendant de 11 assurances animaux en France. Scores calculés sur 6 critères, avis vérifiés et offres exclusives pour chien, chat et NAC.',
   alternates: { canonical: '/' },
   openGraph: {
     url: '/',
     title: 'VetoAssure — Comparatif assurance animaux 2026',
-    description: 'Comparatif indépendant de 8 assurances animaux en France. Scores calculés sur 6 critères, avis vérifiés et offres exclusives pour chien, chat et NAC.',
+    description: 'Comparatif indépendant de 11 assurances animaux en France. Scores calculés sur 6 critères, avis vérifiés et offres exclusives pour chien, chat et NAC.',
   },
 }
 
@@ -178,6 +178,39 @@ const LIST_ITEMS = [
       'Tarif accessible dès 11€/mois',
     ],
   },
+  {
+    slug: 'assurance-9', name: 'Assurance9', shortName: 'A9', color: '#0F766E',
+    tagline: 'La gamme la plus segmentée du marché (9 formules)',
+    points: [
+      '9 formules différenciées du Cuivre au Diamant',
+      'Taux de remboursement modulables de 50 à 90%',
+      'Forfait prévention inclus dans toutes les formules',
+      'Aucune franchise sur les formules supérieures',
+      'Tarifs dès 8€/mois sur la formule de base',
+    ],
+  },
+  {
+    slug: 'assurance-10', name: 'Assurance10', shortName: 'A10', color: '#475569',
+    tagline: 'Acteur récent du marché au positionnement intermédiaire',
+    points: [
+      'Acteur récent, interface 100% digitale',
+      'Plafond annuel 1 000 à 2 000 € selon formule',
+      'Formules économique à premium disponibles',
+      'Souscription rapide en ligne',
+      'Tarifs dès 14€/mois',
+    ],
+  },
+  {
+    slug: 'assurance-11', name: 'Assurance11', shortName: 'A11', color: '#0EA5E9',
+    tagline: 'Le tarif plancher du marché 2026 (dès 3,94 €/mois)',
+    points: [
+      'Tarif plancher du marché : dès 3,94€/mois',
+      '3 formules (Bleu Essentiel, Tranquille, Sérénité)',
+      'Avance de frais incluse gratuitement',
+      'Plafond jusqu\'à 2 000 €/an',
+      'Sans engagement',
+    ],
+  },
 ]
 
 const RACES = [
@@ -201,7 +234,7 @@ export default function HomePage() {
             <div className="hero-badge">Comparatif 2026 mis à jour</div>
             <h1 className="hero-heading">Quelle assurance pour votre animal ?</h1>
             <p className="hero-subtitle">
-              Nous avons analysé 8 assurances animaux pour vous. Comparez les garanties,
+              Nous avons analysé 11 assurances animaux pour vous. Comparez les garanties,
               les prix et les remboursements réels — par race et par profil.
             </p>
             <div className="hero-btns">
