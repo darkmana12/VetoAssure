@@ -50,24 +50,23 @@ export default function AvisTable({ rows }: { rows: AvisRow[] }) {
 
   const th: React.CSSProperties = {
     textAlign: 'left',
-    padding: '12px 14px',
+    padding: '10px 12px',
     fontSize: 12,
-    fontWeight: 700,
-    textTransform: 'uppercase',
-    letterSpacing: 0.5,
+    fontWeight: 600,
     color: 'var(--text-2)',
     borderBottom: '1px solid var(--border)',
     cursor: 'pointer',
     userSelect: 'none',
-    background: '#F9FAFB',
+    background: '#FAFAFA',
     whiteSpace: 'nowrap',
   }
   const thStatic: React.CSSProperties = { ...th, cursor: 'default' }
   const td: React.CSSProperties = {
-    padding: '14px',
+    padding: '10px 12px',
     borderBottom: '1px solid var(--border)',
     fontSize: 14,
-    verticalAlign: 'top',
+    verticalAlign: 'middle',
+    color: 'var(--text)',
   }
 
   return (
@@ -84,37 +83,25 @@ export default function AvisTable({ rows }: { rows: AvisRow[] }) {
         </thead>
         <tbody>
           {sorted.map((a) => (
-            <tr key={a.slug} style={{ transition: 'background 0.15s' }}>
-              <td style={{ ...td, fontWeight: 700, color: 'var(--text)', whiteSpace: 'nowrap' }}>
+            <tr key={a.slug}>
+              <td style={{ ...td, fontWeight: 600, whiteSpace: 'nowrap' }}>
                 {a.nom}
               </td>
-              <td style={td}>
-                {a.score != null ? (
-                  <span style={{ display: 'inline-block', padding: '4px 10px', background: '#EFF6FF', color: '#1D4ED8', borderRadius: 6, fontWeight: 700, fontSize: 13 }}>
-                    {a.score.toFixed(1)}/10
-                  </span>
-                ) : (
-                  <span style={{ color: 'var(--text-2)' }}>—</span>
-                )}
+              <td style={{ ...td, fontVariantNumeric: 'tabular-nums', whiteSpace: 'nowrap' }}>
+                {a.score != null ? `${a.score.toFixed(1)} / 10` : '—'}
               </td>
-              <td style={td}>
-                {a.prixDes != null ? (
-                  <span style={{ display: 'inline-block', padding: '4px 10px', background: '#F0FDF4', color: '#15803D', borderRadius: 6, fontWeight: 700, fontSize: 13, whiteSpace: 'nowrap' }}>
-                    {a.prixDes} €/mois
-                  </span>
-                ) : (
-                  <span style={{ color: 'var(--text-2)' }}>—</span>
-                )}
+              <td style={{ ...td, fontVariantNumeric: 'tabular-nums', whiteSpace: 'nowrap' }}>
+                {a.prixDes != null ? `${a.prixDes} €/mois` : '—'}
               </td>
               <td style={{ ...td, color: 'var(--text-2)', lineHeight: 1.5, minWidth: 240 }}>
                 {a.tagline || '—'}
               </td>
-              <td style={{ ...td, whiteSpace: 'nowrap' }}>
+              <td style={{ ...td, whiteSpace: 'nowrap', textAlign: 'right' }}>
                 <Link
                   href={`/avis/${a.slug}`}
-                  style={{ color: 'var(--blue)', fontWeight: 600, fontSize: 14, textDecoration: 'none' }}
+                  style={{ color: 'var(--text-2)', fontSize: 13, textDecoration: 'underline' }}
                 >
-                  Voir l&apos;avis →
+                  Fiche détaillée
                 </Link>
               </td>
             </tr>
