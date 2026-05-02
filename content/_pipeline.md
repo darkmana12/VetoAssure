@@ -36,7 +36,7 @@ Ces actions captent du trafic **déjà en demande** sur le site. Priorité absol
 ### 🥈 P2 — Pages races sous-exploitées (impressions élevées, position page 3-4)
 | Statut | Race / page | Impressions | Position | Action |
 |---|---|---|---|---|
-| `to-update` | `bouledogue-francais` | 339 | 31.85 | On-page boost + 1 article support « assurance bouledogue français » dans le blog |
+| ✅ refondu 2026-05-02 | `bouledogue-francais` | 339 | 31.85 | Article support refondu au standard charte v2 (2 433 mots, 8 FAQ, tableau Assurance 1-6, sources autorité) |
 | `to-update` | `berger-allemand` | 219 | 36.58 | Idem |
 | `to-update` | `ragdoll` | 212 | 33.77 | Idem (chat) |
 | `to-update` | `chihuahua` | 188 | 21.14 | Plus proche du top 10 — push final |
