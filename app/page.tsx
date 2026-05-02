@@ -248,9 +248,9 @@ export default function HomePage() {
                 </ul>
               </div>
               <div className="list-card-cta">
-                <span className="list-card-btn" style={{ background: a.color }}>
+                <Link href={`/avis/${a.slug}`} className="list-card-btn" style={{ background: a.color, textDecoration: 'none' }}>
                   Voir l&apos;offre →
-                </span>
+                </Link>
               </div>
             </div>
           ))}
