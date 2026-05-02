@@ -53,48 +53,83 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: '/avis/barkibu',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/avis/fidanimo',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/avis/dalma',
-        destination: '/',
-        permanent: true,
-      },
-      {
         source: '/avis/santeVet',
-        destination: '/blog/assurance-1-vs-assurance-2-comparatif',
+        destination: '/avis/assurance-1',
         permanent: true,
       },
       {
         source: '/avis/santevet',
-        destination: '/blog/assurance-1-vs-assurance-2-comparatif',
+        destination: '/avis/assurance-1',
+        permanent: true,
+      },
+      {
+        source: '/avis/kozoo',
+        destination: '/avis/assurance-2',
+        permanent: true,
+      },
+      {
+        source: '/avis/assuropoil',
+        destination: '/avis/assurance-3',
+        permanent: true,
+      },
+      {
+        source: '/avis/dalma',
+        destination: '/avis/assurance-4',
+        permanent: true,
+      },
+      {
+        source: '/avis/acheel',
+        destination: '/avis/assurance-5',
+        permanent: true,
+      },
+      {
+        source: '/avis/barkibu',
+        destination: '/avis/assurance-6',
+        permanent: true,
+      },
+      {
+        source: '/avis/lovys',
+        destination: '/avis/assurance-7',
+        permanent: true,
+      },
+      {
+        source: '/avis/lassie',
+        destination: '/avis/assurance-8',
+        permanent: true,
+      },
+      {
+        source: '/avis/fidanimo',
+        destination: '/avis/assurance-9',
+        permanent: true,
+      },
+      {
+        source: '/avis/hypnia',
+        destination: '/avis/assurance-10',
+        permanent: true,
+      },
+      {
+        source: '/avis/bulle-bleue',
+        destination: '/avis/assurance-11',
         permanent: true,
       },
       {
         source: '/avis/Assurance1',
-        destination: '/',
+        destination: '/avis/assurance-1',
         permanent: true,
       },
       {
         source: '/avis/Assurance2',
-        destination: '/',
+        destination: '/avis/assurance-2',
         permanent: true,
       },
       {
         source: '/avis/Assurance3',
-        destination: '/',
+        destination: '/avis/assurance-3',
         permanent: true,
       },
       {
         source: '/avis/Assurance5',
-        destination: '/',
+        destination: '/avis/assurance-5',
         permanent: true,
       },
     ]
