@@ -43,9 +43,9 @@ Ces actions captent du trafic **déjà en demande** sur le site. Priorité absol
 | `to-update` | `siamois` | 177 | 39.62 | Race chat — on-page + article |
 | `to-update` | `labrador` | 116 | 22.00 | Top 20, push final |
 | ✅ refondu 2026-05-02 | `golden-retriever` | 116 | 28.80 | Article support refondu charte v2 (2 324 mots, 8 FAQ, tableau Assurance 1-6, plafond oncologique en focus) |
-| `to-update` | `beagle` | 79 | 24.01 | Push |
+| ✅ publié 2026-05-02 | `beagle` | 79 | 24.01 | Article support créé charte v2 (2 190 mots, 8 FAQ, tableau Assurance 1-6, focus épilepsie + hernie discale chondrodystrophie) |
 | `to-update` | `yorkshire-terrier` | 77 | 11.25 | Très proche top 10 — push priorité |
-| `to-update` | `persan` | 65 | 42.09 | Refonte profonde |
+| ✅ publié 2026-05-02 | `persan` | 65 | 42.09 | Article support créé charte v2 (2 275 mots, 8 FAQ, tableau Assurance 1-6, focus PKD + brachycéphale + ophtalmo) |
 
 ---
 
@@ -70,9 +70,9 @@ Ces actions captent du trafic **déjà en demande** sur le site. Priorité absol
 ### 🐾 « Meilleure assurance [race] » — extension du cluster existant
 > Tu as 3 articles race ; il en faut 25-30 pour saturer le cluster.
 
-Chiens : ✅ `meilleure-assurance-labrador` (publié 2026-05-01), ⚙️ `-berger-allemand` (en PR #4), ✅ `-yorkshire-terrier` (publié 2026-05-01), ✅ `-chihuahua` (publié 2026-05-01), `-cavalier-king-charles`, `-cocker`, `-jack-russell`, `-shih-tzu`, `-bichon-maltais`, `-rottweiler`, `-husky`, `-shiba-inu`, `-staffie`, `-american-staffordshire`, `-berger-australien`, `-border-collie`, `-beagle`, `-teckel`, `-bulldog-anglais`.
+Chiens : ✅ `meilleure-assurance-labrador` (publié), ✅ `-berger-allemand` (publié), ✅ `-yorkshire-terrier` (publié), ✅ `-chihuahua` (publié), ✅ `-bouledogue-francais` (refondu 2026-05-02), ✅ `-golden-retriever` (refondu 2026-05-02), ✅ `-beagle` (publié 2026-05-02), `-cavalier-king-charles`, `-cocker`, `-jack-russell`, `-shih-tzu`, `-bichon-maltais`, `-rottweiler`, `-husky`, `-shiba-inu`, `-staffie`, `-american-staffordshire`, `-berger-australien`, `-border-collie`, `-teckel`, `-bulldog-anglais`.
 
-Chats : ⚙️ `meilleure-assurance-siamois` (en PR), `-persan`, ⚙️ `-ragdoll` (en PR), `-bengal`, `-sphynx`, `-british-shorthair`, `-norvegien`, `-savannah`, `-sacre-de-birmanie`.
+Chats : ✅ `meilleure-assurance-siamois` (publié), ✅ `-persan` (publié 2026-05-02), ✅ `-ragdoll` (publié), ✅ `-maine-coon` (refondu 2026-05-02), `-bengal`, `-sphynx`, `-british-shorthair`, `-norvegien`, `-savannah`, `-sacre-de-birmanie`.
 
 ### 📝 Avis assureur (à reconstruire après décision /avis)
 > 11 pages, format avis structuré (note globale, prix, garanties, points forts/faibles, FAQ).
