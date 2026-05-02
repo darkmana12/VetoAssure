@@ -121,6 +121,32 @@ export default function ChienPage() {
         <Link href="/races" className="see-all-link">Voir toutes les races →</Link>
       </section>
 
+      <section className="section" style={{ paddingTop: 0 }}>
+        <div
+          style={{
+            background: '#EFF6FF',
+            border: '1px solid #BFDBFE',
+            borderRadius: 'var(--radius-sm)',
+            padding: 24,
+            textAlign: 'center',
+          }}
+        >
+          <p className="section-label" style={{ color: '#1D4ED8', marginBottom: 8 }}>
+            ANALYSE PAR ASSUREUR
+          </p>
+          <h3 style={{ fontSize: 20, fontWeight: 700, color: 'var(--text)', marginBottom: 10 }}>
+            Avis détaillés des 11 assureurs animaux 2026
+          </h3>
+          <p style={{ fontSize: 14, color: 'var(--text-2)', lineHeight: 1.6, marginBottom: 16, maxWidth: 640, marginLeft: 'auto', marginRight: 'auto' }}>
+            Score, prix, plafonds, points forts et faibles : retrouvez notre analyse indépendante
+            assureur par assureur sur la base des conditions générales 2026.
+          </p>
+          <Link href="/avis" className="btn-secondary" style={{ background: '#1D4ED8', color: '#fff', textDecoration: 'none' }}>
+            Voir les 11 avis détaillés →
+          </Link>
+        </div>
+      </section>
+
       <section className="section" style={{ paddingTop: 0, textAlign: 'center', paddingBottom: 48 }}>
         <Link href="/" className="btn-secondary">← Retour au comparatif</Link>
       </section>
