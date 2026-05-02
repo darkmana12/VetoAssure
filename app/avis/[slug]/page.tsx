@@ -7,6 +7,7 @@ import { getAvis, getAllAvis } from '@/lib/mdx'
 import KNBox, { KN } from '@/components/blog/KNBox'
 import Callout from '@/components/blog/Callout'
 import ShortAnswer from '@/components/blog/ShortAnswer'
+import CTABlock from '@/components/blog/CTABlock'
 import BlogReadingProgress from '@/components/blog/BlogReadingProgress'
 import { MdxArticleH2, MdxArticleH3 } from '@/components/blog/MdxArticleHeadings'
 
@@ -19,6 +20,7 @@ const mdxComponents = {
   KNBox,
   KN,
   ShortAnswer,
+  CTABlock,
   h2: MdxArticleH2,
   h3: MdxArticleH3,
 }
