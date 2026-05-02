@@ -15,10 +15,11 @@ Marché : **France uniquement** (99% du trafic GSC). Pas de version BE / CH / QC
 ## 2. Règles dures (non négociables)
 
 ### Anonymisation des assureurs
-- Tous les **nouveaux articles** utilisent des placeholders : `Assurance 1`, `Assurance 2`, … `Assurance 11`.
+- **Tous les articles** (nouveaux ET existants) utilisent des placeholders : `Assurance 1`, `Assurance 2`, … `Assurance 11`.
 - Le mapping placeholder → nom réel est dans `~/.claude/projects/<projet>/memory/project_insurer_mapping.md`. Même numéro = même marque sur tout le site.
-- **Ne jamais citer** Santévet, Kozoo, Dalma, Acheel, Assur O'Poil, Barkibu, Lovys, Lassie, Fidanimo, Hypnia, Bulle Bleue dans un nouvel article tant que les contrats d'affiliation ne sont pas signés.
-- Exception : pages déjà existantes qui les citent (le comparatif `assurance-1-vs-assurance-2-comparatif.mdx`, anciennes routes `/avis/[slug]` désormais redirigées) — ne pas y toucher sans validation explicite.
+- **Ne jamais citer** Santévet, Kozoo, Dalma, Acheel, Assur O'Poil, Barkibu, Lovys, Lassie, Fidanimo, Hypnia, Bulle Bleue, ni les liens vers leurs sites (santevet.com, dalma.co, etc.) tant que les contrats d'affiliation ne sont pas signés.
+- **Plus aucune exception** (décision 2026-05-03) : zéro nom réel dans `content/`, `app/`, `components/`, `public/`. Vérification : `grep -rn "Santévet\|Dalma\|Lassie\|Bulle Bleue\|Kozoo\|Acheel\|Barkibu\|Lovys\|Fidanimo\|Hypnia\|SelfAssurance\|Assur O" content/ app/ components/ public/` doit renvoyer zéro résultat.
+- Activation : quand les contrats sont signés, find-replace global basé sur le mapping (1 paire par marque) pour réintroduire les noms.
 
 ### E-E-A-T sans persona
 - Auteur affiché = **« L'équipe VetoAssure »** ou **« Rédaction VetoAssure »**. Jamais de nom personnel, jamais de vétérinaire fictif (illégal en France, art. L243-1 Code rural).
