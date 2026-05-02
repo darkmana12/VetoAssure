@@ -44,3 +44,19 @@ export function getRelatedBlogPosts(currentSlug: string, limit = 3) {
     .filter((p) => p.slug !== currentSlug)
     .slice(0, limit)
 }
+
+export function getAvis(slug: string) {
+  const file = fs.readFileSync(path.join(contentDir, 'avis', `${slug}.mdx`), 'utf8')
+  return matter(file)
+}
+
+export function getAllAvis() {
+  const dir = path.join(contentDir, 'avis')
+  if (!fs.existsSync(dir)) return []
+  const files = fs.readdirSync(dir).filter(f => f.endsWith('.mdx'))
+  return files.map((f) => {
+    const { data } = matter(fs.readFileSync(path.join(dir, f), 'utf8'))
+    const slug = (data.slug as string) || f.replace(/\.mdx$/, '')
+    return { slug, ...data }
+  })
+}

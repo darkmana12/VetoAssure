@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next'
-import { getAllRaces, getAllBlogPosts } from '@/lib/mdx'
+import { getAllRaces, getAllBlogPosts, getAllAvis } from '@/lib/mdx'
 
 const BASE = 'https://vetoassure.fr'
 
@@ -27,6 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/races`,            lastModified: homeLastMod, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE}/autres-animaux`,   lastModified: homeLastMod, changeFrequency: 'monthly', priority: 0.6 },
     { url: `${BASE}/blog`,             lastModified: homeLastMod, changeFrequency: 'weekly',  priority: 0.8 },
+    { url: `${BASE}/avis`,             lastModified: homeLastMod, changeFrequency: 'weekly',  priority: 0.8 },
     { url: `${BASE}/methodologie`,     lastModified: new Date('2026-01-01'), changeFrequency: 'yearly',  priority: 0.4 },
     { url: `${BASE}/contact`,          lastModified: new Date('2026-01-01'), changeFrequency: 'yearly',  priority: 0.4 },
     { url: `${BASE}/mentions-legales`, lastModified: new Date('2026-01-01'), changeFrequency: 'yearly',  priority: 0.3 },
@@ -49,5 +50,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
-  return [...staticPages, ...racesPages, ...blogPages]
+  const avisPages: MetadataRoute.Sitemap = getAllAvis().map(
+    (a: { slug?: string; updatedAt?: string; date?: string }) => ({
+      url: `${BASE}/avis/${a.slug ?? ''}`,
+      lastModified: parseDate(a.updatedAt ?? a.date),
+      changeFrequency: 'monthly' as const,
+      priority: 0.75,
+    })
+  )
+
+  return [...staticPages, ...racesPages, ...blogPages, ...avisPages]
 }
