@@ -105,14 +105,14 @@ Chats : ✅ `meilleure-assurance-siamois` (publié), ✅ `-persan` (publié 2026
 ### 💰 Prix actes vétérinaires
 | Statut | Sujet |
 |---|---|
-| `idea` | `prix-vaccin-chien-2026` |
-| `idea` | `prix-vaccin-chat-2026` |
-| `idea` | `prix-sterilisation-chat-2026` |
+| ✅ publié 2026-05-02 | `prix-vaccin-chien-2026` |
+| ✅ publié 2026-05-02 | `prix-vaccin-chat-2026` |
+| ✅ publié 2026-05-02 | `prix-sterilisation-chat-2026` |
 | `idea` | `prix-castration-chien-2026` |
 | `idea` | `prix-radio-veterinaire-2026` |
-| `idea` | `prix-irm-veterinaire-2026` |
-| `idea` | `prix-scanner-veterinaire-2026` |
-| `idea` | `prix-detartrage-chien-2026` |
+| ✅ publié 2026-05-02 | `prix-irm-veterinaire-2026` |
+| ✅ publié 2026-05-02 | `prix-scanner-veterinaire-2026` |
+| ✅ publié 2026-05-02 | `prix-detartrage-chien-2026` |
 | `idea` | `prix-consultation-veterinaire-urgence-2026` |
 | `idea` | `prix-euthanasie-incineration-2026` |
 

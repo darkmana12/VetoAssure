@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 interface AssuranceListItemProps {
   rank: number
@@ -14,6 +15,7 @@ interface AssuranceListItemProps {
   bonusBg?: string
   price: string
   href?: string
+  slug?: string
   logo?: string
 }
 
@@ -29,8 +31,11 @@ export default function AssuranceListItem({
   bonusColor,
   bonusBorder,
   bonusBg,
+  href,
+  slug,
   logo,
 }: AssuranceListItemProps) {
+  const target = href || `/avis/${slug || `assurance-${rank}`}`
   return (
     <div className="list-card">
       {/* Rank */}
@@ -75,9 +80,9 @@ export default function AssuranceListItem({
       <div className="list-card-cta">
         <div className="list-card-score-big" style={{ color }}>{score}</div>
         <div className="list-card-stars">{stars}</div>
-        <span className="list-card-btn" style={{ background: color }}>
+        <Link href={target} className="list-card-btn" style={{ background: color, textDecoration: 'none' }}>
           Voir l&apos;offre →
-        </span>
+        </Link>
       </div>
     </div>
   )

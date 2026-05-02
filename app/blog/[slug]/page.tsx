@@ -25,6 +25,7 @@ const CAT_COLORS: Record<string, { bg: string; color: string }> = {
   Comparatif: { bg: '#EFF6FF', color: '#1D4ED8' },
   Guide:      { bg: '#F0FDF4', color: '#15803D' },
   Race:       { bg: '#F5F3FF', color: '#6D28D9' },
+  Prix:       { bg: '#FEF2F2', color: '#B91C1C' },
   Conseil:    { bg: '#FFF7ED', color: '#C2410C' },
 }
 
@@ -34,6 +35,7 @@ const CAT_LABEL: Record<string, string> = {
   Comparatif: 'Comparatif',
   Guide: 'Guide',
   Race: 'Race',
+  Prix: 'Prix vétérinaire',
   Conseil: 'Conseil',
 }
 
@@ -44,6 +46,7 @@ const RELATED_CARD_CAT: Record<string, string> = {
   Comparatif: 'Comparatif',
   Guide: 'Bien choisir',
   Race: 'Race',
+  Prix: 'Prix vétérinaire',
   Conseil: 'Conseil',
 }
 

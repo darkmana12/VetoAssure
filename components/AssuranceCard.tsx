@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 interface AssuranceCardProps {
   rank: number
@@ -14,6 +15,7 @@ interface AssuranceCardProps {
   price: string
   priceNote: string
   href?: string
+  slug?: string
   logo?: string
 }
 
@@ -25,13 +27,15 @@ export default function AssuranceCard({
   gradientFrom,
   gradientTo,
   tagline,
-  score,
   facts,
   checks,
   price,
   priceNote,
+  href,
+  slug,
   logo,
 }: AssuranceCardProps) {
+  const target = href || `/avis/${slug || `assurance-${rank}`}`
   return (
     <div className="assurance-card" style={{ borderColor: color }}>
 
@@ -89,9 +93,9 @@ export default function AssuranceCard({
           <div className="assurance-card-price">Dès {price}/mois</div>
           <div className="assurance-card-price-note">{priceNote}</div>
         </div>
-        <span className="assurance-card-btn" style={{ background: color }}>
+        <Link href={target} className="assurance-card-btn" style={{ background: color, textDecoration: 'none' }}>
           Voir →
-        </span>
+        </Link>
       </div>
 
     </div>

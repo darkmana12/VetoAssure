@@ -21,6 +21,7 @@ const CAT_LABELS: Record<string, string> = {
   Comparatif: 'Comparatif',
   Guide: 'Guide',
   Race: 'Race',
+  Prix: 'Prix vétérinaire',
   Conseil: 'Conseil',
 }
 
@@ -30,6 +31,7 @@ const CAT_COLORS: Record<string, { bg: string; color: string }> = {
   Comparatif: { bg: '#EFF6FF', color: '#1D4ED8' },
   Guide:      { bg: '#F0FDF4', color: '#15803D' },
   Race:       { bg: '#F5F3FF', color: '#6D28D9' },
+  Prix:       { bg: '#FEF2F2', color: '#B91C1C' },
   Conseil:    { bg: '#FFF7ED', color: '#C2410C' },
 }
 
@@ -50,7 +52,7 @@ const PATHO_ICONS: Record<string, { bg: string; emoji: string; price: string; an
   'cancer-chien-cout-traitement':       { bg: '#F3E8FF', emoji: '🔬', price: '2 000 – 10 000€', animal: 'Chien' },
 }
 
-const FILTERS = ['Tous', 'Q&R', 'Pathologie', 'Comparatif', 'Guide', 'Race']
+const FILTERS = ['Tous', 'Q&R', 'Pathologie', 'Prix', 'Comparatif', 'Guide', 'Race']
 
 /** Slug(s) frontmatter pour l’article comparatif A1 vs A2 (carte « VS ») */
 const COMPARATIF_VS_SLUGS = new Set(['santevet-vs-kozoo-comparatif', 'Assurance1-vs-Assurance2-comparatif', 'assurance-1-vs-assurance-2-comparatif'])
