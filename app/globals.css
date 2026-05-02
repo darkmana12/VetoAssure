@@ -917,10 +917,17 @@ main {
   padding: 10px 18px;
   border-radius: 6px;
   color: #fff;
-  pointer-events: none;
   white-space: nowrap;
   text-align: center;
   width: 100%;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.list-card-btn:hover {
+  opacity: 0.88;
 }
 
 /* ---- RACE GRID ---- */
