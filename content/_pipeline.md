@@ -133,10 +133,10 @@ Chats : ✅ `meilleure-assurance-siamois` (publié), ✅ `-persan` (publié 2026
 ### 🐰 NAC (volume faible mais peu de concurrence)
 | Statut | Sujet |
 |---|---|
-| `idea` | `assurance-lapin-est-ce-utile` |
-| `idea` | `assurance-furet-couverture-2026` |
-| `idea` | `assurance-cheval-prix-garanties-2026` |
-| `idea` | `assurance-NAC-tortue-perroquet-rongeur` |
+| ✅ publié 2026-05-03 | `assurance-lapin-est-ce-utile` |
+| ✅ publié 2026-05-03 | `assurance-furet-couverture-2026` |
+| ✅ publié 2026-05-03 | `assurance-cheval-prix-garanties-2026` |
+| ✅ publié 2026-05-03 | `assurance-nac-tortue-perroquet-rongeur` |
 
 ---
 
