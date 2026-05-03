@@ -86,21 +86,21 @@ Chats : ✅ `meilleure-assurance-siamois` (publié), ✅ `-persan` (publié 2026
 ### 🩺 Pathologies (étendre l'existant)
 | Statut | Sujet |
 |---|---|
-| `idea` | `epilepsie-chien-cout-traitement` |
-| `idea` | `cardiomyopathie-hypertrophique-chat` |
-| `idea` | `arthrose-chien-cout-traitement` |
-| `idea` | `leishmaniose-chien-traitement` |
-| `idea` | `parvovirose-chiot-cout-vaccination` |
-| `idea` | `hyperthyroidie-chat-traitement` |
-| `idea` | `lymphome-chat-cout-traitement` |
-| `idea` | `pyometre-chienne-urgence-cout` |
-| `idea` | `obstruction-intestinale-chien-chirurgie` |
-| `idea` | `hernie-discale-chien-cout-operation` |
-| `idea` | `cushing-chien-cout-traitement` |
-| `idea` | `coryza-chat-traitement` |
-| `idea` | `fiv-felv-chat-cout-prise-en-charge` |
-| `idea` | `glaucome-chien-chat-traitement` |
-| `idea` | `cataracte-chien-cout-operation` |
+| ✅ publié 2026-05-03 | `epilepsie-chien-cout-traitement` |
+| ✅ publié 2026-05-03 | `cardiomyopathie-hypertrophique-chat` |
+| ✅ publié 2026-05-03 | `arthrose-chien-cout-traitement` |
+| ✅ publié 2026-05-03 | `leishmaniose-chien-traitement` |
+| ✅ publié 2026-05-03 | `parvovirose-chiot-cout-vaccination` |
+| ✅ publié 2026-05-03 | `hyperthyroidie-chat-traitement` |
+| ✅ publié 2026-05-03 | `lymphome-chat-cout-traitement` |
+| ✅ publié 2026-05-03 | `pyometre-chienne-urgence-cout` |
+| ✅ publié 2026-05-03 | `obstruction-intestinale-chien-chirurgie` |
+| ✅ publié 2026-05-03 | `hernie-discale-chien-cout-operation` |
+| ✅ publié 2026-05-03 | `cushing-chien-cout-traitement` |
+| ✅ publié 2026-05-03 | `coryza-chat-traitement` |
+| ✅ publié 2026-05-03 | `fiv-felv-chat-cout-prise-en-charge` |
+| ✅ publié 2026-05-03 | `glaucome-chien-chat-traitement` |
+| ✅ publié 2026-05-03 | `cataracte-chien-cout-operation` |
 
 ### 💰 Prix actes vétérinaires
 | Statut | Sujet |
