@@ -119,16 +119,16 @@ Chats : ✅ `meilleure-assurance-siamois` (publié), ✅ `-persan` (publié 2026
 ### 📚 Guides fonctionnement assurance
 | Statut | Sujet |
 |---|---|
-| `idea` | `comment-choisir-assurance-animaux-2026` |
-| `idea` | `assurance-animaux-comment-ca-marche` |
-| `idea` | `delai-remboursement-assurance-animaux` |
-| `idea` | `plafond-annuel-assurance-animaux` |
-| `idea` | `taux-remboursement-assurance-animaux-comparaison` |
-| `idea` | `forfait-prevention-assurance-animaux` |
-| `idea` | `resilier-assurance-animaux-loi-hamon` |
-| `idea` | `assurance-animaux-deductible-vs-franchise` |
-| `idea` | `assurance-animaux-multi-animaux-reduction` |
-| `idea` | `assurance-chien-categorie-1-2-obligation` |
+| ✅ publié 2026-05-03 | `comment-choisir-assurance-animaux-2026` |
+| ✅ publié 2026-05-03 | `assurance-animaux-comment-ca-marche` |
+| ✅ publié 2026-05-03 | `delai-remboursement-assurance-animaux` |
+| ✅ publié 2026-05-03 | `plafond-annuel-assurance-animaux` |
+| ✅ publié 2026-05-03 | `taux-remboursement-assurance-animaux-comparaison` |
+| ✅ publié 2026-05-03 | `forfait-prevention-assurance-animaux` |
+| ✅ publié 2026-05-03 | `resilier-assurance-animaux-loi-hamon` |
+| ✅ publié 2026-05-03 | `assurance-animaux-deductible-vs-franchise` |
+| ✅ publié 2026-05-03 | `assurance-animaux-multi-animaux-reduction` |
+| ✅ publié 2026-05-03 | `assurance-chien-categorie-1-2-obligation` |
 
 ### 🐰 NAC (volume faible mais peu de concurrence)
 | Statut | Sujet |
