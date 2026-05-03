@@ -86,11 +86,9 @@ export default function Nav() {
               </div>
             </li>
 
+            <li><Link href="/avis" className={`nav-link${isActive('/avis') ? ' active' : ''}`}>Avis</Link></li>
             <li><Link href="/autres-animaux" className={`nav-link${isActive('/autres-animaux') ? ' active' : ''}`}>Autres animaux</Link></li>
             <li style={{ marginLeft: 'auto', paddingLeft: 24, borderLeft: '1px solid var(--border)' }}>
-              <Link href="/avis" className={`nav-link${isActive('/avis') ? ' active' : ''}`}>Avis</Link>
-            </li>
-            <li>
               <Link href="/blog" className={`nav-link${isActive('/blog') ? ' active' : ''}`}>Blog</Link>
             </li>
           </ul>
