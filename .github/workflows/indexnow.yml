@@ -1,0 +1,22 @@
+name: IndexNow ping on deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  ping-indexnow:
+    runs-on: ubuntu-latest
+    # Attend 90 secondes que Vercel ait fini de déployer la nouvelle version
+    # avant de pinger IndexNow (sinon Bing recrawle l'ancienne version).
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Wait for Vercel deploy
+        run: sleep 90
+
+      - name: Submit sitemap URLs to IndexNow
+        run: node scripts/indexnow-submit.mjs
+        env:
+          NODE_OPTIONS: --no-deprecation
