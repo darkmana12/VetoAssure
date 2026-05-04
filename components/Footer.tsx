@@ -33,6 +33,7 @@ export default function Footer() {
           <div>
             <h4 style={{ fontSize: 13, fontWeight: 700, textTransform: 'uppercase', letterSpacing: 0.5, color: 'var(--text-2)', margin: '0 0 12px' }}>VetoAssure</h4>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 8 }}>
+              <li><Link href="/a-propos" className="footer-link">À propos</Link></li>
               <li><Link href="/contact" className="footer-link">Contact</Link></li>
               <li><Link href="/mentions-legales" className="footer-link">Mentions légales</Link></li>
               <li><Link href="/confidentialite" className="footer-link">Confidentialité</Link></li>
