@@ -14,7 +14,7 @@
  */
 
 const HOST = 'vetoassure.fr'
-const KEY = '8063f87ddd204f8caa78b87a421ee10e'
+const KEY = '14610c923b88ca84a536c989d003cdfa'
 const KEY_LOCATION = `https://${HOST}/${KEY}.txt`
 const SITEMAP_URL = `https://${HOST}/sitemap.xml`
 const ENDPOINT = 'https://api.indexnow.org/IndexNow'
