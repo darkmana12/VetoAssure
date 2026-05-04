@@ -227,6 +227,14 @@ const RACES = [
 export default function HomePage() {
   return (
     <>
+      {/* Preload de l'image LCP du hero — gain ~1-2s sur LCP desktop & mobile */}
+      <link
+        rel="preload"
+        as="image"
+        href="/logos-assurances/homepage_image_top.webp"
+        fetchPriority="high"
+      />
+
       {/* ===== HERO ===== */}
       <section className="hero-wrap">
         <div className="hero">
