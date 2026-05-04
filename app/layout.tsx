@@ -51,15 +51,40 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  // Schema.org Organization site-wide
+  // Note : volontairement NON typé en InsuranceAgency car VetoAssure est un comparateur
+  // indépendant et pas un assureur. Comparator/aggregator + Organization sont les types
+  // les plus précis pour un comparatif d'assurance avec affiliation.
+  // Champs founder / sameAs à activer post-ORIAS et post-création des profils sociaux.
   const organizationLd = {
     '@context': 'https://schema.org',
-    '@type': 'InsuranceAgency',
+    '@type': 'Organization',
     name: 'VetoAssure',
+    alternateName: 'VetoAssure — Comparatif assurance animaux',
     url: 'https://vetoassure.fr',
-    logo: 'https://vetoassure.fr/og-image.png',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://vetoassure.fr/og-image.png',
+      width: 1200,
+      height: 630,
+    },
     description:
-      'Comparatif indépendant des assurances animaux en France : chiens, chats et NAC. Guides, fiches par race et outil de comparaison.',
+      'Comparateur indépendant français des 11 principales assurances animaux. Guides, fiches par race, méthodologie publique et outil de comparaison transparent.',
+    foundingDate: '2026',
     areaServed: { '@type': 'Country', name: 'France' },
+    knowsAbout: [
+      'Assurance animaux',
+      'Assurance chien',
+      'Assurance chat',
+      'Assurance NAC',
+      'Comparateur assurance',
+      'Médecine vétérinaire',
+      'Pathologies vétérinaires',
+    ],
+    publishingPrinciples: 'https://vetoassure.fr/methodologie',
+    // À activer post-ORIAS / post-profils :
+    // founder: { '@type': 'Person', name: '...', identifier: 'ORIAS XXXX' },
+    // sameAs: ['https://www.linkedin.com/company/vetoassure', 'https://fr.trustpilot.com/review/vetoassure.fr'],
   }
 
   return (

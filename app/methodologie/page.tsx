@@ -79,6 +79,15 @@ const ABOUT_PAGE_SCHEMA = {
   },
 }
 
+const BREADCRUMB_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://vetoassure.fr' },
+    { '@type': 'ListItem', position: 2, name: 'Méthodologie', item: 'https://vetoassure.fr/methodologie' },
+  ],
+}
+
 export default function MethodologiePage() {
   return (
     <>
@@ -89,6 +98,10 @@ export default function MethodologiePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(ABOUT_PAGE_SCHEMA) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }}
       />
 
       <article className="section" style={{ maxWidth: 760 }}>
