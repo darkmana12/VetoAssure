@@ -32,12 +32,25 @@ const ABOUT_SCHEMA = {
   },
 }
 
+const BREADCRUMB_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://vetoassure.fr' },
+    { '@type': 'ListItem', position: 2, name: 'À propos', item: 'https://vetoassure.fr/a-propos' },
+  ],
+}
+
 export default function AProposPage() {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(ABOUT_SCHEMA) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(BREADCRUMB_SCHEMA) }}
       />
 
       <article className="section" style={{ maxWidth: 760 }}>

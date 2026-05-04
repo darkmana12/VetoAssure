@@ -230,8 +230,23 @@ export default function BlogPostPage({ params }: Props) {
                 <div className="blog-article-meta">
                   <span className="blog-article-meta-badge">
                     <span className="blog-article-meta-dot" aria-hidden />
+                    Par{' '}
+                    <Link
+                      href="/a-propos"
+                      style={{
+                        color: 'inherit',
+                        textDecoration: 'underline',
+                        textUnderlineOffset: 2,
+                        textDecorationColor: 'var(--border-2)',
+                      }}
+                    >
+                      Rédaction VetoAssure
+                    </Link>
+                  </span>
+                  <span className="blog-article-meta-badge">
+                    <span className="blog-article-meta-dot" aria-hidden />
                     {frontmatter.updatedAt
-                      ? `Mis à jour ${frontmatter.updatedAt as string}`
+                      ? `Mis à jour le ${frontmatter.updatedAt as string}`
                       : `Publié le ${frontmatter.date as string}`}
                   </span>
                   <span>⏱️ {(frontmatter.readTime as string) ?? '5 min'} de lecture</span>
