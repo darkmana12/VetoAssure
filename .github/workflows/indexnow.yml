@@ -8,13 +8,15 @@ on:
 jobs:
   ping-indexnow:
     runs-on: ubuntu-latest
-    # Attend 90 secondes que Vercel ait fini de déployer la nouvelle version
-    # avant de pinger IndexNow (sinon Bing recrawle l'ancienne version).
+    # Attend 3 min que Vercel ait fini de déployer + propager Edge cache.
+    # Observé en prod : un asset /public/*.txt peut renvoyer 404 jusqu'à 3
+    # min après le merge à cause du cache Edge. Avec 180s, le ping arrive
+    # quand l'asset est garanti servi correctement.
     steps:
       - uses: actions/checkout@v4
 
-      - name: Wait for Vercel deploy
-        run: sleep 90
+      - name: Wait for Vercel deploy + Edge propagation
+        run: sleep 180
 
       - name: Submit sitemap URLs to IndexNow
         run: node scripts/indexnow-submit.mjs
