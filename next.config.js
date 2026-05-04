@@ -10,6 +10,21 @@ const nextConfig = {
     ],
   },
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+  async headers() {
+    return [
+      {
+        // Cache long sur les images statiques /public/* (immutable, 1 an)
+        // Gain perf : LCP et FCP sur visites répétées + crawl Google
+        source: '/:path*.(webp|jpg|jpeg|png|svg|avif|ico)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+    ]
+  },
   async redirects() {
     return [
       // Force canonical domain : www.vetoassure.fr -> vetoassure.fr (301)
