@@ -70,6 +70,14 @@ const nextConfig = {
         destination: '/blog/assurance-1-vs-assurance-2-comparatif',
         permanent: true,
       },
+      // Doublon contenu détecté GSC 2026-05-05 :
+      // ancien article QR mars 2026 vs nouveau guide complet mai 2026
+      // (sprint Guides). Le nouveau couvre le même sujet avec charte v2.
+      {
+        source: '/blog/assurance-animaux-avec-ou-sans-franchise',
+        destination: '/blog/assurance-animaux-deductible-vs-franchise',
+        permanent: true,
+      },
       {
         source: '/blog/santevet-vs-kozoo-comparatif',
         destination: '/blog/assurance-1-vs-assurance-2-comparatif',
