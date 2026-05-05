@@ -54,8 +54,10 @@ const PATHO_ICONS: Record<string, { bg: string; emoji: string; price: string; an
 
 const FILTERS = ['Tous', 'Q&R', 'Pathologie', 'Prix', 'Comparatif', 'Guide', 'Race']
 
-/** Slug(s) frontmatter pour l’article comparatif A1 vs A2 (carte « VS ») */
-const COMPARATIF_VS_SLUGS = new Set(['santevet-vs-kozoo-comparatif', 'Assurance1-vs-Assurance2-comparatif', 'assurance-1-vs-assurance-2-comparatif'])
+/** Slug(s) frontmatter pour l’article comparatif A1 vs A2 (carte « VS »).
+ * NB : les anciens slugs nommés sont 301 vers le slug anonymisé (cf. next.config.js),
+ * donc ils n'arrivent jamais dans le composant — un seul slug suffit ici. */
+const COMPARATIF_VS_SLUGS = new Set(['Assurance1-vs-Assurance2-comparatif', 'assurance-1-vs-assurance-2-comparatif'])
 
 function coverUrl(fm: Record<string, string>): string | undefined {
   const raw = fm.coverImage?.trim()

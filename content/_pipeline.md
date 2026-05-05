@@ -19,7 +19,7 @@ Ces actions captent du trafic **déjà en demande** sur le site. Priorité absol
 ### 🚨 P0 — Bloquant SEO
 | Action | Type | Détail |
 |---|---|---|
-| `published` | Restaurer `/avis` + `/avis/[slug]` | TX | Pages supprimées (commit 40406fd) mais 300+ impressions GSC. Soit reconstruire, soit 301 vers `/blog/<slug-équivalent>`. **À discuter avec utilisateur.** |
+| `published` | Restaurer `/avis` + `/avis/[slug]` | TX | ✅ Reconstruit en cluster anonymisé `/avis/assurance-1..11` + index triable + 301 des 11 anciens slugs nommés (sprint 2026-05-04). |
 | `idea` | Fix sitemap `lastModified` | tech | Utiliser `updatedAt` MDX au lieu de `new Date()`. |
 
 ### 🥇 P1 — Pages déjà top 10, CTR à zéro → réécrire title/meta
@@ -56,12 +56,12 @@ Ces actions captent du trafic **déjà en demande** sur le site. Priorité absol
 
 | Statut | Sujet (slug suggéré) |
 |---|---|
-| `idea` | `assurance-1-vs-assurance-2-comparatif` (Santévet vs Kozoo — **existe déjà nommé**, à compléter) |
-| `idea` | `assurance-1-vs-assurance-4-comparatif` (Santévet vs Dalma) |
-| `idea` | `assurance-2-vs-assurance-4-comparatif` (Kozoo vs Dalma) |
-| `idea` | `assurance-1-vs-assurance-5-comparatif` (Santévet vs Acheel) |
-| `idea` | `assurance-4-vs-assurance-5-comparatif` (Dalma vs Acheel) |
-| `idea` | `assurance-3-vs-assurance-2-comparatif` (Assur'OPoil vs Kozoo) |
+| `idea` | `assurance-1-vs-assurance-2-comparatif` (le mapping placeholder→marque vit dans `memory/project_insurer_mapping.md`) |
+| `idea` | `assurance-1-vs-assurance-4-comparatif` |
+| `idea` | `assurance-2-vs-assurance-4-comparatif` |
+| `idea` | `assurance-1-vs-assurance-5-comparatif` |
+| `idea` | `assurance-4-vs-assurance-5-comparatif` |
+| `idea` | `assurance-3-vs-assurance-2-comparatif` |
 | `idea` | `top-assurances-chien-2026` |
 | `idea` | `top-assurances-chat-2026` |
 | `idea` | `meilleure-assurance-animaux-pas-chere-2026` |
@@ -74,10 +74,12 @@ Chiens : ✅ `meilleure-assurance-labrador` (publié), ✅ `-berger-allemand` (p
 
 Chats : ✅ `meilleure-assurance-siamois` (publié), ✅ `-persan` (publié 2026-05-02), ✅ `-ragdoll` (publié), ✅ `-maine-coon` (refondu 2026-05-02), ✅ `-bengal` (publié 2026-05-02), ✅ `-sphynx` (publié 2026-05-02), ✅ `-british-shorthair` (publié 2026-05-02), ✅ `-abyssin` (publié 2026-05-02), `-norvegien`, `-savannah`, `-sacre-de-birmanie`.
 
-### 📝 Avis assureur (à reconstruire après décision /avis)
-> 11 pages, format avis structuré (note globale, prix, garanties, points forts/faibles, FAQ).
+### 📝 Avis assureur — ✅ cluster reconstruit
+> 11 pages avis détaillés sous `/avis/assurance-1` à `/avis/assurance-11` (sprint 2026-05-04).
+> Index `/avis` avec tableau triable. Anciens slugs nommés (les 11 anciennes URLs `/avis/<marque>`) 301 vers les nouveaux slugs anonymisés — liste exhaustive dans `next.config.js` redirects.
+> Schéma `Review` + `BreadcrumbList` + `FAQPage` JSON-LD en place.
 
-`avis-assurance-1` → `avis-assurance-11`.
+À itérer post-contrats : remplacer placeholders par marques réelles via find-replace global, restaurer les liens externes vers les sites assureurs (whitelist documentée dans `memory/feedback_anonymisation.md`).
 
 ---
 
