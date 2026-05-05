@@ -46,53 +46,56 @@ export const metadata: Metadata = {
   },
 }
 
+// Schema.org Organization site-wide (hoisted module-level — alloué et stringifié
+// une seule fois au load du module, plutôt qu'à chaque render du RootLayout).
+// Vercel rule réf : server-hoist-static-io.
+//
+// Note : volontairement NON typé en InsuranceAgency car VetoAssure est un comparateur
+// indépendant et pas un assureur. Comparator/aggregator + Organization sont les types
+// les plus précis pour un comparatif d'assurance avec affiliation.
+// Champs founder / sameAs à activer post-ORIAS et post-création des profils sociaux.
+const ORGANIZATION_LD_JSON = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'VetoAssure',
+  alternateName: 'VetoAssure — Comparatif assurance animaux',
+  url: 'https://vetoassure.fr',
+  logo: {
+    '@type': 'ImageObject',
+    url: 'https://vetoassure.fr/og-image.png',
+    width: 1200,
+    height: 630,
+  },
+  description:
+    'Comparateur indépendant français des 11 principales assurances animaux. Guides, fiches par race, méthodologie publique et outil de comparaison transparent.',
+  foundingDate: '2026',
+  areaServed: { '@type': 'Country', name: 'France' },
+  knowsAbout: [
+    'Assurance animaux',
+    'Assurance chien',
+    'Assurance chat',
+    'Assurance NAC',
+    'Comparateur assurance',
+    'Médecine vétérinaire',
+    'Pathologies vétérinaires',
+  ],
+  publishingPrinciples: 'https://vetoassure.fr/methodologie',
+  // À activer post-ORIAS / post-profils :
+  // founder: { '@type': 'Person', name: '...', identifier: 'ORIAS XXXX' },
+  // sameAs: ['https://www.linkedin.com/company/vetoassure', 'https://fr.trustpilot.com/review/vetoassure.fr'],
+})
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  // Schema.org Organization site-wide
-  // Note : volontairement NON typé en InsuranceAgency car VetoAssure est un comparateur
-  // indépendant et pas un assureur. Comparator/aggregator + Organization sont les types
-  // les plus précis pour un comparatif d'assurance avec affiliation.
-  // Champs founder / sameAs à activer post-ORIAS et post-création des profils sociaux.
-  const organizationLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: 'VetoAssure',
-    alternateName: 'VetoAssure — Comparatif assurance animaux',
-    url: 'https://vetoassure.fr',
-    logo: {
-      '@type': 'ImageObject',
-      url: 'https://vetoassure.fr/og-image.png',
-      width: 1200,
-      height: 630,
-    },
-    description:
-      'Comparateur indépendant français des 11 principales assurances animaux. Guides, fiches par race, méthodologie publique et outil de comparaison transparent.',
-    foundingDate: '2026',
-    areaServed: { '@type': 'Country', name: 'France' },
-    knowsAbout: [
-      'Assurance animaux',
-      'Assurance chien',
-      'Assurance chat',
-      'Assurance NAC',
-      'Comparateur assurance',
-      'Médecine vétérinaire',
-      'Pathologies vétérinaires',
-    ],
-    publishingPrinciples: 'https://vetoassure.fr/methodologie',
-    // À activer post-ORIAS / post-profils :
-    // founder: { '@type': 'Person', name: '...', identifier: 'ORIAS XXXX' },
-    // sameAs: ['https://www.linkedin.com/company/vetoassure', 'https://fr.trustpilot.com/review/vetoassure.fr'],
-  }
-
   return (
     <html lang="fr" className={`${dmSans.variable} ${dmSerif.variable}`}>
       <body>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }}
+          dangerouslySetInnerHTML={{ __html: ORGANIZATION_LD_JSON }}
         />
         <Nav />
         <main>{children}</main>
