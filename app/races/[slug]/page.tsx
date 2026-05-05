@@ -61,14 +61,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const path = `/races/${params.slug}`
     const seoTitle = (data.seoTitle as string) || (data.title as string)
     const description = data.metaDescription as string
+    // canonicalOverride : utilisé quand un article blog jumeau (meilleure-assurance-X)
+    // est la version maître. Évite la cannibalisation H1 race/blog identique.
+    // Quand les pages race seront repositionnées en informationnel pur (race info,
+    // santé, prédispositions), retirer ce champ pour qu'elles rankent indépendamment.
+    const canonicalOverride = (data.canonicalOverride as string) || path
     return {
       ...(data.seoTitle
         ? { title: { absolute: seoTitle } }
         : { title: seoTitle }),
       description,
-      alternates: { canonical: path },
+      alternates: { canonical: canonicalOverride },
       openGraph: {
-        url: path,
+        url: canonicalOverride,
         title: seoTitle,
         description,
       },
