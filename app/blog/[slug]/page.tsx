@@ -257,7 +257,7 @@ export default function BlogPostPage({ params }: Props) {
                 <div className="blog-article-cover">
                   <Image
                     src={cover}
-                    alt=""
+                    alt={`Illustration : ${(frontmatter.title as string) || 'article VetoAssure'}`}
                     fill
                     className="blog-article-cover-img"
                     sizes="(max-width: 900px) 100vw, 820px"

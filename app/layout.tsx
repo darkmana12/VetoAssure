@@ -19,10 +19,11 @@ const dmSerif = DM_Serif_Display({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://vetoassure.fr'),
-  title: {
-    template: '%s | VetoAssure',
-    default: 'VetoAssure — Comparatif assurance animaux 2026',
-  },
+  // Title simple (pas de template "%s | VetoAssure" qui ajoutait 13 chars
+  // sur chaque page et poussait la majorité des titles >70 chars (seuil Bing).
+  // La marque reste visible dans og:site_name, Schema.org Organization,
+  // breadcrumbs, et l'URL elle-même).
+  title: 'VetoAssure — Comparatif assurance animaux 2026',
   description:
     'Comparez les meilleures assurances animaux en France. Scores indépendants, avis vérifiés et offres exclusives pour chien, chat et NAC.',
   openGraph: {

@@ -95,7 +95,7 @@ function QrCardVisual({
       <div className="blog-qr-visual blog-qr-visual--cover">
         <Image
           src={cover}
-          alt=""
+          alt={`Illustration : ${post.frontmatter.title || 'article VetoAssure'}`}
           fill
           className="blog-qr-cover-img"
           sizes="(max-width: 768px) 50vw, 33vw"
