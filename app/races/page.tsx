@@ -3,14 +3,15 @@ import Link from 'next/link'
 import RaceCard from '@/components/RaceCard'
 
 export const metadata: Metadata = {
-  title: 'Assurance par race — Chien & Chat 2026',
+  title: 'Assurance par race — Chien & Chat 2026 : guide complet',
   description:
-    'Trouvez la meilleure assurance pour votre race de chien ou de chat. Comparatifs spécialisés par race.',
+    'Pourquoi la race influence le prix et la couverture de l\'assurance animaux : prédispositions héréditaires, exclusions, fourchettes 2026 pour 16 races chien et chat.',
   alternates: { canonical: '/races' },
   openGraph: {
     url: '/races',
-    title: 'Assurance par race — Chien & Chat 2026',
-    description: 'Trouvez la meilleure assurance pour votre race de chien ou de chat. Comparatifs spécialisés par race.',
+    title: 'Assurance par race — Chien & Chat 2026 : guide complet',
+    description:
+      'Pourquoi la race influence le prix et la couverture de l\'assurance animaux : prédispositions, exclusions et fourchettes 2026 pour 16 races chien et chat.',
   },
 }
 
@@ -52,7 +53,54 @@ export default function RacesPage() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section" style={{ paddingTop: 0 }}>
+        <div style={{ maxWidth: 880, margin: '0 auto', lineHeight: 1.7, color: 'var(--text)' }}>
+          <h2 className="section-title" style={{ fontSize: 22, marginBottom: 16 }}>
+            Pourquoi la race influence le prix et la couverture
+          </h2>
+          <p style={{ marginBottom: 14 }}>
+            Le prix d&apos;une assurance animaux varie de <strong>1 à 4</strong> selon la race, à
+            profil et formule équivalents. Trois facteurs expliquent cet écart : la
+            <strong> prévalence des pathologies héréditaires</strong> propres à la race (dysplasie
+            de la hanche chez le Berger Allemand, HCM chez le Maine Coon, BOAS chez le Bouledogue
+            Français), l&apos;<strong>espérance de vie moyenne</strong> qui détermine le risque
+            cumulé sur le contrat, et la <strong>fréquence des actes chirurgicaux</strong> recensée
+            sur les bases d&apos;indemnisation des assureurs.
+          </p>
+          <p style={{ marginBottom: 14 }}>
+            Sur les races les plus à risque, certains contrats <strong>excluent par défaut</strong>
+            les pathologies héréditaires connues : c&apos;est le cas de la dysplasie sur les
+            grands chiens chez 6 assureurs sur 11. La parade : souscrire avant 12 mois et avant
+            tout dépistage, puis comparer les{' '}
+            <Link href="/blog/delai-carence-assurance-animaux" style={{ color: 'var(--blue)' }}>
+              délais de carence
+            </Link>{' '}
+            et les{' '}
+            <Link href="/blog/maladies-preexistantes-assurance-animaux" style={{ color: 'var(--blue)' }}>
+              clauses sur les maladies préexistantes
+            </Link>{' '}
+            ligne à ligne dans les Conditions Générales.
+          </p>
+          <p>
+            Chaque fiche race ci-dessous détaille les pathologies attendues, les fourchettes de
+            prix 2026 par formule (accidents seuls / accidents + maladies / tous risques), les
+            exclusions courantes par assureur et les{' '}
+            <Link href="/avis" style={{ color: 'var(--blue)' }}>
+              avis détaillés des 11 acteurs du marché
+            </Link>
+            . Pour un guide général de choix toutes races confondues, voir aussi{' '}
+            <Link
+              href="/blog/comment-choisir-assurance-animaux-2026"
+              style={{ color: 'var(--blue)' }}
+            >
+              comment choisir une assurance animaux en 2026
+            </Link>
+            .
+          </p>
+        </div>
+      </section>
+
+      <section className="section" style={{ paddingTop: 0 }}>
         <p className="section-label">RACES DE CHIENS</p>
         <h2 className="section-title">Assurance chien par race</h2>
         <div className="race-grid" style={{ marginTop: 16 }}>
