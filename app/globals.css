@@ -55,6 +55,12 @@ h1, h2, h3 {
   opacity: 0.6;
 }
 
+/* La nav sticky (68px) recouvrirait le titre de la section ciblée par
+   les ancres (#comparatif) sans cette marge de scroll. */
+#comparatif {
+  scroll-margin-top: 84px;
+}
+
 /* ---- NAV ---- */
 .nav {
   position: sticky;

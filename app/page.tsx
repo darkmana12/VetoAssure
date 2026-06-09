@@ -255,7 +255,8 @@ export default function HomePage() {
       </section>
 
       {/* ===== TOP 3 + LISTE ===== */}
-      <section className="section">
+      {/* id="comparatif" : cible des 63 CTAs "/#comparatif" du site (articles, sidebars, races) */}
+      <section className="section" id="comparatif">
         <p className="section-label">NOTRE SÉLECTION</p>
         <h2 className="section-title">Top 3 assurances animaux 2026</h2>
         <p className="section-subtitle">Scores calculés sur 6 critères — Vérifié {new Date().toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' })}</p>

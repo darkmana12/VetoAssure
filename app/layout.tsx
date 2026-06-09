@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { DM_Sans, DM_Serif_Display } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/react'
 import './globals.css'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
@@ -101,6 +102,10 @@ export default function RootLayout({
         <Nav />
         <main>{children}</main>
         <Footer />
+        {/* Vercel Web Analytics : cookieless, pas de bannière de consentement
+            requise (RGPD/CNIL ok). Pageviews + referrers + devices. À activer
+            aussi dans le dashboard Vercel : Project → Analytics → Enable. */}
+        <Analytics />
       </body>
     </html>
   )
