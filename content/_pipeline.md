@@ -70,7 +70,7 @@ Ces actions captent du trafic **déjà en demande** sur le site. Priorité absol
 ### 🐾 « Meilleure assurance [race] » — extension du cluster existant
 > Tu as 3 articles race ; il en faut 25-30 pour saturer le cluster.
 
-Chiens : ✅ `meilleure-assurance-labrador` (publié), ✅ `-berger-allemand` (publié), ✅ `-yorkshire-terrier` (publié), ✅ `-chihuahua` (publié), ✅ `-bouledogue-francais` (refondu 2026-05-02), ✅ `-golden-retriever` (refondu 2026-05-02), ✅ `-beagle` (publié 2026-05-02), ✅ `-boxer` (publié 2026-05-02), `-cavalier-king-charles`, `-cocker`, `-jack-russell`, `-shih-tzu`, `-bichon-maltais`, `-rottweiler`, `-husky`, `-shiba-inu`, `-staffie`, `-american-staffordshire`, ✅ `-berger-australien` (publié 2026-06-10), `-border-collie`, `-teckel`, `-bulldog-anglais`.
+Chiens : ✅ `meilleure-assurance-labrador` (publié), ✅ `-berger-allemand` (publié), ✅ `-yorkshire-terrier` (publié), ✅ `-chihuahua` (publié), ✅ `-bouledogue-francais` (refondu 2026-05-02), ✅ `-golden-retriever` (refondu 2026-05-02), ✅ `-beagle` (publié 2026-05-02), ✅ `-boxer` (publié 2026-05-02), ✅ `-cavalier-king-charles` (publié 2026-06-10), `-cocker`, `-jack-russell`, `-shih-tzu`, `-bichon-maltais`, `-rottweiler`, `-husky`, `-shiba-inu`, `-staffie`, `-american-staffordshire`, ✅ `-berger-australien` (publié 2026-06-10), `-border-collie`, `-teckel`, `-bulldog-anglais`.
 
 Chats : ✅ `meilleure-assurance-siamois` (publié), ✅ `-persan` (publié 2026-05-02), ✅ `-ragdoll` (publié), ✅ `-maine-coon` (refondu 2026-05-02), ✅ `-bengal` (publié 2026-05-02), ✅ `-sphynx` (publié 2026-05-02), ✅ `-british-shorthair` (publié 2026-05-02), ✅ `-abyssin` (publié 2026-05-02), `-norvegien`, `-savannah`, `-sacre-de-birmanie`.
 
