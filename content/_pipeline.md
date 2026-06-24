@@ -107,6 +107,8 @@ Chats : ✅ `meilleure-assurance-siamois` (publié), ✅ `-persan` (publié 2026
 | ✅ publié 2026-06-10 | `coup-de-chaleur-chien-cout-urgence` (saisonnier été) |
 | ✅ publié 2026-06-22 | `chien-enferme-voiture-chaleur` (saisonnier canicule + angle légal) |
 | ✅ publié 2026-06-22 | `coup-de-chaleur-chat-symptomes` (saisonnier été — pendant félin) |
+| ✅ publié 2026-06-22 | `coussinets-brules-chien-bitume` (saisonnier été — bitume chaud) |
+| ✅ publié 2026-06-22 | `deshydratation-chien-chat-symptomes` (saisonnier été + IRC chat) |
 
 ### 💰 Prix actes vétérinaires
 | Statut | Sujet |
