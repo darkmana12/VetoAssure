@@ -105,6 +105,7 @@ Chats : ✅ `meilleure-assurance-siamois` (publié), ✅ `-persan` (publié 2026
 | ✅ publié 2026-05-03 | `cataracte-chien-cout-operation` |
 | ✅ publié 2026-06-10 | `epillet-chien-chat-cout-retrait` (saisonnier été) |
 | ✅ publié 2026-06-10 | `coup-de-chaleur-chien-cout-urgence` (saisonnier été) |
+| ✅ publié 2026-06-22 | `chien-enferme-voiture-chaleur` (saisonnier canicule + angle légal) |
 
 ### 💰 Prix actes vétérinaires
 | Statut | Sujet |
