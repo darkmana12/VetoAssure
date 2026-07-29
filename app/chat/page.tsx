@@ -168,6 +168,29 @@ export default function ChatPage() {
         </div>
       </section>
 
+      {/* Maillage : ce hub est à 1 clic de la home mais ne pointait vers aucun
+          article de blog. Bloc éditorial vers les pathologies et coûts félins. */}
+      <section className="section" style={{ paddingTop: 0 }}>
+        <p className="section-label">GUIDES CHAT</p>
+        <h2 className="section-title">Pathologies et coûts vétérinaires du chat</h2>
+        <p className="section-subtitle" style={{ marginBottom: 16 }}>
+          Ce que coûtent réellement les soins les plus fréquents chez le chat, et ce que
+          les assurances remboursent.
+        </p>
+        <ul style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '8px 24px', listStyle: 'none', padding: 0, lineHeight: 1.9 }}>
+          <li><Link href="/blog/insuffisance-renale-chronique-chat">Insuffisance rénale chronique : 1 chat sur 3</Link></li>
+          <li><Link href="/blog/fiv-felv-chat-cout-prise-en-charge">FIV / FeLV : coût de la prise en charge</Link></li>
+          <li><Link href="/blog/hyperthyroidie-chat-traitement">Hyperthyroïdie du chat : traitements</Link></li>
+          <li><Link href="/blog/cardiomyopathie-hypertrophique-chat">Cardiomyopathie hypertrophique (HCM)</Link></li>
+          <li><Link href="/blog/lymphome-chat-cout-traitement">Lymphome du chat : chimiothérapie</Link></li>
+          <li><Link href="/blog/coryza-chat-traitement">Coryza : traitement et complications</Link></li>
+          <li><Link href="/blog/prix-sterilisation-chat-2026">Prix de la stérilisation 2026</Link></li>
+          <li><Link href="/blog/prix-vaccin-chat-2026">Prix des vaccins chat 2026</Link></li>
+          <li><Link href="/blog/coup-de-chaleur-chat-symptomes">Coup de chaleur : un chat qui halète</Link></li>
+          <li><Link href="/blog/maladies-frequentes-chat">Les 10 maladies les plus fréquentes</Link></li>
+        </ul>
+      </section>
+
       <section className="section" style={{ paddingTop: 0, textAlign: 'center', paddingBottom: 48 }}>
         <Link href="/" className="btn-secondary">← Retour au comparatif</Link>
       </section>

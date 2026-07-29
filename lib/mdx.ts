@@ -87,11 +87,77 @@ export function getAllBlogPosts() {
   return allBlogCache
 }
 
-/** Articles récents autres que la page courante (pour « À lire aussi »). */
+/** Mots vides à ignorer dans le scoring de proximité par slug. */
+const SLUG_STOPWORDS = new Set([
+  'assurance', 'assurances', 'meilleure', 'prix', 'cout', 'coût', 'de', 'du', 'des',
+  'la', 'le', 'les', 'un', 'une', 'et', 'ou', 'pour', 'sur', 'aux', 'en', '2026',
+  'traitement', 'animaux', 'animal', 'vs', 'comparatif',
+])
+
+/** Espèce déduite du slug — sert à ne pas proposer un article chat sur une page chien. */
+function speciesOf(slug: string): string | null {
+  if (/\bchiot|chien/.test(slug)) return 'chien'
+  if (/\bchaton|chat\b|chat-|felin/.test(slug)) return 'chat'
+  if (/lapin|furet|tortue|perroquet|rongeur|cheval|nac/.test(slug)) return 'nac'
+  return null
+}
+
+function slugTokens(slug: string): string[] {
+  const seen: Record<string, true> = {}
+  const out: string[] = []
+  for (const t of slug.split('-')) {
+    if (t.length > 2 && !SLUG_STOPWORDS.has(t) && !seen[t]) {
+      seen[t] = true
+      out.push(t)
+    }
+  }
+  return out
+}
+
+/**
+ * Articles liés pour le bloc « À lire aussi ».
+ *
+ * Historique : cette fonction retournait `slice(0, limit)` sur la liste triée par
+ * date — ce qui donnait à TOUS les articles le même bloc pointant vers les 3
+ * derniers publiés (soit ~249 liens internes concentrés sur 3 cibles, et 17 pages
+ * sans aucun lien entrant). Le scoring ci-dessous redistribue ces liens par
+ * proximité thématique.
+ *
+ * Score : même catégorie (+3), même espèce (+2), chaque token de slug partagé (+1).
+ * Départage par date décroissante. Repli sur les plus récents si aucun candidat
+ * n'obtient de score (cas d'un article isolé dans sa thématique).
+ */
 export function getRelatedBlogPosts(currentSlug: string, limit = 3) {
-  return getAllBlogPosts()
-    .filter((p) => p.slug !== currentSlug)
-    .slice(0, limit)
+  const all = getAllBlogPosts()
+  const current = all.find((p) => p.slug === currentSlug)
+  const candidates = all.filter((p) => p.slug !== currentSlug)
+
+  // Pages non-blog (fiches race) appellent cette fonction avec un slug fictif
+  // `__race__<slug>` : on score alors sur ce slug, sans catégorie de référence.
+  const refSlug = current?.slug ?? currentSlug.replace(/^__race__/, '')
+  const refCategory = current?.frontmatter.category
+  const refSpecies = speciesOf(refSlug)
+  const refTokens = slugTokens(refSlug)
+
+  const scored = candidates.map((p) => {
+    let score = 0
+    if (refCategory && p.frontmatter.category === refCategory) score += 3
+    const sp = speciesOf(p.slug)
+    if (refSpecies && sp === refSpecies) score += 2
+    for (const t of slugTokens(p.slug)) {
+      if (refTokens.indexOf(t) !== -1) score += 1
+    }
+    return { post: p, score }
+  })
+
+  scored.sort((a, b) => {
+    if (b.score !== a.score) return b.score - a.score
+    const da = a.post.frontmatter.date ?? ''
+    const db = b.post.frontmatter.date ?? ''
+    return db > da ? 1 : db < da ? -1 : 0
+  })
+
+  return scored.slice(0, limit).map((s) => s.post)
 }
 
 export function getAvis(slug: string) {
