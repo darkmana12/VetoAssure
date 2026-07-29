@@ -168,6 +168,29 @@ export default function ChienPage() {
         </div>
       </section>
 
+      {/* Maillage : ce hub est à 1 clic de la home mais ne pointait vers aucun
+          article de blog. Bloc éditorial vers les pathologies et coûts canins. */}
+      <section className="section" style={{ paddingTop: 0 }}>
+        <p className="section-label">GUIDES CHIEN</p>
+        <h2 className="section-title">Pathologies et coûts vétérinaires du chien</h2>
+        <p className="section-subtitle" style={{ marginBottom: 16 }}>
+          Ce que coûtent réellement les soins les plus fréquents chez le chien, et ce que
+          les assurances remboursent.
+        </p>
+        <ul style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '8px 24px', listStyle: 'none', padding: 0, lineHeight: 1.9 }}>
+          <li><Link href="/blog/cancer-chien-cout-traitement">Cancer du chien : coûts des traitements</Link></li>
+          <li><Link href="/blog/dysplasie-hanche-chien">Dysplasie de la hanche : ce qui est couvert</Link></li>
+          <li><Link href="/blog/dilatation-torsion-estomac-chien">Torsion d&apos;estomac : chirurgie d&apos;urgence</Link></li>
+          <li><Link href="/blog/arthrose-chien-cout-traitement">Arthrose du chien : coûts sur la durée</Link></li>
+          <li><Link href="/blog/epilepsie-chien-cout-traitement">Épilepsie : traitement à vie</Link></li>
+          <li><Link href="/blog/diabete-chien-cout-traitement">Diabète du chien : insuline et suivi</Link></li>
+          <li><Link href="/blog/parvovirose-chiot-cout-vaccination">Parvovirose du chiot : soins et prévention</Link></li>
+          <li><Link href="/blog/prix-vaccin-chien-2026">Prix des vaccins chien 2026</Link></li>
+          <li><Link href="/blog/prix-castration-chien-2026">Prix de la castration 2026</Link></li>
+          <li><Link href="/blog/coup-de-chaleur-chien-cout-urgence">Coup de chaleur : urgence estivale</Link></li>
+        </ul>
+      </section>
+
       <section className="section" style={{ paddingTop: 0, textAlign: 'center', paddingBottom: 48 }}>
         <Link href="/" className="btn-secondary">← Retour au comparatif</Link>
       </section>

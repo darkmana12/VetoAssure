@@ -84,6 +84,19 @@ export default function AutresAnimauxPage() {
         </div>
       </section>
 
+      {/* Maillage : le cluster NAC est bien relié en interne mais son hub était un
+          cul-de-sac ne renvoyant que vers la home. */}
+      <section className="section" style={{ paddingTop: 0 }}>
+        <p className="section-label">GUIDES NAC</p>
+        <h2 className="section-title">Nos guides par espèce</h2>
+        <ul style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '8px 24px', listStyle: 'none', padding: 0, lineHeight: 1.9 }}>
+          <li><Link href="/blog/assurance-lapin-est-ce-utile">Assurance lapin : est-ce vraiment utile ?</Link></li>
+          <li><Link href="/blog/assurance-furet-couverture-2026">Assurance furet : couverture et tarifs</Link></li>
+          <li><Link href="/blog/assurance-nac-tortue-perroquet-rongeur">Tortue, perroquet, rongeur : ce qui existe</Link></li>
+          <li><Link href="/blog/assurance-cheval-prix-garanties-2026">Assurance cheval : prix et garanties</Link></li>
+        </ul>
+      </section>
+
       <section className="section" style={{ paddingTop: 0, textAlign: 'center', paddingBottom: 48 }}>
         <Link href="/" className="btn-secondary">← Retour au comparatif</Link>
       </section>

@@ -275,6 +275,58 @@ export default function BlogPostPage({ params }: Props) {
                 />
               </div>
 
+              {faqItems && faqItems.length > 0 && (
+                <section style={{ marginTop: 48 }} aria-labelledby="faq-article-title">
+                  <h2
+                    id="faq-article-title"
+                    style={{
+                      fontSize: 24,
+                      fontWeight: 700,
+                      color: 'var(--text)',
+                      marginBottom: 20,
+                    }}
+                  >
+                    Questions fréquentes
+                  </h2>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+                    {faqItems.map((item, idx) => (
+                      <details
+                        key={idx}
+                        open={idx === 0}
+                        style={{
+                          padding: '16px 20px',
+                          background: '#fff',
+                          border: '1px solid var(--border)',
+                          borderRadius: 'var(--radius-sm)',
+                        }}
+                      >
+                        <summary
+                          style={{
+                            fontSize: 15,
+                            fontWeight: 600,
+                            color: 'var(--text)',
+                            cursor: 'pointer',
+                            lineHeight: 1.5,
+                          }}
+                        >
+                          {item.q}
+                        </summary>
+                        <p
+                          style={{
+                            fontSize: 14,
+                            color: 'var(--text-2)',
+                            marginTop: 12,
+                            lineHeight: 1.7,
+                          }}
+                        >
+                          {item.a}
+                        </p>
+                      </details>
+                    ))}
+                  </div>
+                </section>
+              )}
+
               <BlogArticleTop3 />
 
               <BlogArticleRelated posts={relatedPosts} />

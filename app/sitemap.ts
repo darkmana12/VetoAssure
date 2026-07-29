@@ -35,14 +35,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/confidentialite`,  lastModified: new Date('2026-01-01'), changeFrequency: 'yearly',  priority: 0.3 },
   ]
 
-  const racesPages: MetadataRoute.Sitemap = getAllRaces().map(
-    (r: { slug?: string; updatedAt?: string; dateVerification?: string; date?: string }) => ({
-      url: `${BASE}/races/${r.slug ?? ''}`,
-      lastModified: parseDate(r.updatedAt ?? r.dateVerification ?? r.date),
-      changeFrequency: 'monthly' as const,
-      priority: 0.6,
-    })
-  )
+  // Les fiches /races/<slug> portent un `canonicalOverride` vers leur article blog
+  // jumeau (cf. app/races/[slug]/page.tsx, PR #28). Déclarer dans le sitemap une URL
+  // canonicalisée ailleurs envoie un signal contradictoire à Google : le sitemap dit
+  // « ceci est canonique », la page dit « le canonique est ailleurs ». On n'expose donc
+  // que les fiches SANS override. Les autres restent crawlables via /races et la nav.
+  const racesPages: MetadataRoute.Sitemap = getAllRaces()
+    .filter((r: { canonicalOverride?: string }) => !r.canonicalOverride)
+    .map(
+      (r: { slug?: string; updatedAt?: string; dateVerification?: string; date?: string }) => ({
+        url: `${BASE}/races/${r.slug ?? ''}`,
+        lastModified: parseDate(r.updatedAt ?? r.dateVerification ?? r.date),
+        changeFrequency: 'monthly' as const,
+        priority: 0.6,
+      })
+    )
 
   const blogPages: MetadataRoute.Sitemap = blog.map((p) => ({
     url: `${BASE}/blog/${p.slug}`,
