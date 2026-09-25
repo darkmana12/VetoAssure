@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import remarkGfm from 'remark-gfm'
 import { getRace, getAllRaces, getRelatedBlogPosts } from '@/lib/mdx'
+import { formatDateFr } from '@/lib/date'
 import Link from 'next/link'
 import BlogReadingProgress from '@/components/blog/BlogReadingProgress'
 import BlogArticleTOC from '@/components/blog/BlogArticleTOC'
@@ -208,7 +209,7 @@ export default function RacePage({ params }: Props) {
                 <div className="blog-article-meta">
                   <span className="blog-article-meta-badge">
                     <span className="blog-article-meta-dot" aria-hidden />
-                    Vérifié le {dateVerification}
+                    Vérifié le {formatDateFr(dateVerification)}
                   </span>
                   <span>⏱️ {readTime} de lecture</span>
                 </div>

@@ -4,6 +4,12 @@ import Link from 'next/link'
 import { useState, useRef } from 'react'
 import { usePathname } from 'next/navigation'
 
+// Tous les liens de ce composant sont en `prefetch={false}`. Présents sur les ~110
+// pages, ils faisaient pré-charger au moteur de rendu de Googlebot les payloads
+// `?_rsc=` de leurs cibles : GSC (stats d'exploration, 90 j au 2026-09-25) montrait
+// 54 % des requêtes en « autre type de fichier », dont 98 % de `?_rsc=`, contre 17 %
+// seulement de HTML. Sur l'App Router, `false` coupe le pré-chargement au viewport,
+// au survol et au toucher ; la navigation se fait normalement au clic.
 export default function Nav() {
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [dropdownOpen, setDropdownOpen] = useState(false)
@@ -44,7 +50,7 @@ export default function Nav() {
       <nav className="nav">
         <div className="nav-inner">
           {/* Logo */}
-          <Link href="/" className="nav-logo">
+          <Link prefetch={false} href="/" className="nav-logo">
             <div className="nav-logo-icon">
               <svg viewBox="0 0 24 24" fill="white" width="22" height="22">
                 <ellipse cx="9" cy="4.5" rx="2.5" ry="3" />
@@ -61,9 +67,9 @@ export default function Nav() {
 
           {/* Desktop links */}
           <ul className="nav-links">
-            <li><Link href="/" className={`nav-link${isActive('/') ? ' active' : ''}`}>TOP</Link></li>
-            <li><Link href="/chien" className={`nav-link${isActive('/chien') ? ' active' : ''}`}>Chien</Link></li>
-            <li><Link href="/chat" className={`nav-link${isActive('/chat') ? ' active' : ''}`}>Chat</Link></li>
+            <li><Link prefetch={false} href="/" className={`nav-link${isActive('/') ? ' active' : ''}`}>TOP</Link></li>
+            <li><Link prefetch={false} href="/chien" className={`nav-link${isActive('/chien') ? ' active' : ''}`}>Chien</Link></li>
+            <li><Link prefetch={false} href="/chat" className={`nav-link${isActive('/chat') ? ' active' : ''}`}>Chat</Link></li>
 
             {/* Dropdown Races */}
             <li
@@ -72,6 +78,7 @@ export default function Nav() {
               onMouseLeave={handleDropdownLeave}
             >
               <Link
+                prefetch={false}
                 href="/races"
                 className={`nav-dropdown-trigger${isActive('/races') ? ' active' : ''}`}
               >
@@ -81,15 +88,15 @@ export default function Nav() {
                 </svg>
               </Link>
               <div className="nav-dropdown-menu">
-                <Link href="/races" className="nav-dropdown-item">🐕 Races de chiens</Link>
-                <Link href="/races#chats" className="nav-dropdown-item">🐈 Races de chats</Link>
+                <Link prefetch={false} href="/races" className="nav-dropdown-item">🐕 Races de chiens</Link>
+                <Link prefetch={false} href="/races#chats" className="nav-dropdown-item">🐈 Races de chats</Link>
               </div>
             </li>
 
-            <li><Link href="/avis" className={`nav-link${isActive('/avis') ? ' active' : ''}`}>Avis</Link></li>
-            <li><Link href="/autres-animaux" className={`nav-link${isActive('/autres-animaux') ? ' active' : ''}`}>Autres animaux</Link></li>
+            <li><Link prefetch={false} href="/avis" className={`nav-link${isActive('/avis') ? ' active' : ''}`}>Avis</Link></li>
+            <li><Link prefetch={false} href="/autres-animaux" className={`nav-link${isActive('/autres-animaux') ? ' active' : ''}`}>Autres animaux</Link></li>
             <li style={{ marginLeft: 'auto', paddingLeft: 24, borderLeft: '1px solid var(--border)' }}>
-              <Link href="/blog" className={`nav-link${isActive('/blog') ? ' active' : ''}`}>Blog</Link>
+              <Link prefetch={false} href="/blog" className={`nav-link${isActive('/blog') ? ' active' : ''}`}>Blog</Link>
             </li>
           </ul>
 
@@ -115,12 +122,12 @@ export default function Nav() {
       {/* Mobile Drawer */}
       <div className={`nav-drawer${drawerOpen ? ' open' : ''}`}>
         <button className="nav-drawer-close" onClick={() => setDrawerOpen(false)}>×</button>
-        <Link href="/chien" className="nav-drawer-link" onClick={() => setDrawerOpen(false)}>Chien</Link>
-        <Link href="/chat" className="nav-drawer-link" onClick={() => setDrawerOpen(false)}>Chat</Link>
-        <Link href="/races" className="nav-drawer-link" onClick={() => setDrawerOpen(false)}>Races</Link>
-        <Link href="/avis" className="nav-drawer-link" onClick={() => setDrawerOpen(false)}>Avis assureurs</Link>
-        <Link href="/blog" className="nav-drawer-link" onClick={() => setDrawerOpen(false)}>Blog</Link>
-        <Link href="/autres-animaux" className="nav-drawer-link" onClick={() => setDrawerOpen(false)}>Autres animaux</Link>
+        <Link prefetch={false} href="/chien" className="nav-drawer-link" onClick={() => setDrawerOpen(false)}>Chien</Link>
+        <Link prefetch={false} href="/chat" className="nav-drawer-link" onClick={() => setDrawerOpen(false)}>Chat</Link>
+        <Link prefetch={false} href="/races" className="nav-drawer-link" onClick={() => setDrawerOpen(false)}>Races</Link>
+        <Link prefetch={false} href="/avis" className="nav-drawer-link" onClick={() => setDrawerOpen(false)}>Avis assureurs</Link>
+        <Link prefetch={false} href="/blog" className="nav-drawer-link" onClick={() => setDrawerOpen(false)}>Blog</Link>
+        <Link prefetch={false} href="/autres-animaux" className="nav-drawer-link" onClick={() => setDrawerOpen(false)}>Autres animaux</Link>
       </div>
     </>
   )

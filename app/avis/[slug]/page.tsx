@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import remarkGfm from 'remark-gfm'
 import { getAvis, getAllAvis } from '@/lib/mdx'
+import { formatDateFr } from '@/lib/date'
 import KNBox, { KN } from '@/components/blog/KNBox'
 import Callout from '@/components/blog/Callout'
 import ShortAnswer from '@/components/blog/ShortAnswer'
@@ -222,7 +223,7 @@ export default function AvisSlugPage({ params }: Props) {
                 <div className="blog-article-meta">
                   <span className="blog-article-meta-badge">
                     <span className="blog-article-meta-dot" aria-hidden />
-                    {updatedAt ? `Mis à jour ${updatedAt}` : `Publié le ${date}`}
+                    {updatedAt ? `Mis à jour le ${formatDateFr(updatedAt)}` : `Publié le ${formatDateFr(date)}`}
                   </span>
                 </div>
               </header>
