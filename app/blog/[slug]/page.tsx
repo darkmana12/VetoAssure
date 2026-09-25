@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { getBlogPost, getAllBlogPosts, getRelatedBlogPosts } from '@/lib/mdx'
+import { formatDateFr } from '@/lib/date'
 import Link from 'next/link'
 import remarkGfm from 'remark-gfm'
 import Callout from '@/components/blog/Callout'
@@ -246,8 +247,8 @@ export default function BlogPostPage({ params }: Props) {
                   <span className="blog-article-meta-badge">
                     <span className="blog-article-meta-dot" aria-hidden />
                     {frontmatter.updatedAt
-                      ? `Mis à jour le ${frontmatter.updatedAt as string}`
-                      : `Publié le ${frontmatter.date as string}`}
+                      ? `Mis à jour le ${formatDateFr(frontmatter.updatedAt)}`
+                      : `Publié le ${formatDateFr(frontmatter.date)}`}
                   </span>
                   <span>⏱️ {(frontmatter.readTime as string) ?? '5 min'} de lecture</span>
                 </div>
